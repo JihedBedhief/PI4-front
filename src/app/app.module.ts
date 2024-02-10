@@ -35,6 +35,8 @@ import { InfoForumComponent } from './componement/Info/info-forum/info-forum.com
 import { LoginComponent } from './componement/login/login/login.component';
 import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
 import { Home2Component } from './componement/home2/home2/home2.component';
+import { SliderComponent } from './componement/Slider/slider/slider.component';
+import { ForumComponent } from './componement/form/forum/forum.component';
 
 
 
@@ -57,6 +59,8 @@ import { Home2Component } from './componement/home2/home2/home2.component';
     LoginComponent,
     FrontOfficeComponent,
     Home2Component,
+    SliderComponent,
+    ForumComponent,
 
 
   ],
@@ -69,21 +73,7 @@ import { Home2Component } from './componement/home2/home2/home2.component';
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
-    MdbAccordionModule,
-    MdbCarouselModule,
-    MdbCheckboxModule,
-    MdbCollapseModule,
-    MdbDropdownModule,
-    MdbFormsModule,
-    MdbModalModule,
-    MdbPopoverModule,
-    MdbRadioModule,
-    MdbRangeModule,
-    MdbRippleModule,
-    MdbScrollspyModule,
-    MdbTabsModule,
-    MdbTooltipModule,
-    MdbValidationModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
