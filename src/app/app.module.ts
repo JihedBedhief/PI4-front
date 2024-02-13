@@ -37,13 +37,25 @@ import { FrontOfficeComponent } from './componement/front-office/front-office/fr
 import { Home2Component } from './componement/home2/home2/home2.component';
 import { SliderComponent } from './componement/Slider/slider/slider.component';
 import { ForumComponent } from './componement/form/forum/forum.component';
+import { SignupComponent } from './componement/signup/signup/signup.component';
+import { 
+	IgxStepperModule,
+	IgxMaskModule,
+	IgxInputGroupModule,
+	IgxButtonModule,
+	IgxRadioModule,
+	IgxCardModule,
+	IgxCheckboxModule,
+	IgxSelectModule,
+	IgxIconModule,
+	IgxBadgeModule,
+  IgxButtonGroupModule
+ } from "igniteui-angular";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+//I keep the new line
 
-
-
-
-
-
+//I keep the new line
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +64,6 @@ import { ForumComponent } from './componement/form/forum/forum.component';
     CardComponent,
     CompanyCardComponent,
     ContactComponent,
-    Error404Component,
     FooterComponent,
     HomeComponent,
     InfoForumComponent,
@@ -61,7 +72,7 @@ import { ForumComponent } from './componement/form/forum/forum.component';
     Home2Component,
     SliderComponent,
     ForumComponent,
-
+    SignupComponent,
 
   ],
   imports: [
@@ -73,9 +84,22 @@ import { ForumComponent } from './componement/form/forum/forum.component';
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
-
+    IgxStepperModule,
+    IgxMaskModule,
+    IgxInputGroupModule,
+    IgxButtonModule,
+    IgxRadioModule,
+    IgxCardModule,
+    IgxCheckboxModule,
+    IgxSelectModule,
+    IgxIconModule,
+    IgxBadgeModule,
+    FormsModule,
+    ReactiveFormsModule,
+    IgxButtonGroupModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

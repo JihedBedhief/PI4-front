@@ -22,6 +22,23 @@ h5{
     font-size: 3rem;
 
 }
+@media (max-width: 1400px) {
+    h5  {
+      font-weight: bolder;
+    
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 30;
+    
+    }
+    h2 {
+        font-weight: bolder;
+      
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 30;
+      
+      }}
 .pb-70 {
     padding-bottom: 70px !important;
 }
@@ -35,7 +52,7 @@ h5{
 }
 
 .divider {
-    width: 905px;
+    width: 95px;
     height: 3px;
     background: red;
     margin: 25px auto 32px;

@@ -19,6 +19,13 @@ body {
   color: var(--color-theme);
   background: var(--color-bg);
   overflow: hidden;
+ 
+}
+body.error404 {
+  .App .app-navbar,
+  .App .app-footer {
+    display: none;
+  }
 }
 .container {
   text-align: center;

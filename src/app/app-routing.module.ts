@@ -7,6 +7,7 @@ import { LoginComponent } from './componement/login/login/login.component';
 import { InfoForumComponent } from './componement/Info/info-forum/info-forum.component';
 import { Error404Component } from './componement/error404/error404/error404.component';
 import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
+import { SignupComponent } from './componement/signup/signup/signup.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,10 @@ const routes: Routes = [
   { path : 'exposant', component : CompanyCardComponent },
   { path : 'login' , component : LoginComponent},
   { path : 'info-pratiques' , component : InfoForumComponent},
+  { path : 'signup' , component : SignupComponent},
   { path: '**', component: Error404Component },
+
+
 ];
 
 @NgModule({

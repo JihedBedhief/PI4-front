@@ -45,11 +45,13 @@ body {
 
 .content {
   @include text-color(white);
-  height: 100vh;
+  margin-top: 15%;
+  margin-bottom: 15%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap; // Allow cards to wrap to the next line if there's not enough space
+
 }
 
 .card {
@@ -57,7 +59,7 @@ body {
   perspective: 150rem;
   height: 15rem;
   width: 25rem;
-  margin-bottom: 20px; // You can adjust the margin as needed
+  margin-top: 20px; // You can adjust the margin as needed
 
   position: relative;
 
