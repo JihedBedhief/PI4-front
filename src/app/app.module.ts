@@ -8,22 +8,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { MatButtonModule } from '@angular/material/button';
-import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
-import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
-import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
-import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
-import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
-import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
-import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
-import { MdbPopoverModule } from 'mdb-angular-ui-kit/popover';
-import { MdbRadioModule } from 'mdb-angular-ui-kit/radio';
-import { MdbRangeModule } from 'mdb-angular-ui-kit/range';
-import { MdbRippleModule } from 'mdb-angular-ui-kit/ripple';
-import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
-import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
-import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
-import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { NavbarComponent } from './componement/navbar/navbar.component';
 import { FooterComponent } from './componement/footer/footer/footer.component';
 import { CardComponent } from './componement/Card/card/card.component';
@@ -38,20 +25,16 @@ import { Home2Component } from './componement/home2/home2/home2.component';
 import { SliderComponent } from './componement/Slider/slider/slider.component';
 import { ForumComponent } from './componement/form/forum/forum.component';
 import { SignupComponent } from './componement/signup/signup/signup.component';
-import { 
-	IgxStepperModule,
-	IgxMaskModule,
-	IgxInputGroupModule,
-	IgxButtonModule,
-	IgxRadioModule,
-	IgxCardModule,
-	IgxCheckboxModule,
-	IgxSelectModule,
-	IgxIconModule,
-	IgxBadgeModule,
-  IgxButtonGroupModule
- } from "igniteui-angular";
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
+import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
+import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
+import { ScrollSpyModule } from 'ngx-scrollspy';
+import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
+
 
 //I keep the new line
 
@@ -73,6 +56,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SliderComponent,
     ForumComponent,
     SignupComponent,
+    Error404Component,
+    PostItemsComponent,
+    ListItemsComponent,
+    UpdateItemComponent,
+    DashboardComponent,
 
   ],
   imports: [
@@ -80,23 +68,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatButtonModule,
-    IgxStepperModule,
-    IgxMaskModule,
-    IgxInputGroupModule,
-    IgxButtonModule,
-    IgxRadioModule,
-    IgxCardModule,
-    IgxCheckboxModule,
-    IgxSelectModule,
-    IgxIconModule,
-    IgxBadgeModule,
+   DemoAngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    IgxButtonGroupModule,
+    HttpClientModule,
+    ScrollSpyModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

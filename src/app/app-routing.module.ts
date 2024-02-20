@@ -8,6 +8,9 @@ import { InfoForumComponent } from './componement/Info/info-forum/info-forum.com
 import { Error404Component } from './componement/error404/error404/error404.component';
 import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
 import { SignupComponent } from './componement/signup/signup/signup.component';
+import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
+import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
+import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -18,7 +21,12 @@ const routes: Routes = [
   { path : 'login' , component : LoginComponent},
   { path : 'info-pratiques' , component : InfoForumComponent},
   { path : 'signup' , component : SignupComponent},
-  { path: '**', component: Error404Component },
+  {path:'dashboard/admin/item' , component:PostItemsComponent},
+  {path:'dashboard/admin/list',component:ListItemsComponent},
+  { path: 'not-found', component: Error404Component },
+  {path:'dashboard',component:DashboardComponent},
+  { path: '**', redirectTo: 'not-found', pathMatch: 'full'  }, 
+
 
 
 ];

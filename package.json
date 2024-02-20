@@ -33,6 +33,7 @@
     "mdb-angular-ui-kit": "^4.1.0",
     "minireset.css": "~0.0.4",
     "ng-scrollreveal": "^2.2.0",
+    "ngx-scrollspy": "^1.2.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
@@ -43,6 +44,7 @@
     "@angular/compiler-cli": "^15.2.0",
     "@angular/localize": "^15.2.0",
     "@igniteui/angular-schematics": "~15.1.1110",
+    "@types/aos": "^3.0.7",
     "@types/hammerjs": "^2.0.40",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.5.0",
