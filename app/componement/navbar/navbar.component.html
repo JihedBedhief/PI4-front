@@ -1,0 +1,39 @@
+<!--<header>
+  <div class="logo">Your Logo</div>
+
+  <div class="menu-toggle" (click)="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+  </div>
+
+  <nav>
+      <ul class="navigation" [ngClass]="{ 'show': isMenuOpen }">
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/institutional">Institutional</a></li>
+          <li><a routerLink="/make-app">Make an Application</a></li>
+          <li><a routerLink="/gallery">Gallery</a></li>
+          <li><a routerLink="/contact">Contact Us</a></li>
+           Add more menu items as needed 
+      </ul>
+  </nav>
+</header>
+-->
+<nav id="my-first">
+    <ul>
+      <li class="logotype">
+        <a routerLink="/"><img src="assets/logo.PNG" alt=""></a>
+      </li>
+      <li class="burger" (click)="toggleMenu()">
+        <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i>
+      </li>
+      <li class="menu" [class.is-open]="isMenuOpen">
+        <a href="#" class="menu-item">Le Forum</a>
+        <a routerLink="/exposant" class="menu-item">Les Exposants</a>
+        <a routerLink="/info-pratiques" class="menu-item">Infos Pratique</a>
+        <a routerLink="/contact" class="menu-item">Contact</a>
+        <a routerLink="/login" class="menu-item">Log In</a>
+
+      </li>
+    </ul>
+  </nav>

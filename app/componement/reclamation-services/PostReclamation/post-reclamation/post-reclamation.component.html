@@ -1,0 +1,48 @@
+<div class="container">
+    <h3 class="h3 mb-3 fw-normal">RECLAMATION</h3>
+        <form [formGroup]="itemForm" (ngSubmit)="addItem()">
+          <div id="form">
+          <div class="row" >
+            <div class="col-6">
+              <div class="form-floating">
+                <textarea matInput formControlName="description" placeholder="description"></textarea>
+                <mat-error *ngIf="itemForm.get('description')?.hasError('required')">
+                  This input required!
+                </mat-error>
+              </div>
+            </div>
+            
+          <div class="col-6">
+            <div class="form-floating">
+                <input matInput formControlName="status" placeholder="status">
+                <mat-error *ngIf="itemForm.get('status')?.hasError('required')">
+                  This input required!
+                </mat-error>
+            </div>
+        </div>
+        <div class="form-floating">
+          <input matInput formControlName="date" type="date" placeholder="date">
+          <mat-error *ngIf="itemForm.get('date')?.hasError('required')">
+            This input required!
+          </mat-error>
+        </div>
+              <div class="col-6">
+                  <div class="form-floating" >
+                      <input matInput formControlName="type" type="text" placeholder="type">
+                      <mat-error *ngIf="itemForm.get('type')?.hasError('required')">
+                        This input required!
+                      </mat-error>
+                  </div>
+              </div>
+              
+           
+           
+           
+      </div>
+          
+    
+          <button class=" btn btn-lg btn-primary"type="submit">Add Reclamation</button>
+          </div>
+        </form>
+    </div>
+    
