@@ -11,6 +11,9 @@ import { SignupComponent } from './componement/signup/signup/signup.component';
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
 import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
+import { FormComponent } from './form/form.component';
+import { AddFormComponent } from './add-form/add-form.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 
 const routes: Routes = [
@@ -25,6 +28,9 @@ const routes: Routes = [
   {path:'dashboard/admin/list',component:ListItemsComponent},
   { path: 'not-found', component: Error404Component },
   {path:'dashboard',component:DashboardComponent},
+  {path: 'form',component:FormComponent},
+  {path: 'add-form',component:AddFormComponent},
+  {path: 'edit-form',component:EditFormComponent},
   { path: '**', redirectTo: 'not-found', pathMatch: 'full'  }, 
 
 

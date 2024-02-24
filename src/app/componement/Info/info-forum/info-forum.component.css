@@ -1,54 +1,57 @@
 .container {
-    margin-top: 15%; /* Use percentage for margin */
-    margin-bottom: 15%; /* Use percentage for margin */
-
-    max-width: 90%; /* Set maximum width to 100% */
-    height: 500%; /* Set height to auto */
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(19px);
-    -webkit-backdrop-filter: blur(19px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-top: 15%; /* Use percentage for margin */
+  margin-bottom: 15%; /* Use percentage for margin */
+  max-width: 90%; /* Set maximum width */
+  height: auto; /* Adjusted to 'auto' for dynamic content adaptation */
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(19px);
+  -webkit-backdrop-filter: blur(19px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .custom-heading {
-    font-size: 4em; /* Adjust the font size as needed */
-    margin-bottom: 10px; /* Add space below the heading */
-    font-weight: bold;
-    margin-top: 50px;
+  font-size: 4em; /* Adjust the font size as needed */
+  margin-bottom: 10px; /* Add space below the heading */
+  font-weight: bold;
+  margin-top: 50px;
+}
+.custom-paragraph {
+  margin-top: 100px; /* Add space below the paragraph */
+  font-size: 1.5em; /* Adjust the font size as needed */
+}
+#info {
+  margin-left: 5%; /* Use percentage for margin */
+  width: 80%; /* Use percentage for width */
+  height: auto; /* Adjusted 'height: 100;' to 'auto' for correct CSS */
+  margin-top: 5%; /* Use percentage for margin */
+  position: relative;
+  animation: imgmove 1s ease;
+}
+.table-responsive {
+  overflow-x: auto; /* Allows horizontal scrolling on small screens */
+}
 
+/* Enhanced Media Queries */
+@media screen and (max-width: 768px) {
+  .container {
+      margin-top: 30%; /* Increased top margin on smaller screens */
+      max-width: 100%; /* Allow the container to fill the width on smaller screens */
   }
-  
+  .custom-heading {
+      font-size: 2em; /* Adjusted font size for smaller screens */
+      margin-top: 20px; /* Reduced space above the heading */
+  }
   .custom-paragraph {
-    margin-top: 100px; /* Add space below the paragraph */
-    font-size: 1.5em; /* Adjust the font size as needed */
-
+      margin-top: 50px; /* Reduced space below the paragraph */
+      font-size: 1em; /* Adjusted font size for smaller screens */
   }
   #info {
-    margin-left: 5%; /* Use percentage for margin */
-    width: 80%; /* Use percentage for width */
-    height: 100; /* Set height to auto */
-    margin-top: 5%; /* Use percentage for margin */
-    position: relative;
-    animation: imgmove 1s ease;
+      margin-left: 2%; /* Reduced left margin for better alignment */
+      width: 96%; /* Increased width to utilize more screen space */
+  }
+  /* Adjust table responsiveness within this media query to avoid repetition */
+  .table-responsive {
+      overflow-x: scroll; /* Ensure tables in smaller viewports are scrollable */
+  }
 }
-@media (max-width: 768px) {
-    .container{
-        margin-top: 30%; /* Use percentage for margin */
-
-
-    }
-    .custom-heading {
-        font-size: 2em; /* Adjust the font size as needed */
-     
-    
-      }
-      
-      .custom-paragraph {
-        margin-top: 100px; /* Add space below the paragraph */
-        font-size: 1em; /* Adjust the font size as needed */
-    
-      }
-  
-}
-  

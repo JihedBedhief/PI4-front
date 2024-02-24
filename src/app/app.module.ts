@@ -34,6 +34,9 @@ import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allIte
 import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
 import { ScrollSpyModule } from 'ngx-scrollspy';
 import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
+import { FormComponent } from './form/form.component';
+import { AddFormComponent } from './add-form/add-form.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 
 //I keep the new line
@@ -61,6 +64,9 @@ import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboa
     ListItemsComponent,
     UpdateItemComponent,
     DashboardComponent,
+    FormComponent,
+    AddFormComponent,
+    EditFormComponent,
 
   ],
   imports: [
