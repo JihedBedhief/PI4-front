@@ -11,8 +11,13 @@ const BASE_URL ="http://localhost:8088/";
 export class AuctionService {
   constructor(private http:HttpClient) { }
 
-  addItem(auctionDto:any):Observable<any>{
-    return this.http.post(BASE_URL+"api/admin/Auction/Add",auctionDto)
+  getAuction():Observable<any>{
+    return this.http.get(BASE_URL+"api/admin/Auction"
+    )
+  }
+
+  addItem(idItem : any,dto : any):Observable<any>{
+    return this.http.post(BASE_URL+`api/admin/Auction/Add/${idItem}`,dto);
   }
 
 }

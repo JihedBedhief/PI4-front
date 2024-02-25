@@ -11,6 +11,8 @@ import { SignupComponent } from './componement/signup/signup/signup.component';
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
 import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
+import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
+import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
 
 
 const routes: Routes = [
@@ -21,10 +23,16 @@ const routes: Routes = [
   { path : 'login' , component : LoginComponent},
   { path : 'info-pratiques' , component : InfoForumComponent},
   { path : 'signup' , component : SignupComponent},
-  {path:'dashboard/admin/item' , component:PostItemsComponent},
-  {path:'dashboard/admin/list',component:ListItemsComponent},
+  {path:'dashboard',component:DashboardComponent,
+  children:[
+    {path:'admin/item' , component:PostItemsComponent},
+    {path:'admin/item/:id' , component:UpdateItemComponent},
+    {path:'admin/list',component:ListItemsComponent},
+  ]
+  },
+  {path: 'Card',component:AuctionCardComponent},
+
   { path: 'not-found', component: Error404Component },
-  {path:'dashboard',component:DashboardComponent},
   { path: '**', redirectTo: 'not-found', pathMatch: 'full'  }, 
 
 

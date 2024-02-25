@@ -28,5 +28,8 @@ export class AdminServiceService {
   deleteItemById(idItem : any):Observable<any>{
     return this.http.delete(BASE_URL+`api/admin/items/delete/${idItem}`)
   }
+  updateItem(idItem : number, itemDto : any):Observable<any>{
+    return this.http.put(BASE_URL+`api/admin/items/Update/${idItem}`,itemDto);
+  }
 
 }

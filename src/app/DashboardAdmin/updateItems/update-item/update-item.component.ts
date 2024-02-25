@@ -10,13 +10,6 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
   styleUrls: ['./update-item.component.css']
 })
 export class UpdateItemComponent {
-
-  itemId = this.activatedroute.snapshot.params['id']; 
-  itemForm!: FormGroup;
-  selectedFile: File | null = null;
-  imagePreview: string | ArrayBuffer | null = null;
-  existingImage : string |null= null ;
-
   constructor(
     private fb: FormBuilder,
     private snackbar: MatSnackBar,
@@ -24,8 +17,16 @@ export class UpdateItemComponent {
     private router: Router,
     private activatedroute:ActivatedRoute
   ) {}
-  ngOnInit(): void {
+  itemId = this.activatedroute.snapshot.params['id']; 
+  itemForm!: FormGroup;
+  selectedFile: File | null = null;
+  imagePreview: string | ArrayBuffer | null = null;
+  existingImage : string |null= null ;
+  imgChanged = false;
 
+
+  ngOnInit(): void {
+this.getItemById();
 
     this.itemForm = this.fb.group({
       name: [null, [Validators.required]],
@@ -35,6 +36,7 @@ export class UpdateItemComponent {
   }
 
   getItemById(){
+    console.log(this.itemId);
     this.adminService.getItemById(this.itemId).subscribe(res=>{
       this.itemForm.patchValue(res);
       this.existingImage = `data:image/jpeg;base64,`+ res.byteImg;
@@ -44,6 +46,8 @@ export class UpdateItemComponent {
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0];
     this.previewImage();
+    this.imgChanged =true;
+    this.existingImage = null;
   }
 
   previewImage(): void {
@@ -54,7 +58,7 @@ export class UpdateItemComponent {
     reader.readAsDataURL(this.selectedFile as Blob);
   }
 
-  addItem(): void {
+  UpdateItem(): void {
     if (this.itemForm.invalid) {
       for (const i in this.itemForm.controls) {
         if (Object.prototype.hasOwnProperty.call(this.itemForm.controls, i)) {
@@ -64,12 +68,15 @@ export class UpdateItemComponent {
       }
     } else {
       const formData: FormData = new FormData();
-      formData.append('img', this.selectedFile as Blob);
+
+      if(this.imgChanged && this.selectedFile){
+        formData.append('img', this.selectedFile as Blob);
+      }
       formData.append('name', this.itemForm.get('name')!.value);
       formData.append('description', this.itemForm.get('description')!.value);
       formData.append('quantity', this.itemForm.get('quantity')!.value);
 
-      this.adminService.addItem(formData).subscribe((res) => {
+      this.adminService.updateItem(this.itemId,formData).subscribe((res) => {
         if (res.id !== null) {
           this.snackbar.open('item added successfully', 'Close', { duration: 5000 });
           this.router.navigateByUrl('/dashboard/admin/list');

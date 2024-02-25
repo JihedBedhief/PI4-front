@@ -1,5 +1,3 @@
-<h2>Items</h2>
-<button routerLink="/dashboard/admin/item" class="btn btn-danger">Add</button>
 
 <div class="table-wrapper">
     <table class="fl-table">
@@ -21,10 +19,10 @@
                     <img [src]="item.processedImg" alt="product-image" style="max-width: 100px; max-height: 100px;" />
                 </td>
                 <td>
-                    <button class="btn btn-info">Update</button>
+                    <button class="btn btn-info" [routerLink]="'/dashboard/admin/item/'+item.codeItem">Update</button>
                     <button (click)="deleteItem(item.codeItem)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
                     <!-- Add Auction button -->
-                    <button (click)="createAuction(item.name)" class="btn btn-primary" style="margin-left: 10px;">Add Auction</button>
+                    <button (click)="createAuction(item.codeItem)" class="btn btn-primary" style="margin-left: 10px;">Add Auction</button>
                 </td>
             </tr>
         </tbody>

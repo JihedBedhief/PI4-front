@@ -23,17 +23,17 @@ export class ListItemsComponent {
       this.getAllItems();
     }
 
-    createAuction(a: string) {
+    createAuction(a: any) {
       // You might need some default values or fetching data for your auctionDto
       const auctionDto = {
-          name: a // Example DTO structure, replace with your actual AuctionDTO requirements
+         // codeitem: a // Example DTO structure, replace with your actual AuctionDTO requirements
           // Add other properties as required e.g. startingBid, auctionDate etc.
           // startDate: new Date(),
           // endDate: ...
       };
       console.log(auctionDto);
 
-      this.auction.addItem(auctionDto).subscribe({
+      this.auction.addItem(a,auctionDto).subscribe({
           next: (response) => {
               // Handle response from your backend if necessary
               console.log('Auction created successfully', response);
@@ -45,7 +45,7 @@ export class ListItemsComponent {
           error: (error) => {
               // Handle any errors here
               console.error('Error creating auction', error);
-              this.snackbar.open('Erreur', 'Close', { duration: 5000 });
+              this.snackbar.open('product Already have an Auction', 'Close', { duration: 5000 });
 
           }
       });
