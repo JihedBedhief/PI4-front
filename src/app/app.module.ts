@@ -1,16 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-
-import { MatButtonModule } from '@angular/material/button';
 import { NavbarComponent } from './componement/navbar/navbar.component';
 import { FooterComponent } from './componement/footer/footer/footer.component';
 import { CardComponent } from './componement/Card/card/card.component';
@@ -25,8 +19,7 @@ import { Home2Component } from './componement/home2/home2/home2.component';
 import { SliderComponent } from './componement/Slider/slider/slider.component';
 import { ForumComponent } from './componement/form/forum/forum.component';
 import { SignupComponent } from './componement/signup/signup/signup.component';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
@@ -34,9 +27,11 @@ import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allIte
 import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
 import { ScrollSpyModule } from 'ngx-scrollspy';
 import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
-import { FormComponent } from './form/form.component';
-import { AddFormComponent } from './add-form/add-form.component';
-import { EditFormComponent } from './edit-form/edit-form.component';
+import { AddFormComponent } from './componement/add-form/add-form.component';
+import { FormComponent } from './componement/formoffre/form.component';
+import { OfferCardComponent } from './componement/offer-card/offer-card.component';
+import { DetailsoffreComponent } from './componement/detailsoffre/detailsoffre.component';
+import { EditFormComponent } from './componement/edit-form/edit-form.component';
 
 
 //I keep the new line
@@ -64,21 +59,23 @@ import { EditFormComponent } from './edit-form/edit-form.component';
     ListItemsComponent,
     UpdateItemComponent,
     DashboardComponent,
-    FormComponent,
     AddFormComponent,
-    EditFormComponent,
+    FormComponent,
+    OfferCardComponent,
+    DetailsoffreComponent,
+    EditFormComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     NgbModule,
-   DemoAngularMaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
+    DemoAngularMaterialModule,
     HttpClientModule,
-    ScrollSpyModule
+    ScrollSpyModule,
+    ReactiveFormsModule,
     
   ],
   providers: [],

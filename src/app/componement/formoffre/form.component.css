@@ -111,4 +111,26 @@ table.table td a {
     .modal .form-control, .modal textarea.form-control {
         font-size: 14px; /* Readability on small screens */
     }
+    /* Styles for the delete button */
+.edit-delete-button {
+    padding: 6px 12px;
+    text-decoration: none;
+    color: black; /* Set text color */
+    background-color: transparent; /* Remove background color */
+    border: none; /* Remove border */
+    transition: all 0.3s ease; /* Add transition effect */
+}
+
+/* Hover effect for the delete button */
+.edit-delete-button:hover {
+    color: #d9534f; /* Change text color on hover */
+}
+
+/* Styles for the delete button icon */
+.edit-delete-button i {
+    font-size: 18px; /* Adjust icon size */
+    vertical-align: middle; /* Align icon vertically */
+    margin-right: 5px; /* Add some space between icon and text */
+}
+
 }

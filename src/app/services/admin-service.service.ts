@@ -9,6 +9,9 @@ const BASE_URL ="http://localhost:8088/";
   providedIn: 'root'
 })
 export class AdminServiceService {
+  getAllOffres() {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private http:HttpClient) { }
 

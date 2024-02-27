@@ -11,27 +11,35 @@ import { SignupComponent } from './componement/signup/signup/signup.component';
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
 import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
-import { FormComponent } from './form/form.component';
-import { AddFormComponent } from './add-form/add-form.component';
-import { EditFormComponent } from './edit-form/edit-form.component';
+import { AddFormComponent } from './componement/add-form/add-form.component';
+import { CardComponent } from './componement/Card/card/card.component';
+import { FormComponent } from './componement/formoffre/form.component';
+import { EditFormComponent } from './componement/edit-form/edit-form.component';
+import { OfferCardComponent } from './componement/offer-card/offer-card.component';
+import { DetailsoffreComponent } from './componement/detailsoffre/detailsoffre.component';
 
 
 const routes: Routes = [
   { path: 'home', component: FrontOfficeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path : 'contact' , component : ContactComponent},
+  { path: 'edit-form/:reference', component: EditFormComponent },
   { path : 'exposant', component : CompanyCardComponent },
   { path : 'login' , component : LoginComponent},
   { path : 'info-pratiques' , component : InfoForumComponent},
   { path : 'signup' , component : SignupComponent},
+  { path : 'card' , component : CardComponent},
   {path:'dashboard/admin/item' , component:PostItemsComponent},
   {path:'dashboard/admin/list',component:ListItemsComponent},
-  { path: 'not-found', component: Error404Component },
   {path:'dashboard',component:DashboardComponent},
   {path: 'form',component:FormComponent},
   {path: 'add-form',component:AddFormComponent},
-  {path: 'edit-form',component:EditFormComponent},
+  {path: 'offercard',component:OfferCardComponent},
+  {path: 'detailoffer',component:DetailsoffreComponent},
+  { path: 'not-found', component: Error404Component },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full'  }, 
+
+
 
 
 
