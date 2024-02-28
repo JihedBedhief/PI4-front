@@ -1,0 +1,154 @@
+.page-container {
+    margin-top: 15vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    margin-bottom: 15%;
+    max-width: 90%;
+    height: auto;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(19px);
+    -webkit-backdrop-filter: blur(19px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 20px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-icon {
+    width: 30px; /* Adjust as needed */
+    margin-right: 10px;
+}
+
+input[type="email"],
+input[type="password"] {
+    flex: 1;
+}
+
+.form-signin {
+    text-align: center;
+}
+.btn-primary {
+    font-family: Arial Rounded MT;
+    width: 146px;
+    height: 50px;
+    background-color: gray; /* Change the button color to gray */
+    border: none;
+    color: white; /* Text color */
+    font-size: 25px;
+}
+
+a.router-link {
+    text-decoration: none;
+    font-family: Arial Rounded MT;
+    color: rgb(70, 68, 68); /* Change the color to match your theme */
+    opacity: 50%;
+    font-size: 20px;
+    position: relative;
+    animation: formmove 1s ease;
+}
+
+a.router-link:hover {
+    color: rgb(236, 182, 182); /* Change the hover color to match your theme */
+}
+.create-account {
+    font-family: Arial Rounded MT; /* Set font-family for the parent container */
+   
+    align-items: center;
+    color: gray; /* Adjust color as per your theme */
+    opacity: 50%;
+    font-size: 20px;
+    position: relative;
+    animation: formmove 1s ease;
+}
+
+.create-account p,
+.create-account a {
+    font-family: inherit; /* Inherit font-family from the parent container */
+    text-decoration: none;
+}
+
+.create-account a {
+    color: rgb(0, 0, 0); /* Adjust color as per your theme */
+}
+
+.create-account a:hover {
+    color: rgb(216, 88, 88); /* Adjust hover color as per your theme */
+}
+#model2login {
+    margin-left: 5%; /* Use percentage for margin */
+    width: 80%; /* Use percentage for width */
+    height: auto; /* Set height to auto */
+    margin-top: 5%; /* Use percentage for margin */
+    position: relative;
+    animation: imgmove 1s ease;
+    border-radius: 10px; /* Add border radius to the image */
+}
+#eclipseL {
+    position: absolute;
+    top: 0;
+    right: 95px;
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+}
+
+#polygonL {
+    position: absolute;
+    top: 10px;
+    right: 50px; /* Adjust right position as needed */
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+}
+
+#rectangleL {
+    position: absolute;
+    top: 60px; /* Adjust top position as needed */
+    right: 70px;
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+}
+
+.h3 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333; /* Adjust the color as per your design */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow */
+    padding-bottom: 15px; /* Add padding for spacing */
+    margin-bottom: 20px; /* Add margin for spacing */
+    text-transform: uppercase; /* Convert text to uppercase */
+}
+
+@media screen and (max-width: 768px) {
+    .page-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    #model2login {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .input-group,
+    .create-account {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .input-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+    }
+}
+
