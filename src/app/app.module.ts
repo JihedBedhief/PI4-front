@@ -37,6 +37,9 @@ import { FrontOfficeComponent } from './componement/front-office/front-office/fr
 import { Home2Component } from './componement/home2/home2/home2.component';
 import { SliderComponent } from './componement/Slider/slider/slider.component';
 import { ForumComponent } from './componement/form/forum/forum.component';
+import { ListApplicationsComponent } from './componement/list-applications/list-applications.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DetailsApplicationComponent } from './componement/details-application/details-application.component';
 
 
 
@@ -61,6 +64,8 @@ import { ForumComponent } from './componement/form/forum/forum.component';
     Home2Component,
     SliderComponent,
     ForumComponent,
+    ListApplicationsComponent,
+    DetailsApplicationComponent,
 
 
   ],
@@ -73,6 +78,7 @@ import { ForumComponent } from './componement/form/forum/forum.component';
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
+    HttpClientModule,
 
   ],
   providers: [],
