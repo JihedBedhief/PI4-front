@@ -38,4 +38,7 @@ export class DetailsoffreComponent implements OnInit {
       }
     });
   }
+  goBack(): void {
+    this.router.navigateByUrl('/offercard'); 
+  }
 }

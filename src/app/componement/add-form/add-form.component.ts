@@ -77,7 +77,7 @@ export class AddFormComponent implements OnInit {
 
 
   cancelAdd(): void {
-    // Reset the form to its initial state
-    this.offreForm.reset();
+    window.location.href = '/form';
   }
+  
 }

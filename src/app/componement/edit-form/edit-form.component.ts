@@ -89,7 +89,6 @@ export class EditFormComponent implements OnInit {
   }
   
   cancelEdit(): void {
-    // Redirect the user to the detail page of the offer
-    this.router.navigate(['/detail-offer', this.reference]);
-  }
+    this.router.navigate(['/form']); }
+  
 }

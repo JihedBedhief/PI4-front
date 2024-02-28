@@ -1,12 +1,55 @@
 .custom-container {
-    margin-top: 200px;
+    position: relative;
+    top: 80px; /* Adjust the top position as needed */
+    z-index: 1000; /* Ensure it's above the navbar */
 }
+
+.card-body {
+    font-size: 16px;
+}
+
+.btn-favorites {
+    font-size: 18px;
+    color: #dc3545;
+    transition: color 0.3s ease;
+}
+
+.heart-text {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-favorites:hover .heart-text {
+    opacity: 1;
+}
+
 .custom-button {
-    background-color: red;
-    border-color: gray;
-    color: white; 
+    background-color: #ff2d20;
+    border-color: #ff2d20;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Add margin to separate the buttons */
 }
 
 .custom-button:hover {
-    background-color: darkred;
+    background-color: #e6170e;
 }
+
+.button-group {
+    display: flex;
+    align-items: center;
+}
+/* Style for the "Retour" button */
+.custom-button.retour {
+    background-color: #007bff; /* Change the background color */
+    border-color: #007bff; /* Change the border color */
+}
+
+.custom-button.retour:hover {
+    background-color: #0056b3; /* Darker shade of blue on hover */
+}
+/* Add margin between contract type and location */
+.text-muted {
+    margin-left: 10px;
+}
+
