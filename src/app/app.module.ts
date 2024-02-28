@@ -36,6 +36,7 @@ import { ScrollSpyModule } from 'ngx-scrollspy';
 import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
 import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
 import { AddBidComponent } from './DashboardAdmin/Bid/AddBid/add-bid/add-bid.component';
+import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
 
 
 //I keep the new line
@@ -65,6 +66,7 @@ import { AddBidComponent } from './DashboardAdmin/Bid/AddBid/add-bid/add-bid.com
     DashboardComponent,
     AuctionCardComponent,
     AddBidComponent,
+    ListBidComponent,
 
   ],
   imports: [

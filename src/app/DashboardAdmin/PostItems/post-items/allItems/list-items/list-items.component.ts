@@ -57,6 +57,7 @@ export class ListItemsComponent {
         res.forEach((element: { processedImg: string; byteImg: string; }) => {
           element.processedImg = 'data:image/jpeg;base64,'+element.byteImg;
           this.items.push(element);
+          console.log(element);
           
         });
       })

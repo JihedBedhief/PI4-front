@@ -13,6 +13,7 @@ import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allIte
 import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
 import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
 import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
+import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
 
 
 const routes: Routes = [
@@ -28,9 +29,12 @@ const routes: Routes = [
     {path:'admin/item' , component:PostItemsComponent},
     {path:'admin/item/:id' , component:UpdateItemComponent},
     {path:'admin/list',component:ListItemsComponent},
+    {path: 'admin/Bid',component:ListBidComponent},
+
   ]
   },
   {path: 'Card',component:AuctionCardComponent},
+
 
   { path: 'not-found', component: Error404Component },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full'  }, 
