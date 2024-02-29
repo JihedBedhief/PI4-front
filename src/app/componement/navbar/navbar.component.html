@@ -32,10 +32,12 @@
       <a routerLink="/exposant" class="menu-item">Les Exposants</a>
       <a routerLink="/info-pratiques" class="menu-item">Infos Pratique</a>
       <a routerLink="/contact" class="menu-item">Contact</a>
+      <div *ngIf="ks.getUserRoles().includes('ADMIN')">
       <a routerLink="/login" class="menu-item">Login</a>
+    </div>
       
     </li>
-    <!-- <li class="nav-item dropdown">
+    <li class="nav-item dropdown">
       <a
         class="nav-link dropdown-toggle"
         href="#"
@@ -71,6 +73,6 @@
           <hr class="dropdown-divider" />
         </li>
       </ul>
-    </li> -->
+    </li>
   </ul>
 </nav>
