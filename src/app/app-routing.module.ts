@@ -10,7 +10,6 @@ import { FrontOfficeComponent } from './componement/front-office/front-office/fr
 import { SignupComponent } from './componement/signup/signup/signup.component';
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
-import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
 import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
 import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
 import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
@@ -24,15 +23,13 @@ const routes: Routes = [
   { path : 'login' , component : LoginComponent},
   { path : 'info-pratiques' , component : InfoForumComponent},
   { path : 'signup' , component : SignupComponent},
-  {path:'dashboard',component:DashboardComponent,
-  children:[
-    {path:'admin/item' , component:PostItemsComponent},
-    {path:'admin/item/:id' , component:UpdateItemComponent},
-    {path:'admin/list',component:ListItemsComponent},
-    {path: 'admin/Bid',component:ListBidComponent},
+ 
+    { path:'Add/item' , component:PostItemsComponent},
+    {path:'item/:id' , component:UpdateItemComponent},
+    { path:'Items',component:ListItemsComponent},
+    { path: 'Bid' , component : ListBidComponent},
 
-  ]
-  },
+  
   {path: 'Card',component:AuctionCardComponent},
 
 

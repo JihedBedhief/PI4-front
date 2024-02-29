@@ -33,7 +33,6 @@ import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
 import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
 import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
 import { ScrollSpyModule } from 'ngx-scrollspy';
-import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
 import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
 import { AddBidComponent } from './DashboardAdmin/Bid/AddBid/add-bid/add-bid.component';
 import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
@@ -63,7 +62,6 @@ import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid
     PostItemsComponent,
     ListItemsComponent,
     UpdateItemComponent,
-    DashboardComponent,
     AuctionCardComponent,
     AddBidComponent,
     ListBidComponent,

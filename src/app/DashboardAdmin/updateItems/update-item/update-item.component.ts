@@ -79,7 +79,7 @@ this.getItemById();
       this.adminService.updateItem(this.itemId,formData).subscribe((res) => {
         if (res.id !== null) {
           this.snackbar.open('item added successfully', 'Close', { duration: 5000 });
-          this.router.navigateByUrl('/dashboard/admin/list');
+          this.router.navigateByUrl('/Items');
         } else {
           console.log(res);
           this.snackbar.open(res.message, 'Close', { duration: 5000, panelClass: 'error-snackbar' });
