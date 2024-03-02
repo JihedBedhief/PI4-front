@@ -32,6 +32,7 @@ import { FormComponent } from './componement/formoffre/form.component';
 import { OfferCardComponent } from './componement/offer-card/offer-card.component';
 import { DetailsoffreComponent } from './componement/detailsoffre/detailsoffre.component';
 import { EditFormComponent } from './componement/edit-form/edit-form.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 //I keep the new line
@@ -63,7 +64,8 @@ import { EditFormComponent } from './componement/edit-form/edit-form.component';
     FormComponent,
     OfferCardComponent,
     DetailsoffreComponent,
-    EditFormComponent
+    EditFormComponent,
+
 
   ],
   imports: [
@@ -76,6 +78,7 @@ import { EditFormComponent } from './componement/edit-form/edit-form.component';
     HttpClientModule,
     ScrollSpyModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
     
   ],
   providers: [],

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Inject } from '@angular/core';
 import { Offre } from 'src/app/models/offre';
 import { OffreService } from 'src/app/services/offre.service';
 
@@ -15,7 +17,7 @@ export class EditFormComponent implements OnInit {
     title: '',
     location: '',
     description: '',
-    deadline: new Date,
+    deadline: new Date(),
     contratType: '',
     skills: '',
     experienceLevel: ''
@@ -27,43 +29,43 @@ export class EditFormComponent implements OnInit {
     private route: ActivatedRoute,
     private offreService: OffreService,
     private router: Router,
+    private dialogRef: MatDialogRef<EditFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
 
   ) {}
 
   ngOnInit(): void {
-    this.reference = this.route.snapshot.params['reference'];
-    this.offreService.getOffre(this.reference).subscribe(
-      (data: Offre) => {
-        this.offre = data;
+    if (this.data && this.data.offre) {
+      this.offre = this.data.offre;
+    } else {
+      console.error('Data not received properly.');
+    }
+  }
 
-        
-     },    
+  
+  loadOfferDetails(reference: string): void {
+    this.offreService.getOffre(reference).subscribe(
+      (offre: Offre) => {
+        this.offre = offre;
+      },
       (error) => {
-        console.error('Erreur lors du chargement de l\'offre : ', error);
+        console.error('Erreur lors de la récupération des détails de l\'offre : ', error);
       }
     );
   }
-
+  
   updateOffre(): void {
-    // Check if the form is valid
+    // Vérifiez si le formulaire est valide
     if (this.isFormValid()) {
-      // Construct the updated Offre object
-      const updatedOffre: Offre = {
-        reference: this.offre.reference,
-        title: this.offre.title,
-        location: this.offre.location,
-        description: this.offre.description,
-        deadline: this.offre.deadline,
-        contratType: this.offre.contratType,
-        skills: this.offre.skills,
-        experienceLevel: this.offre.experienceLevel
-      };
-      // Call the service method to update the offer
-      this.offreService.updateOffre(this.reference, updatedOffre).subscribe(
+      // Appelez la méthode de service pour mettre à jour l'offre
+      this.offreService.updateOffre(this.offre.reference, this.offre).subscribe(
         (data: any) => {
           console.log('Offre mise à jour avec succès', data);
-          // Redirect to the details page of the updated offer
-          this.router.navigate(['/form']);
+          // Naviguer vers la page de détails de l'offre mise à jour
+          this.router.navigateByUrl('/detailoffer').then(() => {
+            // Rafraîchir le composant de détails de l'offre
+            this.loadOfferDetails(this.offre.reference);
+          });
         },
         (error) => {
           console.error('Erreur lors de la mise à jour de l\'offre : ', error);
@@ -73,6 +75,8 @@ export class EditFormComponent implements OnInit {
       console.error('Formulaire invalide. Veuillez vérifier les champs.');
     }
   }
+  
+  
   
   isFormValid(): boolean {
     return !!(
@@ -89,6 +93,6 @@ export class EditFormComponent implements OnInit {
   }
   
   cancelEdit(): void {
-    this.router.navigate(['/form']); }
-  
+    this.dialogRef.close('cancel');
+  }
 }

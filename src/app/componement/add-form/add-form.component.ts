@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { OffreService } from '../../services/offre.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 enum ExperienceLevel {
   Beginner = 'Beginner',
@@ -27,18 +29,17 @@ export class AddFormComponent implements OnInit {
   offreForm!: FormGroup;
   OfferArray: any[] = [];
 
-  constructor(private offreservice: OffreService, private http: HttpClient, private fb: FormBuilder) { }
+  constructor(private offreservice: OffreService, private http: HttpClient, private fb: FormBuilder ,private toastr: ToastrService ) { }
 
   ngOnInit(): void {
-    this.getAllOffres();
     this.offreForm = this.fb.group({
       reference: [null, [Validators.required]],
-      title: [null, [Validators.required]],
+      title: [null, [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]], // Accepte uniquement des lettres et des espaces
       location: [null, [Validators.required]],
       description: [null, [Validators.required]],
       deadline: [null, [Validators.required]],
       contratType: [null, [Validators.required]],
-      skills: [null, [Validators.required]],
+      skills: [null, [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]], // Accepte uniquement des lettres et des espaces
       experienceLevel: [null, [Validators.required]]
     });
   }
@@ -52,12 +53,14 @@ export class AddFormComponent implements OnInit {
           if (res['id'] !== null) {
             this.offreForm.reset();
             this.getAllOffres();
+            this.toastr.success('Offer added successfully', 'Success');
           } else {
             console.log(res);
           }
         },
         (error: any) => {
           console.error('Erreur lors de l\'ajout de l\'offre :', error);
+          this.toastr.error('Error adding offer', 'Error');
         }
       );
     }
