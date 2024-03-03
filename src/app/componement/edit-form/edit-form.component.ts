@@ -20,7 +20,9 @@ export class EditFormComponent implements OnInit {
     deadline: new Date(),
     contratType: '',
     skills: '',
-    experienceLevel: ''
+    experienceLevel: '',
+    favorite: false // Initialize favouris as false
+
   };  
   reference: any;
 

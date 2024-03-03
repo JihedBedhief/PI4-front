@@ -102,4 +102,7 @@ export class OfferCardComponent implements OnInit {
   cancelAdd(): void {
     window.location.href = '/offercard';
   }
+  navigateToFavorites() {
+    this.router.navigateByUrl('/favorites');
+  }
 }

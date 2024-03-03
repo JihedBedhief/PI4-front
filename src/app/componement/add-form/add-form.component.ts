@@ -40,14 +40,21 @@ export class AddFormComponent implements OnInit {
       deadline: [null, [Validators.required]],
       contratType: [null, [Validators.required]],
       skills: [null, [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]], // Accepte uniquement des lettres et des espaces
-      experienceLevel: [null, [Validators.required]]
+      experienceLevel: [null, [Validators.required]],
+      favorite: false
+
     });
   }
+
+
+
+  
 
   addItem(): void {
     if (this.offreForm.invalid) {
       this.offreForm.markAllAsTouched();
     } else {
+      
       this.offreservice.addOffre(this.offreForm.value).subscribe(
         (res: any) => {
           if (res['id'] !== null) {
@@ -65,6 +72,7 @@ export class AddFormComponent implements OnInit {
       );
     }
   }
+  
   getAllOffres(): void {
     this.offreservice.getAllOffres().subscribe(
       (res: any) => {

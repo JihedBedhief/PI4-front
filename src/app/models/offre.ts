@@ -7,5 +7,6 @@ export interface Offre {
     contratType: string;
     skills: string;
     experienceLevel: string;
+    favorite:boolean;
   }
   

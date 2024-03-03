@@ -33,6 +33,7 @@ import { OfferCardComponent } from './componement/offer-card/offer-card.componen
 import { DetailsoffreComponent } from './componement/detailsoffre/detailsoffre.component';
 import { EditFormComponent } from './componement/edit-form/edit-form.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 
 //I keep the new line
@@ -65,6 +66,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     OfferCardComponent,
     DetailsoffreComponent,
     EditFormComponent,
+    FavoritesComponent,
 
 
   ],

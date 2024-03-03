@@ -28,16 +28,32 @@
     font-size: 0.9rem;
 }
 
+.custom-button {
+    margin-top: 70px; /* Adjust as needed */
+    margin-right: 10px; /* Add margin between buttons */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 5px;
+    font-size: 16px;
+}
+
 .btn-primary {
-    background-color: #ec160b; 
-    border-color: #eb4239;
+    background-color: #e6170e; /* Change button color */
+    border-color: #e6170e;
     color: #fff;
-    transition: all 0.3s ease;
+}
+
+.btn-success {
+    background-color: #28a745; /* Change button color */
+    border-color: #28a745;
+}
+.btn-success:hover {
+    background-color: #0056b3; /* Change button hover color */
+    border-color: #0056b3;
 }
 
 .btn-primary:hover {
-    background-color: #e6170e; 
-    border-color: #e6170e;
+    background-color: #e73c33; 
+    border-color: #e73c33;
 }
 
 @media (max-width: 768px) {

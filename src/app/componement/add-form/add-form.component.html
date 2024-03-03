@@ -4,6 +4,8 @@
 <form [formGroup]="offreForm" (ngSubmit)="addItem()" class="form-container">
     
     <h2 class="form-title">Add an Offer</h2>
+    <input type="hidden" formControlName="favorite" value="false">
+
     <div class="form-group">
         <label for="reference">Reference:</label>
         <input type="text" id="reference" formControlName="reference" class="form-control" required>
@@ -34,7 +36,7 @@
     </div>
     <div class="form-group">
         <label for="deadline">Deadline:</label>
-        <input type="date" id="deadline" formControlName="deadline" class="form-control" required>
+        <input type="date" id="deadline" formControlName="deadline " class="form-control" required>
         <div *ngIf="offreForm.get('deadline')?.touched && offreForm.get('deadline')?.invalid" class="text-danger">
             Deadline is required.
         </div>

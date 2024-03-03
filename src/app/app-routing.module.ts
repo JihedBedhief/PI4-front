@@ -17,6 +17,7 @@ import { FormComponent } from './componement/formoffre/form.component';
 import { EditFormComponent } from './componement/edit-form/edit-form.component';
 import { OfferCardComponent } from './componement/offer-card/offer-card.component';
 import { DetailsoffreComponent } from './componement/detailsoffre/detailsoffre.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path: 'add-form',component:AddFormComponent},
   {path: 'offercard',component:OfferCardComponent},
   {path: 'detailoffer',component:DetailsoffreComponent},
+  { path: 'favorites', component: FavoritesComponent },
   { path: 'not-found', component: Error404Component },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full'  }, 
 

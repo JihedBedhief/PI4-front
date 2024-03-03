@@ -33,7 +33,15 @@ updateOffre(reference: string, offre: Offre): Observable<Offre> {
   getOffre(reference: string): Observable<Offre> {
     return this.http.get<Offre>(`${this.BASE_URL}Offer/offres/${reference}`); 
   }
- 
+  addToFavorites(reference: string, favoriteStatus: boolean): Observable<any> {
+    const url = `${this.BASE_URL}Offer/offres/${reference}/favorite?favoriteStatus=${favoriteStatus}`;
+    return this.http.put(url, {});
+  }
+  removeFromFavorites(offre: Offre): Observable<any> {
+    return this.http.put<any>('http://localhost:9090/Offer/updateOffreAsNotFavorite', offre);
+}
+
+  
 
 
 }

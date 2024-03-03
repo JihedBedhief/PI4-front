@@ -1,7 +1,11 @@
 <div class="container mt-5 pt-4">
-    <button type="button" class="btn btn-primary custom-button" style="margin-top: 70px;" data-bs-toggle="modal" data-bs-target="#addOfferModal" >
-        Add an Offer
-    </button>
+  <button type="button" class="btn btn-primary custom-button" data-bs-toggle="modal" data-bs-target="#addOfferModal">
+      <i class="fas fa-plus-circle"></i> Add an Offer
+  </button>
+  <button class="btn btn-success custom-button" (click)="navigateToFavorites()">
+      <i class="fas fa-heart"></i> Go to Favorites
+  </button>
+        
     <div class="row">
       <div *ngFor="let offre of offres" class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
         <div class="card border-0 bg-light rounded shadow">
