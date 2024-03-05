@@ -36,7 +36,9 @@ import { ScrollSpyModule } from 'ngx-scrollspy';
 import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
 import { AddBidComponent } from './DashboardAdmin/Bid/AddBid/add-bid/add-bid.component';
 import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
-
+import { initializeApp } from "firebase/app";
+import { environment } from 'src/environment/environment';
+initializeApp(environment.firebaseConfig);
 
 //I keep the new line
 
@@ -72,12 +74,11 @@ import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
-   DemoAngularMaterialModule,
+    DemoAngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ScrollSpyModule
-    
+    ScrollSpyModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
