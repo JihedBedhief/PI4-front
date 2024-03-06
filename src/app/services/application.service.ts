@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -12,7 +12,8 @@ export class ApplicationService {
 
   
 addApplication(app:any):Observable<any>{
-  return this.http.post(this.BASE_URL+"/addApplication",app)
+  const headers = new HttpHeaders();
+  return this.http.post(this.BASE_URL+"/addApplication",app, { headers: headers })
 }
 
 

@@ -14,6 +14,7 @@ body {
     max-width: 800px; /* Ajustez cette valeur selon vos besoins */
 }
 
+
 .table-title {
     padding-bottom: 15px;
     background: #dc3545; /* Changed to red */
@@ -135,3 +136,6 @@ table.table td a {
 }
 
 }
+
+
+  

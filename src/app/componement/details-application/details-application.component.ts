@@ -40,6 +40,10 @@ export class DetailsApplicationComponent {
       default:
         return { progress: 0, color: '#6c757d' }; // Gris par défaut
     }
+    
+  }
+  cancelAdd(): void {
+    window.location.href = '/appList';
   }
 
 

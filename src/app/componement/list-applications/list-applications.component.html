@@ -1,14 +1,15 @@
 <div class="container">
     <div class="table-wrapper">
         <div class="table-title">
-            <div class="row">
+            <div class="row justify-content-between">
                 <div class="col-sm-6">
                     <h2>Manage <b>Applications</b></h2>
                 </div>
-                <div class="col-sm-6">
-                    <a routerLink="/addApp" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;
+                <div class="col-sm-6 text-right">
+                    <a routerLink="/quiz" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;
                     </i> <span>Add New Application</span></a>                  
                 </div>
+                
             </div>
         </div>
         <table class="table table-striped table-hover">
@@ -33,7 +34,7 @@
                         title="Delete">
                             <i class="material-icons" data-toggle="tooltip">&#xE872;</i>
                     </a>
-                        <a routerLink="/updateApp" class="edit" data-toggle="modal">
+                        <a routerLink="/editApp" class="edit" data-toggle="modal">
                             <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     </td>
                 </tr>				

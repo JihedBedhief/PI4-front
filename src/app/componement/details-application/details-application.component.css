@@ -12,11 +12,13 @@ body {
 
 .table-wrapper {
     background: #fff;
-    padding: 15px 20px; /* Adjusted padding for more space */
-    margin: 150px auto; /* Centered table-wrapper for better focus */
-    border-radius: 8px; /* Softened border-radius for a modern look */
-    box-shadow: 0 4px 8px rgba(0,0,0,.1); /* Updated shadow for subtlety */
+    padding: 15px 20px;
+    margin: 150px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.1);
+    max-width: 800px; /* Ajustez cette valeur selon vos besoins */
 }
+
 
 .table-title {
     padding-bottom: 15px;

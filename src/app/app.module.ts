@@ -40,9 +40,17 @@ import { ForumComponent } from './componement/form/forum/forum.component';
 import { ListApplicationsComponent } from './componement/list-applications/list-applications.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsApplicationComponent } from './componement/details-application/details-application.component';
+import { AddApplicationComponent } from './componement/add-application/add-application.component';
+import { UpdateApplicationComponent } from './componement/update-application/update-application.component';
+import { ListOffersComponent } from './componement/list-offers/list-offers.component';
+import { DetailsOfferComponent } from './componement/details-offer/details-offer.component';
+import { QuizComponent } from './componement/quiz/quiz.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StatisticsComponent } from './componement/statistics/statistics.component';
+import { RouterModule } from '@angular/router';
 
-
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { ScorePopupComponent } from './componement/score-popup/score-popup.component';
 
 
 
@@ -66,6 +74,13 @@ import { DetailsApplicationComponent } from './componement/details-application/d
     ForumComponent,
     ListApplicationsComponent,
     DetailsApplicationComponent,
+    AddApplicationComponent,
+    UpdateApplicationComponent,
+    ListOffersComponent,
+    DetailsOfferComponent,
+    QuizComponent,
+    StatisticsComponent,
+    ScorePopupComponent,
 
 
   ],
@@ -79,6 +94,11 @@ import { DetailsApplicationComponent } from './componement/details-application/d
     MatIconModule,
     MatButtonModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
 
   ],
   providers: [],
