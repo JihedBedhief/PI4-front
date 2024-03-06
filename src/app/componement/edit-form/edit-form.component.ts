@@ -51,30 +51,26 @@ export class EditFormComponent implements OnInit {
         this.offre = offre;
       },
       (error) => {
-        console.error('Erreur lors de la récupération des détails de l\'offre : ', error);
+        console.error('Error retrieving offer details : ', error);
       }
     );
   }
   
   updateOffre(): void {
-    // Vérifiez si le formulaire est valide
     if (this.isFormValid()) {
-      // Appelez la méthode de service pour mettre à jour l'offre
       this.offreService.updateOffre(this.offre.reference, this.offre).subscribe(
         (data: any) => {
-          console.log('Offre mise à jour avec succès', data);
-          // Naviguer vers la page de détails de l'offre mise à jour
+          console.log('Offer updated successfully', data);
           this.router.navigateByUrl('/detailoffer').then(() => {
-            // Rafraîchir le composant de détails de l'offre
             this.loadOfferDetails(this.offre.reference);
           });
         },
         (error) => {
-          console.error('Erreur lors de la mise à jour de l\'offre : ', error);
+          console.error('Error updating the offer:', error);
         }
       );
     } else {
-      console.error('Formulaire invalide. Veuillez vérifier les champs.');
+      console.error('Invalid form. Please check the fields.');
     }
   }
   

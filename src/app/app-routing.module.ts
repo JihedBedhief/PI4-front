@@ -36,7 +36,7 @@ const routes: Routes = [
   {path: 'form',component:FormComponent},
   {path: 'add-form',component:AddFormComponent},
   {path: 'offercard',component:OfferCardComponent},
-  {path: 'detailoffer',component:DetailsoffreComponent},
+  {path: 'detailoffer/:reference',component:DetailsoffreComponent},
   { path: 'favorites', component: FavoritesComponent },
   { path: 'not-found', component: Error404Component },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full'  }, 

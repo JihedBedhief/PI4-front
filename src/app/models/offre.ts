@@ -1,3 +1,5 @@
+import { Rating } from "./rating";
+
 export interface Offre {
     reference: string;
     title: string;
@@ -8,5 +10,6 @@ export interface Offre {
     skills: string;
     experienceLevel: string;
     favorite:boolean;
+    ratings?: Rating[]; 
   }
   

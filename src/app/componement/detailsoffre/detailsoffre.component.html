@@ -6,6 +6,11 @@
         <button class="btn custom-button" aria-label="Ajouter aux favoris" (click)="addToFavorites()" title="Add to favorites">
           <i class="fa fa-heart"></i>
         </button>
+        <button class="btn custom-button" (click)="openEvaluationDialog()" title="Evaluate Offer">
+          <i class="fa fa-star"></i> Evaluate the offer
+        </button>
+        
+        
       </div>
       <div class="mt-3">
         <span class="badge rounded-pill bg-primary">{{ offre.contratType }}</span>
@@ -32,6 +37,28 @@
         <button class="btn custom-button retour" (click)="goBack()" data-toggle="tooltip" title="Return">
           <i class="fa fa-arrow-left"></i>
         </button>
+         <!-- Share Button -->
+         <div class="share-button btn-group">
+          <div class="share-button" (click)="toggleShareDropdown()">
+            <button type="button" class="btn custom-button" aria-label="Share">
+              <i class="fa fa-share-alt"></i> Share
+            </button>
+            <div class="dropdown-menu" [ngClass]="{ 'show': isShareDropdownOpen }">
+              <button class="dropdown-item" (click)="shareOnFacebook()">
+                <i class="fab fa-facebook" style="color: #3b5998;"></i> Facebook
+              </button>
+              <button class="dropdown-item" (click)="shareOnTwitter()">
+                <i class="fab fa-twitter" style="color: #1da1f2;"></i> Twitter
+              </button>
+              <button class="dropdown-item" (click)="shareOnLinkedIn()">
+                <i class="fab fa-linkedin" style="color: #0077b5;"></i> LinkedIn
+              </button>
+              <button class="dropdown-item" (click)="shareOnInstagram()">
+                <i class="fab fa-instagram" style="color: #c13584;"></i> Instagram
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

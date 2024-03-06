@@ -30,7 +30,7 @@ export class FavoritesComponent implements OnInit {
             this.filteredOffres = data.filter(offre => offre.favorite === true);
         },
         error: (error) => {
-            console.log('Erreur lors du chargement des offres:', error);
+            console.log('Error Loading Offers:', error);
         },
     });
 }
@@ -45,11 +45,10 @@ export class FavoritesComponent implements OnInit {
   removeFromFavorites(favorite: Offre): void {
     this.offreService.removeFromFavorites(favorite).subscribe(
         () => {
-            // Mettre à jour la liste des favoris après la suppression
             this.filteredOffres = this.filteredOffres.filter(item => item !== favorite);
         },
         error => {
-            console.log('Erreur lors de la suppression de l\'offre des favoris :', error);
+            console.log('Error removing offer from favorites :', error);
         }
     );
 }

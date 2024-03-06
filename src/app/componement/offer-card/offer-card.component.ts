@@ -86,7 +86,7 @@ export class OfferCardComponent implements OnInit {
         this.offres = data;
       },
       error: (error) => {
-        console.log('Erreur lors du chargement des offres:', error);      },
+        console.log('Error Loading Offers:', error);      },
     });
   }
 
@@ -96,7 +96,7 @@ export class OfferCardComponent implements OnInit {
         offre: offre,
       },
     };
-    this.router.navigate(['/detailoffer'], navigationExtras);
+    this.router.navigate(['/detailoffer', offre.reference], navigationExtras);
   }
 
   cancelAdd(): void {

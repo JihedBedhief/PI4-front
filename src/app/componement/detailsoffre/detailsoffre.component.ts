@@ -5,6 +5,7 @@ import { OffreService } from 'src/app/services/offre.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EditFormComponent } from '../edit-form/edit-form.component';
+import { AddRatingComponent } from 'src/app/add-rating/add-rating.component';
 
 @Component({
   selector: 'app-detailsoffre',
@@ -24,6 +25,8 @@ export class DetailsoffreComponent implements OnInit {
     favorite: false // Initialize favouris as false
   };  
   reference: any;
+  isShareDropdownOpen: boolean = false; // Declare isShareDropdownOpen here
+
 
   constructor(
     private route: ActivatedRoute,
@@ -120,12 +123,62 @@ export class DetailsoffreComponent implements OnInit {
         console.error('Offer reference is missing or undefined.');
     }
 }
+toggleShareDropdown(): void {
+  this.isShareDropdownOpen = !this.isShareDropdownOpen;
+}
+
+shareOnFacebook(): void {
+  window.open('https://www.facebook.com/?locale=fr_FR' + encodeURIComponent(window.location.href), '_blank');
+  this.isShareDropdownOpen = false;
+}
+
+shareOnTwitter(): void {
+  window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href), '_blank');
+  this.isShareDropdownOpen = false;
+}
+
+shareOnLinkedIn(): void {
+  window.open('https://www.linkedin.com/shareArticle?url=' + encodeURIComponent(window.location.href), '_blank');
+  this.isShareDropdownOpen = false;
+}
+
+shareOnInstagram(): void {
+  window.open('https://www.instagram.com/', '_blank');
+  this.isShareDropdownOpen = false;
+}
+
+/*
+//the rating function
+openRatingPopup(): void {
+  const dialogRef = this.dialog.open(AddRatingComponent, {
+    width: '400px',
+    data: { offreReference: this.offre.reference }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result === 'success') {
+      alert('Thank you for evaluating our offer!');
+      // Optionally, you can perform any additional actions here
+    }
+  });
 
 
-  
-  
-  
-  
+
+
+}
+*/
+
+openEvaluationDialog(): void {
+  const dialogRef = this.dialog.open(AddRatingComponent, {
+    width: '250px',
+    data: { offre: this.offre }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('La boîte de dialogue d\'évaluation est fermée');
+    // Vous pouvez ajouter des actions supplémentaires ici après la fermeture de la boîte de dialogue
+  });
+}
   
   
 }

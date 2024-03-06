@@ -2,13 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { Offre } from '../models/offre';
+import { Rating } from '../models/rating';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class OffreService {
+  getContractTypeStatistics() {
+    throw new Error('Method not implemented.');
+  }
 
   private BASE_URL = "http://localhost:9090/";
+ 
 
   constructor(private http: HttpClient) { }
 
@@ -40,8 +47,17 @@ updateOffre(reference: string, offre: Offre): Observable<Offre> {
   removeFromFavorites(offre: Offre): Observable<any> {
     return this.http.put<any>('http://localhost:9090/Offer/updateOffreAsNotFavorite', offre);
 }
+/*
 
-  
+addRating(rating: Rating): Observable<Rating> {
+  return this.http.post<Rating>(`${this.BASE_URL}Offer/addRating`, rating);
+}
+  */
+ // Méthode pour ajouter une évaluation
+ addRating(rating: Rating): Observable<any> {
+  const url = `${this.BASE_URL}Offer/add`;
+  return this.http.post<any>(url, rating);
+}
 
 
 }

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { OffreService } from '../../services/offre.service';
-import { ToastrService } from 'ngx-toastr';
-
 
 enum ExperienceLevel {
   Beginner = 'Beginner',
@@ -29,7 +27,7 @@ export class AddFormComponent implements OnInit {
   offreForm!: FormGroup;
   OfferArray: any[] = [];
 
-  constructor(private offreservice: OffreService, private http: HttpClient, private fb: FormBuilder ,private toastr: ToastrService ) { }
+  constructor(private offreservice: OffreService, private http: HttpClient, private fb: FormBuilder  ) { }
 
   ngOnInit(): void {
     this.offreForm = this.fb.group({
@@ -60,14 +58,12 @@ export class AddFormComponent implements OnInit {
           if (res['id'] !== null) {
             this.offreForm.reset();
             this.getAllOffres();
-            this.toastr.success('Offer added successfully', 'Success');
           } else {
             console.log(res);
           }
         },
         (error: any) => {
           console.error('Erreur lors de l\'ajout de l\'offre :', error);
-          this.toastr.error('Error adding offer', 'Error');
         }
       );
     }
