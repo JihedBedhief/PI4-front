@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 import { AuctionService } from 'src/app/services/auction.service';
 import { AddBidComponent } from '../../Bid/AddBid/add-bid/add-bid.component';
+import { BidDetailsComponent } from '../../Bid/BidDetails/bid-details/bid-details.component';
 
 @Component({
   selector: 'app-auction-card',
@@ -27,6 +28,12 @@ export class AuctionCardComponent {
     }
     openAddBid(auctionId: any){
       this._dialogue.open(AddBidComponent,{
+        data: { codeAuction: auctionId }
+    });
+    }
+
+    openBidDetails(auctionId: any){
+      this._dialogue.open(BidDetailsComponent,{
         data: { codeAuction: auctionId }
     });
     }

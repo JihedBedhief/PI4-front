@@ -13,14 +13,14 @@
                 <p class="title">{{ auc.name }}</p>
                 <div class="separator"></div>
                 <p class="info">{{ auc.desc }}</p>
-                <p class="price">{{auc.enddate - auc.startdate}}</p>
+                <p class="price">END IN:{{auc.endDate}}</p>
 
                <!-- <p class="price">{{ item.quantity }}</p> -->
   
                 <div class="additional-info">
                     <p class="info">
                 
-                        <button class="add" >View Details</button>                        
+                        <button class="add" (click)="openBidDetails(auc.codeAuction)">View Details</button>                        
                     </p>
                 
                 </div>

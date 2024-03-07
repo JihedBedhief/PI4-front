@@ -23,4 +23,8 @@ export class BidServiceService {
   addBid(bidDto : any):Observable<any>{
     return this.http.post(BASE_URL+"api/admin/Bid/Add",bidDto);
   }
+
+  getBidByAuctionId(id : any):Observable<any>{
+    return this.http.get(BASE_URL+`api/admin/Bid/getByAuctioid/${id}`)
+  }
 }
