@@ -38,7 +38,7 @@ export class AppComponent implements OnInit{
         if (token) {
        
        //  console.log(Request);
-    //     this.notif.Subscribe(token,Request).subscribe(res=>{console.log("Successfully Subscribed")});
+         this.notif.Subscribe(token,Request).subscribe(res=>{console.log("Successfully Subscribed")});
          
           console.log("token refreshed...", {token});
        //   this.sendTokenToServer(token);

@@ -19,7 +19,8 @@ export class PostItemsComponent implements OnInit{
     private fb: FormBuilder,
     private snackbar: MatSnackBar,
     private adminService: AdminServiceService,
-    private router: Router
+    private router: Router,
+    private location : Location,
   ) {}
   ngOnInit(): void {
     this.itemForm = this.fb.group({
@@ -42,6 +43,9 @@ export class PostItemsComponent implements OnInit{
     reader.readAsDataURL(this.selectedFile as Blob);
   }
 
+  reload(){
+    location.reload();
+  }
   addItem(): void {
     if (this.itemForm.invalid) {
       for (const i in this.itemForm.controls) {
@@ -60,7 +64,8 @@ export class PostItemsComponent implements OnInit{
       this.adminService.addItem(formData).subscribe((res) => {
         if (res.id !== null) {
           this.snackbar.open('item added successfully', 'Close', { duration: 5000 });
-          this.router.navigateByUrl('/Items');
+          //this.router.navigateByUrl('/Items');
+          this.reload();
         } else {
           console.log(res);
           this.snackbar.open(res.message, 'Close', { duration: 5000, panelClass: 'error-snackbar' });

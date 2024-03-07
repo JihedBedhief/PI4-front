@@ -38,6 +38,9 @@ import { AddBidComponent } from './DashboardAdmin/Bid/AddBid/add-bid/add-bid.com
 import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
 import { initializeApp } from "firebase/app";
 import { environment } from 'src/environment/environment';
+import { CardItemsComponent } from './DashboardAdmin/PostItems/post-items/CardItems/card-items/card-items.component';
+import { CountdownTimerComponent } from './DashboardAdmin/Auction/auction-card/countdown-timer/countdown-timer/countdown-timer.component';
+import { BidDetailsComponent } from './DashboardAdmin/Bid/BidDetails/bid-details/bid-details.component';
 initializeApp(environment.firebaseConfig);
 
 //I keep the new line
@@ -67,6 +70,9 @@ initializeApp(environment.firebaseConfig);
     AuctionCardComponent,
     AddBidComponent,
     ListBidComponent,
+    CardItemsComponent,
+    CountdownTimerComponent,
+    BidDetailsComponent,
 
   ],
   imports: [

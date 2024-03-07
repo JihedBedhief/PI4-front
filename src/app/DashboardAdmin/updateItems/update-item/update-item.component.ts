@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-update-item',
@@ -14,10 +17,12 @@ export class UpdateItemComponent {
     private fb: FormBuilder,
     private snackbar: MatSnackBar,
     private adminService: AdminServiceService,
+    private location: Location ,
     private router: Router,
-    private activatedroute:ActivatedRoute
-  ) {}
-  itemId = this.activatedroute.snapshot.params['id']; 
+    private activatedroute:ActivatedRoute,
+    private _dialogue : MatDialogRef<UpdateItemComponent>,@Inject(MAT_DIALOG_DATA) public data: { codeItem: any } 
+     ) {console.log(data.codeItem);}
+  itemId = this.data.codeItem; 
   itemForm!: FormGroup;
   selectedFile: File | null = null;
   imagePreview: string | ArrayBuffer | null = null;
@@ -25,6 +30,7 @@ export class UpdateItemComponent {
   imgChanged = false;
 
 
+ 
   ngOnInit(): void {
 this.getItemById();
 
@@ -57,6 +63,9 @@ this.getItemById();
     };
     reader.readAsDataURL(this.selectedFile as Blob);
   }
+  reloadPage() {
+    location.reload();
+  }
 
   UpdateItem(): void {
     if (this.itemForm.invalid) {
@@ -79,7 +88,8 @@ this.getItemById();
       this.adminService.updateItem(this.itemId,formData).subscribe((res) => {
         if (res.id !== null) {
           this.snackbar.open('item added successfully', 'Close', { duration: 5000 });
-          this.router.navigateByUrl('/Items');
+        //  this.router.navigateByUrl('/Items');
+        this.reloadPage();
         } else {
           console.log(res);
           this.snackbar.open(res.message, 'Close', { duration: 5000, panelClass: 'error-snackbar' });

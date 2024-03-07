@@ -13,6 +13,7 @@ import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allIte
 import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
 import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
 import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
+import { CardItemsComponent } from './DashboardAdmin/PostItems/post-items/CardItems/card-items/card-items.component';
 
 
 const routes: Routes = [
@@ -24,13 +25,12 @@ const routes: Routes = [
   { path : 'info-pratiques' , component : InfoForumComponent},
   { path : 'signup' , component : SignupComponent},
  
-    { path:'Add/item' , component:PostItemsComponent},
-    {path:'item/:id' , component:UpdateItemComponent},
     { path:'Items',component:ListItemsComponent},
     { path: 'Bid' , component : ListBidComponent},
 
   
   {path: 'Card',component:AuctionCardComponent},
+  {path: 'i',component:CardItemsComponent},
 
 
   { path: 'not-found', component: Error404Component },
