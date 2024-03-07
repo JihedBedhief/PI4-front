@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './componement/login/login/login.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 function initializeKeycloak(keycloak: KeycloakService) {
@@ -28,8 +29,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     keycloak.init({
       config: {
         url: 'http://localhost:8080',
-        realm: 'pidevRealm',
-        clientId: 'ecom-client-ang'
+        realm: 'Pi-Dev',
+        clientId: 'pidev-client-ang'
       },
       initOptions: {
         onLoad: 'check-sso',
@@ -38,8 +39,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
       }
     });
 }
-
-
 
 @NgModule({
   declarations: [
@@ -58,6 +57,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
     SliderComponent,
     ForumComponent,
     
+
+    
+    
     
 
   ],
@@ -69,7 +71,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    KeycloakAngularModule
+    KeycloakAngularModule,
+    MatSnackBarModule
 
   ],
   providers: [{

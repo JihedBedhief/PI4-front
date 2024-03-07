@@ -6,18 +6,17 @@ import { LoginComponent } from './componement/login/login/login.component';
 import { InfoForumComponent } from './componement/Info/info-forum/info-forum.component';
 import { Error404Component } from './componement/error404/error404/error404.component';
 import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
-import { SignupComponent } from './componement/signup/signup.component';
+import { AuthGuard } from './guards/auth.guard';
 
-// import { GuardGuard } from './guards/guard.guard';
-// ,canActivate:[AuthGuard] ,data:{roles:['ADMIN']}
+ 
+
 
 const routes: Routes = [
   { path: 'home', component: FrontOfficeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path : 'contact' , component : ContactComponent},
   { path : 'exposant', component : CompanyCardComponent },
-  { path : 'login' , component : LoginComponent},
-  { path : 'signup' , component : SignupComponent},
+  { path : 'login' , component : LoginComponent,canActivate:[AuthGuard] ,data:{roles:['admin']}},
   { path : 'info-pratiques' , component : InfoForumComponent},
   { path: '**', component: Error404Component },
 

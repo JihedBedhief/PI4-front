@@ -3,16 +3,19 @@ import { Injectable } from '@angular/core';
 import { UserStorageService } from '../storage/user-storage.service';
 import { Observable, map } from 'rxjs';
 const BASE_URL ="http://localhost:8088/Auth/";
+const BASE_URLs ="http://localhost:9090/";
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServiceService {
 
+  
   constructor(private http :HttpClient,
     private userStorageService: UserStorageService) { }
 
+
   register(signupRequest:any): Observable<any> {
-    return this.http.post(BASE_URL+"signup",signupRequest);
+    return this.http.post(BASE_URLs+"users",signupRequest);
 
   }
 
