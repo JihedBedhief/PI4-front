@@ -34,7 +34,7 @@
                         title="Delete">
                             <i class="material-icons" data-toggle="tooltip">&#xE872;</i>
                     </a>
-                        <a routerLink="/editApp" class="edit" data-toggle="modal">
+                        <a [routerLink]="'/editApp/' + application.codeCandidature" class="edit" data-toggle="modal">
                             <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     </td>
                 </tr>				

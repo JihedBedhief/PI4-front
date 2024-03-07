@@ -44,7 +44,7 @@ export class QuizComponent {
 
     dialogRef.afterClosed().subscribe(() => {
       // Redirection conditionnelle après la fermeture du popup
-      if (this.score > 2) {
+      if (this.score > 7) {
         this.router.navigate(['/addApp']);
       } else {
         this.router.navigate(['/appList']);

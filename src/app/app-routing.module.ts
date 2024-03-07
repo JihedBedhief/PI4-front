@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'application-details/:codeCandidature', component: DetailsApplicationComponent },
   { path: 'offerDetails', component: DetailsOfferComponent },
   {path:'addApp',component:AddApplicationComponent},
-  {path:'editApp',component:UpdateApplicationComponent},
+  { path: 'editApp/:id', component: UpdateApplicationComponent },
   {path:'stat',component:StatisticsComponent},
   { path : 'info-pratiques' , component : InfoForumComponent},
   { path: '**', component: Error404Component },
