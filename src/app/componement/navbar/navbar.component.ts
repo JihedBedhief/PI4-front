@@ -37,4 +37,18 @@ export class NavbarComponent implements OnInit {
   handleLogout() {
     this.ks.logout(window.location.origin);
   }
-}
+
+
+  manageAccout(): void {
+    if (this.ks.isLoggedIn()) {
+      const url = this.ks.getKeycloakInstance().createAccountUrl();
+      window.location.href = url;
+    } else {
+      console.warn("User not logged in");
+      // Handle not logged in state, e.g., redirect to login
+    }
+  }
+
+  
+  
+  }
