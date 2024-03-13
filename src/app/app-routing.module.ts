@@ -14,6 +14,7 @@ import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/up
 import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
 import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
 import { CardItemsComponent } from './DashboardAdmin/PostItems/post-items/CardItems/card-items/card-items.component';
+import { ChatComponent } from './DashboardAdmin/chat/chat/chat.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,8 @@ const routes: Routes = [
   
   {path: 'Card',component:AuctionCardComponent},
   {path: 'i',component:CardItemsComponent},
+  {path: 'chat',component:ChatComponent},
+
 
 
   { path: 'not-found', component: Error404Component },
