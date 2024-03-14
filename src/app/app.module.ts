@@ -42,6 +42,8 @@ import { CardItemsComponent } from './DashboardAdmin/PostItems/post-items/CardIt
 import { CountdownTimerComponent } from './DashboardAdmin/Auction/auction-card/countdown-timer/countdown-timer/countdown-timer.component';
 import { BidDetailsComponent } from './DashboardAdmin/Bid/BidDetails/bid-details/bid-details.component';
 import { ChatComponent } from './DashboardAdmin/chat/chat/chat.component';
+import { DeviListComponent } from './DashboardAdmin/Devi/DeviList/devi-list/devi-list.component';
+import { AddDeviComponent } from './DashboardAdmin/Devi/AddDevi/add-devi/add-devi.component';
 initializeApp(environment.firebaseConfig);
 
 //I keep the new line
@@ -75,6 +77,8 @@ initializeApp(environment.firebaseConfig);
     CountdownTimerComponent,
     BidDetailsComponent,
     ChatComponent,
+    DeviListComponent,
+    AddDeviComponent,
 
   ],
   imports: [

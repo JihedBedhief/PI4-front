@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -20,8 +21,8 @@ export class PostItemsComponent implements OnInit{
     private snackbar: MatSnackBar,
     private adminService: AdminServiceService,
     private router: Router,
-    private location : Location,
-  ) {}
+    @Inject(DOCUMENT) private document: Document
+      ) {}
   ngOnInit(): void {
     this.itemForm = this.fb.group({
       name: [null, [Validators.required]],
@@ -43,8 +44,8 @@ export class PostItemsComponent implements OnInit{
     reader.readAsDataURL(this.selectedFile as Blob);
   }
 
-  reload(){
-    location.reload();
+  reload() {
+    this.document.location.reload();
   }
   addItem(): void {
     if (this.itemForm.invalid) {
