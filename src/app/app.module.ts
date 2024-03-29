@@ -51,6 +51,8 @@ import { RouterModule } from '@angular/router';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { ScorePopupComponent } from './componement/score-popup/score-popup.component';
+import { ListInterviewsComponent } from './componement/list-interviews/list-interviews.component';
+import { ScheduleInterviewComponent } from './componement/schedule-interview/schedule-interview.component';
 
 
 
@@ -81,6 +83,8 @@ import { ScorePopupComponent } from './componement/score-popup/score-popup.compo
     QuizComponent,
     StatisticsComponent,
     ScorePopupComponent,
+    ListInterviewsComponent,
+    ScheduleInterviewComponent,
 
 
   ],

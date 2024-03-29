@@ -35,7 +35,11 @@
                             <i class="material-icons" data-toggle="tooltip">&#xE872;</i>
                     </a>
                         <a [routerLink]="'/editApp/' + application.codeCandidature" class="edit" data-toggle="modal">
-                            <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                        </a>
+                        <a [routerLink]="'/scheduleInterview/' + application.codeCandidature" class="edit" data-toggle="tooltip" title="Planifier un entretien">
+                            <i class="material-icons">&#xE878;</i>
+                        </a>
                     </td>
                 </tr>				
             </tbody>

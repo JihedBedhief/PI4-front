@@ -15,6 +15,8 @@ import { DetailsOfferComponent } from './componement/details-offer/details-offer
 import { QuizComponent } from './componement/quiz/quiz.component';
 import { UpdateApplicationComponent } from './componement/update-application/update-application.component';
 import { StatisticsComponent } from './componement/statistics/statistics.component';
+import { ScheduleInterviewComponent } from './componement/schedule-interview/schedule-interview.component';
+import { ListInterviewsComponent } from './componement/list-interviews/list-interviews.component';
 
 
 const routes: Routes = [
@@ -27,6 +29,8 @@ const routes: Routes = [
   {path:'offerList',component:ListOffersComponent},
   {path:'quiz',component:QuizComponent},
   { path: 'application-details/:codeCandidature', component: DetailsApplicationComponent },
+  { path: 'scheduleInterview/:id', component: ScheduleInterviewComponent },
+  {path:'interviewList',component:ListInterviewsComponent},
   { path: 'offerDetails', component: DetailsOfferComponent },
   {path:'addApp',component:AddApplicationComponent},
   { path: 'editApp/:id', component: UpdateApplicationComponent },

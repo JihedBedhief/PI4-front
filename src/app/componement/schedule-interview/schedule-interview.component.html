@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="table-wrapper">
+        <h2 class="detail-title">Planifie an Interview</h2>
+    
+        <form [formGroup]="form" (ngSubmit)="submit()">
+        
+            <div class="form-group">
+                <label for="type">Interview Type:</label>
+                <select formControlName="type" class="form-control">
+                    <option value="ONLINE">ONLINE</option>
+                    <option value="IN_PERSON">IN_PERSON</option>
+                  </select>
+            </div>
+        
+            <div class="form-group" *ngIf="form.get('type')!.value === 'ONLINE'">
+                <label for="location">Link :</label>
+                <input type="text" id="location" formControlName="location" class="form-control" required>
+            </div>
+            <div class="form-group" *ngIf="form.get('type')!.value === 'IN_PERSON'">
+                <label for="location">Room :</label>
+                <input type="text" id="location" formControlName="location" class="form-control" required>
+            </div>
+        
+            <div class="form-button-group">
+                <button type="submit" class="btn btn-primary btn-block">
+                     Planifier
+                </button>     
+                
+            </div> 
+        </form>
+    </div>
+</div>
+
+
+  
