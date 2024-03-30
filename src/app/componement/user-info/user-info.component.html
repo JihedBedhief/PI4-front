@@ -1,0 +1,17 @@
+<div class="user-info">
+    <h2>User Information</h2>
+    <form >
+      
+      <div class="form-group">
+        <label for="lastName">Phone Number:</label>
+        <input type="number" id="phoneNumber" [(ngModel)]="user.phoneNumber" name="phoneNumber" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label for="adress">Adress:</label>
+        <input type="text" id="adress" [(ngModel)]="user.adress" name="adress" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="saveUser()">Save Changes</button>
+    </form>
+  </div>
+  

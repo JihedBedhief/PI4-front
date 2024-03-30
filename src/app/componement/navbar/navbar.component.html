@@ -34,7 +34,10 @@
       <a routerLink="/contact" class="menu-item">Contact</a>
       <div *ngIf="ks.getUserRoles().includes('ADMIN')">
       <a routerLink="/login" class="menu-item">Login</a>
-    </div>
+      </div>
+      <div *ngIf="profile">
+        <a routerLink="/UserInfo" class="menu-item">Add User Infos</a>
+        </div>
       
     </li>
     <li class="nav-item dropdown">

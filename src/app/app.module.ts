@@ -22,6 +22,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './componement/login/login/login.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { UserInfoComponent } from './componement/user-info/user-info.component';
+import { AdminKeycloakComponent } from './componement/admin-keycloak/admin-keycloak.component';
+import { RoleSelectionComponent } from './componement/role-selection/role-selection.component';
+import { MatSelectModule } from '@angular/material/select';
+import { StudentInfoPageComponent } from './componement/student-info-page/student-info-page.component';
+import { TeacherInfoPageComponent } from './componement/teacher-info-page/teacher-info-page.component';
+import { CompanyInfoPageComponent } from './componement/company-info-page/company-info-page.component';
+import { AlumniInfoPageComponent } from './componement/alumni-info-page/alumni-info-page.component';
 
 
 function initializeKeycloak(keycloak: KeycloakService) {
@@ -36,7 +44,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
         onLoad: 'check-sso',
         silentCheckSsoRedirectUri:
           window.location.origin + '/assets/silent-check-sso.html'
-      }
+      },
+      bearerExcludedUrls: ['/assets', '/clients/public'],
     });
 }
 
@@ -56,6 +65,13 @@ function initializeKeycloak(keycloak: KeycloakService) {
     Home2Component,
     SliderComponent,
     ForumComponent,
+    UserInfoComponent,
+    AdminKeycloakComponent,
+    RoleSelectionComponent,
+    StudentInfoPageComponent,
+    TeacherInfoPageComponent,
+    CompanyInfoPageComponent,
+    AlumniInfoPageComponent,
     
 
     
@@ -72,7 +88,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     ReactiveFormsModule,
     HttpClientModule,
     KeycloakAngularModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule
 
   ],
   providers: [{
