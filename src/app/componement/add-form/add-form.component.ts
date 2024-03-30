@@ -37,16 +37,13 @@ export class AddFormComponent implements OnInit {
       description: [null, [Validators.required]],
       deadline: [null, [Validators.required]],
       contratType: [null, [Validators.required]],
-      skills: [null, [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]], // Accepte uniquement des lettres et des espaces
+      skills: [null, [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]], 
       experienceLevel: [null, [Validators.required]],
       favorite: false
 
     });
   }
 
-
-
-  
 
   addItem(): void {
     if (this.offreForm.invalid) {
@@ -76,7 +73,6 @@ export class AddFormComponent implements OnInit {
       },
       (error: any) => {
         console.error('Erreur lors de la récupération des offres :', error);
-        // Gérez l'erreur de manière appropriée
       }
     );
   }
@@ -84,7 +80,7 @@ export class AddFormComponent implements OnInit {
 
 
   cancelAdd(): void {
-    window.location.href = '/form';
+    window.location.href = '/offercard';
   }
   
 }

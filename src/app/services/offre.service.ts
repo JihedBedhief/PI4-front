@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { Offre } from '../models/offre';
-import { Rating } from '../models/rating';
+import { SearchHistory } from '../models/SearchHistory';
+import { query } from '@angular/animations';
+
 
 
 
@@ -47,17 +49,46 @@ updateOffre(reference: string, offre: Offre): Observable<Offre> {
   removeFromFavorites(offre: Offre): Observable<any> {
     return this.http.put<any>('http://localhost:9090/Offer/updateOffreAsNotFavorite', offre);
 }
-/*
+ // New method to search offers and save search history
+ searchOffres(query: string): Observable<Offre[]> {
+  return this.http.get<Offre[]>(`${this.BASE_URL}Offer/search?query=${query}`);
+}
 
-addRating(rating: Rating): Observable<Rating> {
-  return this.http.post<Rating>(`${this.BASE_URL}Offer/addRating`, rating);
+// New method to save search history
+saveSearchHistory(searchHistory: SearchHistory): Observable<SearchHistory> {
+  return this.http.post<SearchHistory>(`${this.BASE_URL}Offer/saveSearchHistory`, searchHistory);
 }
-  */
- // Méthode pour ajouter une évaluation
- addRating(rating: Rating): Observable<any> {
-  const url = `${this.BASE_URL}Offer/add`;
-  return this.http.post<any>(url, rating);
+
+
+// New method to get all search history
+getAllSearchHistory(): Observable<SearchHistory[]> {
+  return this.http.get<SearchHistory[]>(`${this.BASE_URL}Offer/getAllSearchHistory`);
 }
+
+deleteAllSearchHistory(): Observable<void> {
+  return this.http.delete<void>(`${this.BASE_URL}Offer/deleteAllSearchHistory`).pipe(
+    catchError((error: any) => {
+      throw error;
+    })
+  );
+}
+/*calculateElapsedTime(reference: string): Observable<string> {
+  return this.http.get<string>(`${this.BASE_URL}Offer/offres/${reference}/elapsedTime`);
+}*/
+calculateElapsedTime(reference: string): Observable<string> {
+  const url = `${this.BASE_URL}Offer/offres/${reference}/elapsedTime`; // Remove the extra forward slash before reference
+  return this.http.get<string>(url);
+}
+
+rateOffre(reference: string, rating: number): Observable<Offre> {
+  return this.http.put<Offre>(`${this.BASE_URL}Offer/offres/${reference}/rate`, { rating });
+}
+
+getSimilarOffers(reference: string): Observable<Offre[]> {
+  const url = `${this.BASE_URL}Offer/offres/${reference}/similar`;
+  return this.http.get<Offre[]>(url);
+}
+
 
 
 }

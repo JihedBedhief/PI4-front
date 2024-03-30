@@ -21,11 +21,14 @@ export class EditFormComponent implements OnInit {
     contratType: '',
     skills: '',
     experienceLevel: '',
-    favorite: false // Initialize favouris as false
+    favorite: false ,
+    publicationDate: new Date(),
+    rating: 0,
+    ratings: []
 
   };  
   reference: any;
-
+  elapsedTime: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -39,6 +42,7 @@ export class EditFormComponent implements OnInit {
   ngOnInit(): void {
     if (this.data && this.data.offre) {
       this.offre = this.data.offre;
+      this.calculateElapsedTime();
     } else {
       console.error('Data not received properly.');
     }
@@ -61,9 +65,7 @@ export class EditFormComponent implements OnInit {
       this.offreService.updateOffre(this.offre.reference, this.offre).subscribe(
         (data: any) => {
           console.log('Offer updated successfully', data);
-          this.router.navigateByUrl('/detailoffer').then(() => {
-            this.loadOfferDetails(this.offre.reference);
-          });
+          location.reload();
         },
         (error) => {
           console.error('Error updating the offer:', error);
@@ -73,6 +75,7 @@ export class EditFormComponent implements OnInit {
       console.error('Invalid form. Please check the fields.');
     }
   }
+  
   
   
   
@@ -92,5 +95,15 @@ export class EditFormComponent implements OnInit {
   
   cancelEdit(): void {
     this.dialogRef.close('cancel');
+  }
+  calculateElapsedTime(): void {
+    this.offreService.calculateElapsedTime(this.offre.reference).subscribe(
+      (elapsedTime: string) => {
+        this.elapsedTime = elapsedTime;
+      },
+      (error) => {
+        console.error('Error calculating elapsed time:', error);
+      }
+    );
   }
 }

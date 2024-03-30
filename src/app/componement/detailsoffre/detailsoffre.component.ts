@@ -5,7 +5,9 @@ import { OffreService } from 'src/app/services/offre.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EditFormComponent } from '../edit-form/edit-form.component';
-import { AddRatingComponent } from 'src/app/add-rating/add-rating.component';
+import { RatingPopupComponent } from 'src/app/rating-popup/rating-popup.component';
+
+
 
 @Component({
   selector: 'app-detailsoffre',
@@ -22,10 +24,16 @@ export class DetailsoffreComponent implements OnInit {
     contratType: '',
     skills: '',
     experienceLevel: '',
-    favorite: false // Initialize favouris as false
+    favorite: false ,// Initialize favouris as false
+    publicationDate: new Date(),
+    rating: 0,
+    ratings: []
+  
   };  
   reference: any;
   isShareDropdownOpen: boolean = false; // Declare isShareDropdownOpen here
+  elapsedTime: string = ''; // Variable pour stocker le temps écoulé
+  similarOffers: Offre[] = [];
 
 
   constructor(
@@ -40,16 +48,37 @@ export class DetailsoffreComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
+ /* ngOnInit(): void {
     const navigation = this.router.getCurrentNavigation();
     if (navigation && navigation.extras && navigation.extras.state) {
       const stateData = navigation.extras.state as { offre: Offre }; // Explicitly type state
       this.offre = stateData.offre;
+      this.loadElapsedTime(this.offre.reference); // Load elapsed time here
     } else {
       this.route.paramMap.subscribe(params => {
         const reference = params.get('reference');
         if (reference) {
           this.loadOfferDetails(reference);
+          this.loadElapsedTime(reference); 
+
+        }
+      });
+    }
+  }*/
+  ngOnInit(): void {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation && navigation.extras && navigation.extras.state) {
+      const stateData = navigation.extras.state as { offre: Offre }; // Explicitly type state
+      this.offre = stateData.offre;
+      this.loadElapsedTime(this.offre.reference); // Load elapsed time here
+    } else {
+      this.route.paramMap.subscribe(params => {
+        const reference = params.get('reference');
+        if (reference) {
+          this.loadOfferDetails(reference);
+          this.loadElapsedTime(reference); // Load elapsed time here
+          this.loadSimilarOffers(reference); // Charger les offres similaires lors de l'initialisation
+
         }
       });
     }
@@ -77,7 +106,6 @@ export class DetailsoffreComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'success') {
         console.log('Edit successfully done.');
-        // Handle any actions after the edit is successful
       }
     });
   }
@@ -111,9 +139,7 @@ export class DetailsoffreComponent implements OnInit {
                 console.log('Offer added to favorites successfully.');
                 // Mettre à jour le statut de l'offre localement pour refléter son ajout aux favoris
                 this.offre.favorite = true;
-                // Afficher une alerte pour indiquer que l'offre a été ajoutée avec succès aux favoris
                 alert('L\'offre a été ajoutée avec succès à vos favoris.');
-                // Handle any additional actions after successfully adding to favorites
             },
             (error) => {
                 console.error('Error adding offer to favorites:', error);
@@ -147,38 +173,56 @@ shareOnInstagram(): void {
   this.isShareDropdownOpen = false;
 }
 
-/*
-//the rating function
-openRatingPopup(): void {
-  const dialogRef = this.dialog.open(AddRatingComponent, {
-    width: '400px',
-    data: { offreReference: this.offre.reference }
-  });
 
-  dialogRef.afterClosed().subscribe(result => {
-    if (result === 'success') {
-      alert('Thank you for evaluating our offer!');
-      // Optionally, you can perform any additional actions here
+loadElapsedTime(reference: string): void {
+  this.offreService.calculateElapsedTime(reference).subscribe(
+    (response: any) => {
+      console.log('Elapsed Time:', response.elapsedTime); // Log the response
+      this.elapsedTime = response.elapsedTime;
+    },
+    (error) => {
+      console.error('Error loading elapsed time:', error);
+      this.elapsedTime = 'N/A'; // Set a default value or display a message to indicate the error
     }
-  });
-
-
-
-
+  );
 }
-*/
+rateOffer(reference: string, rating: number): void {
+  this.offreService.rateOffre(reference, rating).subscribe(
+    (offre: Offre) => {
+      this.offre = offre; // Update the offer with the new rating
+      console.log('Offer rated successfully.');
+      // Open the dialog
+      this.openRatingDialog();
+    },
+    (error) => {
+      console.error('Error rating offer:', error);
+    }
+  );
+}
 
-openEvaluationDialog(): void {
-  const dialogRef = this.dialog.open(AddRatingComponent, {
+openRatingDialog(): void {
+  const dialogRef = this.dialog.open(RatingPopupComponent, {
     width: '250px',
-    data: { offre: this.offre }
   });
 
   dialogRef.afterClosed().subscribe(result => {
-    console.log('La boîte de dialogue d\'évaluation est fermée');
-    // Vous pouvez ajouter des actions supplémentaires ici après la fermeture de la boîte de dialogue
+    console.log('The dialog was closed');
   });
 }
-  
-  
+
+loadSimilarOffers(reference: string): void {
+  this.offreService.getSimilarOffers(reference).subscribe(
+    (similarOffers: Offre[]) => {
+      this.similarOffers = similarOffers;
+    },
+    (error) => {
+      console.error('Error loading similar offers:', error);
+    }
+  );
+}
+navigateToOfferDetail(reference: string): void {
+  this.router.navigate(['/detailoffer', reference]); 
+}
+
+
 }

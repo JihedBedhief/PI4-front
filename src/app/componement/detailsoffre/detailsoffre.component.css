@@ -156,3 +156,37 @@
         transform: translateY(0);
     }
 }
+.custom-rating-button {
+    background-color: transparent;
+    border: none;
+    padding: 0; /* Remove padding */
+    font-size: 16px; /* Adjust font size for smaller stars */
+}
+
+.custom-rating-button:hover .fa-star {
+    color: #e6170e; /* Change star color on hover */
+    transform: scale(1.2); /* Add a scale effect on hover */
+}
+
+.fa-star {
+    color: #ccc; /* Initial star color */
+    transition: color 0.3s ease, transform 0.3s ease; /* Add transition for color change */
+}
+
+.fa-star.rated {
+    color: #e6170e; /* Color for rated stars */
+}
+.publication-time {
+    display: flex;
+    align-items: center;
+}
+
+.publication-time span {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 8px; /* Adjust border radius */
+    background-color: #ffc107; /* Adjust color as needed */
+    color: #fff;
+    font-size: 14px;
+}
+

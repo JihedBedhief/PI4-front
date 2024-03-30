@@ -56,8 +56,94 @@
     border-color: #e73c33;
 }
 
+
 @media (max-width: 768px) {
     .container {
         margin-top: 50px;
     }
 }
+/* Ajoutez ces règles CSS pour le bouton Excel */
+.btn-custom {
+    background-color: #6f7272; /* Change button color */
+    border-color: #6f7272;
+    color: #fff; /* Change text color */
+}
+  .button-group {
+    margin-bottom: 20px; /* Add some space below the button group */
+  }
+  
+  .search-wrapper {
+    position: relative;
+    margin-top: 20px;
+  }
+  
+  .form-control {
+    padding-right: 40px;
+    border-radius: 20px;
+    border-color: #ced4da;
+    background-color: #f8f9fa;
+    color: #495057;
+    position: relative; /* Ensure relative positioning for the search bar */
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .list-group-item {
+    border: none;
+    padding: 15px 20px; /* Adjust padding as needed */
+    transition: background-color 0.3s ease; /* Add transition effect */
+  }
+  
+  .list-group-item:hover {
+    background-color: #f8f9fa; /* Change background color on hover */
+  }
+  
+  .history-info a {
+    color: #212529; /* Change link color */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .history-date {
+    font-size: 14px; /* Adjust font size */
+    color: #6c757d; /* Adjust color */
+  }
+  
+  .history-date .far.fa-clock {
+    margin-right: 5px; /* Adjust margin */
+  }
+  
+  .history-date .far.fa-clock:hover {
+    color: #28a745; /* Change color on hover */
+  }
+  
+  
+  .list-group-item .far.fa-clock {
+    margin-right: 10px; /* Increase margin to create space */
+    color: #6c757d; /* Adjust color as needed */
+    transition: color 0.3s ease; /* Add transition effect */
+  }
+  
+  .list-group-item:hover .far.fa-clock {
+    color: #28a745; /* Change color on hover */
+  }
+  
+  .list-group-item .far.fa-clock:before {
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  @media (max-width: 576px) {
+    .list-group-item {
+      padding: .5rem 1rem;
+    }
+  }
+  
+  
+  
+  

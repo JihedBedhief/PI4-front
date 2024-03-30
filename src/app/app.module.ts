@@ -34,7 +34,10 @@ import { DetailsoffreComponent } from './componement/detailsoffre/detailsoffre.c
 import { EditFormComponent } from './componement/edit-form/edit-form.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FavoritesComponent } from './favorites/favorites.component';
-import { AddRatingComponent } from './add-rating/add-rating.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { RatingPopupComponent } from './rating-popup/rating-popup.component';
+
+
 
 
 //I keep the new line
@@ -68,7 +71,8 @@ import { AddRatingComponent } from './add-rating/add-rating.component';
     DetailsoffreComponent,
     EditFormComponent,
     FavoritesComponent,
-    AddRatingComponent,
+    ConfirmationDialogComponent,
+    RatingPopupComponent,
 
 
   ],

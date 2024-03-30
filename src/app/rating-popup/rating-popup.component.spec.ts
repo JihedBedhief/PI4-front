@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddRatingComponent } from './add-rating.component';
+import { RatingPopupComponent } from './rating-popup.component';
 
-describe('AddRatingComponent', () => {
-  let component: AddRatingComponent;
-  let fixture: ComponentFixture<AddRatingComponent>;
+describe('RatingPopupComponent', () => {
+  let component: RatingPopupComponent;
+  let fixture: ComponentFixture<RatingPopupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddRatingComponent ]
+      declarations: [ RatingPopupComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AddRatingComponent);
+    fixture = TestBed.createComponent(RatingPopupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
