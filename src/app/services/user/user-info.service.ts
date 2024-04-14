@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 const BASE_URL = "http://localhost:9090/" 
@@ -9,7 +9,6 @@ export class UserInfoService {
 
   constructor(private keycloakService: KeycloakService ,
     private http: HttpClient) { }
-
 
     getUser(id: string) {
       return this.http.get<any>(BASE_URL+`user/${id}`); 

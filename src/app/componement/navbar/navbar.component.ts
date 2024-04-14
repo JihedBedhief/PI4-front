@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { KeycloakrestapiService } from 'app/services/KeycloakApi/keycloakrestapi.service';
 import { KeycloakService } from "keycloak-angular";
 import { KeycloakProfile } from "keycloak-js";
 
@@ -10,12 +12,22 @@ import { KeycloakProfile } from "keycloak-js";
 export class NavbarComponent implements OnInit {
   title = 'pidev-app-angular';
   public profile!: KeycloakProfile;
+  roles: string[] = [];
+  options = [
+    'STUDENT',
+    'TEACHER',
+    'ALUMNI',
+    'COMPANY'
+  ];
 
-  constructor(public ks: KeycloakService) { }
-  ngOnInit(): void {
+  constructor(private keycloakApi: KeycloakrestapiService, public ks: KeycloakService, private route: Router) { }
+  async ngOnInit() {
+
+
     if (this.ks.isLoggedIn()) {
-      this.ks.loadUserProfile().then(profile => { this.profile = profile })
+      this.profile = await this.ks.loadUserProfile();
     }
+    this.getRolesUser1();
   }
 
   isMenuOpen = false;
@@ -29,7 +41,7 @@ export class NavbarComponent implements OnInit {
   }
 
   async handleLogin() {
-    await this.ks.login({
+    await this.ks.login({ 
       redirectUri: window.location.origin
     })
   }
@@ -45,10 +57,20 @@ export class NavbarComponent implements OnInit {
       window.location.href = url;
     } else {
       console.warn("User not logged in");
-      // Handle not logged in state, e.g., redirect to login
+
     }
   }
 
-  
-  
+  getRolesUser1() {
+    if (this.ks.isLoggedIn()) {
+      let username = this.profile.username;
+      this.keycloakApi.getUserRoles(username!)
+        .subscribe(userroles => {
+          this.roles = userroles;
+          console.log('taaaaaaaaaaaaaab roles' + this.roles);
+          console.log("User roles are :" + userroles);
+        })
+    }
   }
+
+}

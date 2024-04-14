@@ -14,6 +14,7 @@ import { StudentInfoPageComponent } from './componement/student-info-page/studen
 import { TeacherInfoPageComponent } from './componement/teacher-info-page/teacher-info-page.component';
 import { CompanyInfoPageComponent } from './componement/company-info-page/company-info-page.component';
 import { AlumniInfoPageComponent } from './componement/alumni-info-page/alumni-info-page.component';
+import { UserUpdateComponent } from './componement/user-update/user-update.component';
 
  
 
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path : 'company-page' , component : CompanyInfoPageComponent,canActivate:[AuthGuard]},
   { path : 'alumni-page' , component : AlumniInfoPageComponent,canActivate:[AuthGuard]},
   { path : 'chooseRole' , component : RoleSelectionComponent,canActivate:[AuthGuard]},
+  { path : 'updateProfile' , component : UserUpdateComponent,canActivate:[AuthGuard]},
   { path: '**', component: Error404Component },
 
 

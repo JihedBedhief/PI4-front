@@ -1,15 +1,27 @@
 <div class="user-info">
     <h2>User Information</h2>
-    <form >
+    <form enctype="multipart/form-data">
       
       <div class="form-group">
         <label for="lastName">Phone Number:</label>
-        <input type="number" id="phoneNumber" [(ngModel)]="user.phoneNumber" name="phoneNumber" class="form-control" />
+        <input type="number" id="phoneNumber" [(ngModel)]="user.phoneNumber" required name="phoneNumber" class="form-control" />
       </div>
   
       <div class="form-group">
         <label for="adress">Adress:</label>
-        <input type="text" id="adress" [(ngModel)]="user.adress" name="adress" class="form-control" />
+        <input type="text" id="adress" [(ngModel)]="user.adress" required name="adress" class="form-control" />
+      </div>
+      <div class="file-upload-container">
+        <label class="file-upload-label">
+          <span>Select a file</span>
+          <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden required>
+          <p>attech_file</p>
+        </label>
+        <div *ngIf="selectedFile" class="image-preview">
+          <div class="circle-image">
+            <img [src]="imagePreview" alt="Selected Image" class="preview-image">
+          </div>
+        </div>
       </div>
       <button type="submit" class="btn btn-primary" (click)="saveUser()">Save Changes</button>
     </form>

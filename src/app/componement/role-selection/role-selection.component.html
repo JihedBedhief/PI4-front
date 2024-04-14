@@ -1,16 +1,17 @@
-<!-- dropdown.component.html -->
+    <!-- dropdown.component.html -->
 
-<div class="page-container" >
-    <div class="header">WHO ARE U?</div>
-    <div class="dropdown-container">
-        <!-- Your dropdown component content goes here -->
-        <mat-form-field>
-            <mat-label>SELECT YOUR ROLE</mat-label>
-            <mat-select [(value)]="selectedOption" (selectionChange)="onChange($event)" [disabled]="roleSelected">
-                <mat-option *ngFor="let option of options" [value]="option">
-                    {{ option }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+    <div class="page-container" >
+        <div class="header">WHO ARE U?</div>
+        
+        <div class="dropdown-container">
+            <!-- Your dropdown component content goes here -->
+            <mat-form-field>
+                <mat-label>SELECT YOUR ROLE</mat-label>
+                <mat-select [(value)]="selectedOption" (selectionChange)="onChange($event)" [disabled]="roleSelected">
+                    <mat-option *ngFor="let option of options" [value]="option">
+                        {{ option }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
     </div>
-</div>

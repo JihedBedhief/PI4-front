@@ -11,25 +11,7 @@ import { KeycloakProfile } from 'keycloak-js';
 export class AppComponent {
   title = 'PiDev';
   public profile!: KeycloakProfile;
-  options = [
-    'STUDENT',
-    'TEACHER',
-    'ALUMNI',
-    'COMPANY'
-  ];
-roles =[];
+ 
   constructor(private keycloakApi :KeycloakrestapiService ,private ks:KeycloakService){
   }
-
-  ngOnInit() {
-    if (this.ks.isLoggedIn()) {
-      this.ks.loadUserProfile().then(profile => { this.profile = profile })
-      this.keycloakApi.getUserRoles(this.profile?.username as string).subscribe(data=>{
-       console.log(data)
-    })
-  }
-
-
-  }
-
 }

@@ -30,7 +30,13 @@ import { StudentInfoPageComponent } from './componement/student-info-page/studen
 import { TeacherInfoPageComponent } from './componement/teacher-info-page/teacher-info-page.component';
 import { CompanyInfoPageComponent } from './componement/company-info-page/company-info-page.component';
 import { AlumniInfoPageComponent } from './componement/alumni-info-page/alumni-info-page.component';
-
+import { UserInfoModalComponent } from './componement/user-info-modal/user-info-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatStepperModule } from '@angular/material/stepper';
+import { DropDownListModule } from '@progress/kendo-angular-dropdowns';
+import { UserUpdateComponent } from './componement/user-update/user-update.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -72,6 +78,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     TeacherInfoPageComponent,
     CompanyInfoPageComponent,
     AlumniInfoPageComponent,
+    UserInfoModalComponent,
+    UserUpdateComponent,
     
 
     
@@ -89,7 +97,14 @@ function initializeKeycloak(keycloak: KeycloakService) {
     HttpClientModule,
     KeycloakAngularModule,
     MatSnackBarModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatStepperModule,
+    DropDownListModule
 
   ],
   providers: [{
