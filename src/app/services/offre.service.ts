@@ -1,12 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
 import { Offre } from '../models/offre';
 import { SearchHistory } from '../models/SearchHistory';
-import { query } from '@angular/animations';
-
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -49,34 +45,9 @@ updateOffre(reference: string, offre: Offre): Observable<Offre> {
   removeFromFavorites(offre: Offre): Observable<any> {
     return this.http.put<any>('http://localhost:9090/Offer/updateOffreAsNotFavorite', offre);
 }
- // New method to search offers and save search history
- searchOffres(query: string): Observable<Offre[]> {
-  return this.http.get<Offre[]>(`${this.BASE_URL}Offer/search?query=${query}`);
-}
 
-// New method to save search history
-saveSearchHistory(searchHistory: SearchHistory): Observable<SearchHistory> {
-  return this.http.post<SearchHistory>(`${this.BASE_URL}Offer/saveSearchHistory`, searchHistory);
-}
-
-
-// New method to get all search history
-getAllSearchHistory(): Observable<SearchHistory[]> {
-  return this.http.get<SearchHistory[]>(`${this.BASE_URL}Offer/getAllSearchHistory`);
-}
-
-deleteAllSearchHistory(): Observable<void> {
-  return this.http.delete<void>(`${this.BASE_URL}Offer/deleteAllSearchHistory`).pipe(
-    catchError((error: any) => {
-      throw error;
-    })
-  );
-}
-/*calculateElapsedTime(reference: string): Observable<string> {
-  return this.http.get<string>(`${this.BASE_URL}Offer/offres/${reference}/elapsedTime`);
-}*/
 calculateElapsedTime(reference: string): Observable<string> {
-  const url = `${this.BASE_URL}Offer/offres/${reference}/elapsedTime`; // Remove the extra forward slash before reference
+  const url = `${this.BASE_URL}Offer/offres/${reference}/elapsedTime`; 
   return this.http.get<string>(url);
 }
 
@@ -89,6 +60,46 @@ getSimilarOffers(reference: string): Observable<Offre[]> {
   return this.http.get<Offre[]>(url);
 }
 
+searchOffresByTitle(keyword: string): Observable<Offre[]> {
+  return this.http.get<Offre[]>(`${this.BASE_URL}Offer/offres/search?keyword=${keyword}`);
+}
+
+addSearchHistory(searchHistory: SearchHistory): Observable<SearchHistory> {
+  const url = `${this.BASE_URL}Offer/search-history/add`;
+  return this.http.post<SearchHistory>(url, searchHistory).pipe(
+    catchError(this.handleError)
+  );
+}
+
+private handleError(error: any): Observable<any> {
+  console.error('Error saving search history:', error);
+  return throwError(() => new Error('Error saving search history'));
+}
+getSearchHistory(): Observable<SearchHistory[]> {
+  const mockSearchHistory: SearchHistory[] = [
+    { keyword: 'java', searchDate: new Date('2024-04-09') },
+    { keyword: 'marketing', searchDate: new Date('2024-04-10') },
+  ];
+  return of(mockSearchHistory); 
+}
+
+deleteSearchHistory(keyword: string): Observable<any> {
+  const url = `${this.BASE_URL}Offer/search-history/delete`; 
+  const body = { keyword }; 
+
+  return this.http.delete(url, { body }) 
+    .pipe(
+      catchError(error => {
+        console.error('Error deleting search history item:', error);
+        return throwError(new Error('Failed to delete search history item')); 
+      })
+    );
+}
+
+deleteAllSearchHistory(): Observable<any> {
+  const url = 'http://localhost:9090/Offer/search-history/clear'; 
+  return this.http.delete(url, {}); 
+}
 
 
 }

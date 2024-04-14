@@ -32,7 +32,7 @@ export class AddFormComponent implements OnInit {
   ngOnInit(): void {
     this.offreForm = this.fb.group({
       reference: [null, [Validators.required]],
-      title: [null, [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]], // Accepte uniquement des lettres et des espaces
+      title: [null, [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]], 
       location: [null, [Validators.required]],
       description: [null, [Validators.required]],
       deadline: [null, [Validators.required]],

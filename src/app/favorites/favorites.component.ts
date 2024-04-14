@@ -14,7 +14,7 @@ export class FavoritesComponent implements OnInit {
   
   constructor(
     private offreService: OffreService,
-    private router: Router // Inject Router service here
+    private router: Router 
   ) {}
 
   
@@ -23,10 +23,10 @@ export class FavoritesComponent implements OnInit {
     this.loadOffres();
   }
   
+  //partie favoris
   loadOffres() {
     this.offreService.getAllOffres().subscribe({
         next: (data: Offre[]) => {
-            // Filtrer les offres pour n'afficher que celles avec l'attribut favouris à true
             this.filteredOffres = data.filter(offre => offre.favorite === true);
         },
         error: (error) => {

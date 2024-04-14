@@ -11,7 +11,7 @@
   .rating-popup-container h2 {
     font-size: 36px;
     margin-bottom: 10px;
-    animation: bounce 1s infinite alternate; /* Add bounce animation */
+    animation: bounce 1s infinite alternate; 
   }
   
   @keyframes bounce {

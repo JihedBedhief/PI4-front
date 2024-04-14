@@ -1,19 +1,18 @@
-/* Responsive form styling */
 .form-container {
     max-width: 700px;
-    margin: 100px auto; /* Center the form vertically and horizontally */
+    margin: 100px auto; 
     padding: 30px;
     background-color: #ffffff;
     border: 1px solid #e9e9e9;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     font-family: Arial, sans-serif; 
 }
 
 .form-title {
     font-weight: bold;
     margin-bottom: 30px;
-    text-align: center; /* Center the title */
+    text-align: center; 
     color: #333333;
 }
 
@@ -31,8 +30,8 @@
 
 .form-control:focus {
     outline: 0;
-    border-color: #80bdff; /* Change border color on focus */
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Add focus effect */
+    border-color: #80bdff; 
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); 
 }
 
 select.form-control {
@@ -71,5 +70,5 @@ select.form-control {
 }
 
 .text-danger {
-    color: #dc3545; /* Red color for error messages */
+    color: #dc3545; 
 }

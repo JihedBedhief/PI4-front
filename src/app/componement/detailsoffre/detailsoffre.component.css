@@ -14,8 +14,8 @@
     animation-fill-mode: forwards;
     opacity: 0;
     transform: translateY(-20px);
-    max-width: 600px; /* Adjust the max-width as per your requirement */
-    margin: 0 auto; /* Center the card horizontally */
+    max-width: 600px; 
+    margin: 0 auto; 
 }
 
 @keyframes cardEntry {
@@ -30,11 +30,11 @@
 }
 
 .card-body {
-    font-size: 14px; /* Reduce the font size for smaller text */
+    font-size: 14px; 
     font-family: Arial, sans-serif;
     color: #333;
-    line-height: 1.5; /* Adjust line height for better readability */
-    padding: 20px; /* Reduce padding to make the card smaller */
+    line-height: 1.5; 
+    padding: 20px; 
 }
 
 .btn-favorites {
@@ -141,7 +141,7 @@
     display: block;
 }
 
-/* Add animation for the dropdown */
+
 .dropdown-menu {
     animation: fadeIn 0.3s ease;
 }
@@ -159,22 +159,22 @@
 .custom-rating-button {
     background-color: transparent;
     border: none;
-    padding: 0; /* Remove padding */
-    font-size: 16px; /* Adjust font size for smaller stars */
+    padding: 0; 
+    font-size: 16px; 
 }
 
 .custom-rating-button:hover .fa-star {
-    color: #e6170e; /* Change star color on hover */
-    transform: scale(1.2); /* Add a scale effect on hover */
+    color: #e6170e; 
+    transform: scale(1.2); 
 }
 
 .fa-star {
-    color: #ccc; /* Initial star color */
-    transition: color 0.3s ease, transform 0.3s ease; /* Add transition for color change */
+    color: #ccc; 
+    transition: color 0.3s ease, transform 0.3s ease; 
 }
 
 .fa-star.rated {
-    color: #e6170e; /* Color for rated stars */
+    color: #e6170e; 
 }
 .publication-time {
     display: flex;
@@ -184,8 +184,8 @@
 .publication-time span {
     display: inline-block;
     padding: 5px 10px;
-    border-radius: 8px; /* Adjust border radius */
-    background-color: #ffc107; /* Adjust color as needed */
+    border-radius: 8px; 
+    background-color: #ffc107; 
     color: #fff;
     font-size: 14px;
 }

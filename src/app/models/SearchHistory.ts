@@ -1,5 +1,4 @@
 export interface SearchHistory {
-    searchQuery: string;
-    searchDate: Date;
-  }
-  
+  keyword: string;
+  searchDate: Date;
+}

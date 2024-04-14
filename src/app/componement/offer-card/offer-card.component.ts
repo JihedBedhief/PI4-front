@@ -7,7 +7,6 @@ import { ChangeDetectorRef } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import * as XLSX from 'xlsx';
 import { SearchHistory } from 'src/app/models/SearchHistory';
-import { query } from '@angular/animations';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'src/app/confirmation-dialog/confirmation-dialog.component';
 
@@ -30,17 +29,15 @@ enum ContratType {
   styleUrls: ['./offer-card.component.css'],
 })
 export class OfferCardComponent implements OnInit {
+  showAllOffers: boolean = false;  
   offreForm!: FormGroup;
   offres: Offre[] = [];
-  filteredOffres: Offre[] = []; // Ajout du tableau pour les offres filtrées
-  searchHistory: SearchHistory[] = [];
+  searchHistory: SearchHistory[] = []; 
+  filteredOffres: Offre[] = []; 
   experienceLevels = Object.values(ExperienceLevel);
   contratTypes = Object.values(ContratType);
-  
-  searchQuery: string = ''; // Variable de recherche combinée pour titre et localisation
-  enterPressed: boolean = false;
   showConfirmation: boolean = false;
-  
+
 
   constructor(
     private offreService: OffreService, 
@@ -53,7 +50,18 @@ export class OfferCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOffres();
-    this.loadSearchHistory();
+    const storedSearchHistory = localStorage.getItem('searchHistory');
+  if (storedSearchHistory) {
+    try {
+      this.searchHistory = JSON.parse(storedSearchHistory) as SearchHistory[];
+    } catch (error) {
+      console.error('Error parsing search history from local storage:', error);
+      this.searchHistory = []; 
+    }
+  } else {
+    this.searchHistory = []; 
+  }
+  
     this.offreForm = this.fb.group({
       reference: ['', [Validators.required]],
       title: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
@@ -98,15 +106,17 @@ loadOffres() {
   this.offreService.getAllOffres().subscribe({
       next: (data) => {
           this.offres = data;
-          this.sortOffersByRating(); // Sort offers by rating after loading
-          this.filteredOffres = [...this.offres]; // Initialize filtered offers on load
+          this.sortOffersByRating(); 
+          this.filteredOffres = [...this.offres]; 
       },
       error: (error) => {
           console.log('Error Loading Offers:', error);
       },
   });
 }
-
+sortOffersByRating() {
+  this.filteredOffres = [...this.offres].sort((a, b) => b.rating - a.rating);
+}
 
   showDetails(offre: Offre) {
     const navigationExtras: NavigationExtras = {
@@ -136,137 +146,7 @@ loadOffres() {
     XLSX.writeFile(wb, 'offers.xlsx');
   }
 
-  loadSearchHistory() {
-    this.offreService.getAllSearchHistory().subscribe({
-      next: (data) => {
-        this.searchHistory = data;
-      },
-      error: (error) => {
-        console.error('Error Loading Search History:', error);
-      },
-    });
-  }
 
-  filterOffres() {
-    if (this.isQueryMeaningful(this.searchQuery)) {
-      this.filteredOffres = this.offres.filter((offre) =>
-        offre.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        offre.location.toLowerCase().includes(this.searchQuery.toLowerCase())
-      );
-      
-      this.sortOffersByRating(); // Sort filtered offers by rating
-    } else {
-      this.filteredOffres = [...this.offres];
-      this.sortOffersByRating(); // Sort all offers by rating
-    }
-  }
-  sortOffersByRating() {
-    // Sort offers by rating in descending order
-    this.filteredOffres = [...this.offres].sort((a, b) => b.rating - a.rating);
-  }
-  
-   saveSearchQueryToHistory(searchHistoryItem: SearchHistory) {
-    // Check if the query already exists in the search history
-    if (!this.searchHistory.some((history) => history.searchQuery === searchHistoryItem.searchQuery)) {
-      // If not, add it to the search history
-      this.offreService.saveSearchHistory(searchHistoryItem).subscribe({
-        next: (data) => {
-          // Reload search history after adding the new query
-          this.loadSearchHistory();
-        },
-        error: (error) => {
-          console.log('Error saving search query to history:', error);
-        },
-      });
-    }
-  }
-  
-  // Modify the handleKeyPress() method to handle the search query
-handleKeyPress(query: string) {
-  if (this.isQueryMeaningful(query)) {
-    const searchHistoryItem: SearchHistory = {
-      searchQuery: query,
-      searchDate: new Date(),
-    };
-    this.searchQuery = query; // Update searchQuery value
-    this.filterOffres(); // Call filterOffres() whenever search query changes
-    this.saveSearchQueryToHistory(searchHistoryItem);
-  }
-}
-
-  resetEnterPressed() {
-    this.enterPressed = false;
-  }
-
-  isQueryMeaningful(query: string): boolean {
-    return query.trim().length > 0;
-  }
-
- // Modify the onSearchQueryChange() method to call filterOffres() directly
-onSearchQueryChange(): void {
-  if (this.isQueryMeaningful(this.searchQuery)) {
-    this.filterOffres(); // Call filterOffres() whenever searchQuery changes
-  } else {
-    this.loadOffres(); // Reload all offers when search query is empty
-  }
-}
- /* deleteAllSearchHistoryConfirmed(searchQuery?: string) {
-    if (searchQuery) {
-      // Perform deletion based on searchQuery if needed
-      // For now, let's leave it empty as we want to delete all search history
-    } else {
-      // If no searchQuery is provided, delete all search history
-      this.offreService.deleteAllSearchHistory().subscribe({
-        next: () => {
-          // Handle success
-          // Clear the search history array
-          this.searchHistory = [];
-          this.showConfirmation = false; // Close the confirmation dialog
-        },
-        error: (error: any) => {
-          // Handle error
-          console.error('Error deleting search history:', error);
-          this.showConfirmation = false; // Close the confirmation dialog on error
-        }
-      });
-    }
-  }*/
-  
-  deleteAllSearchHistoryConfirmed() {
-    // Perform delete operation here
-    this.offreService.deleteAllSearchHistory().subscribe({
-      next: () => {
-        // Handle success
-        // Clear the search history array
-        this.searchHistory = [];
-        this.showConfirmation = false; // Close the confirmation dialog
-      },
-      error: (error: any) => {
-        // Handle error
-        console.error('Error deleting search history:', error);
-        this.showConfirmation = false; // Close the confirmation dialog on error
-      }
-    });
-  }
-  deleteAllSearchHistory() {
-    this.showConfirmation = true;
-  }
-  
-  cancelDelete() {
-    this.showConfirmation = false;
-  }
-  openConfirmationDialog(): void {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        // User clicked Yes, perform delete operation
-        this.deleteAllSearchHistoryConfirmed();
-      } else {
-        // User clicked No or closed the dialog, do nothing
-      }
-    });
-  }
   formatTime(date: Date): string {
     const options: Intl.DateTimeFormatOptions = {
       weekday: 'short',
@@ -279,7 +159,7 @@ onSearchQueryChange(): void {
     return new Date(date).toLocaleDateString('en-US', options);
   }
 
-  navigateToOffer(searchQuery: string): void {
+  /*navigateToOffer(searchQuery: string): void {
     const filteredOffers = this.offres.filter(offre =>
       offre.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       offre.location.toLowerCase().includes(searchQuery.toLowerCase())
@@ -294,11 +174,157 @@ onSearchQueryChange(): void {
       // Update filtered offers if offers are found for the clicked search query
       this.filteredOffres = filteredOffers;
     }
+  }*/
+  navigateToOffer(searchQuery: string): void {
+    //  Check if searchQuery comes from search bar or search history
+    const isSearchHistory = this.searchHistory.some(item => item.keyword === searchQuery);
   
-    // Optionally, you can clear the search query to reset the search input field
-    this.searchQuery = '';
+    if (isSearchHistory) {
+      // If searchQuery is from search history, filter offers based on that term
+      this.filteredOffres = this.offres.filter(offre =>
+        offre.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        offre.location.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    } else {
+      this.offreService.searchOffresByTitle(searchQuery).subscribe({
+        next: (offres: Offre[]) => {
+          this.filteredOffres = offres;
+          this.saveSearchHistory(searchQuery);
+        },
+        error: (error: any) => {
+          console.error('Error searching for offers:', error);
+          this.filteredOffres = []; 
+        }
+      });
+    }
+    if (this.filteredOffres.length === 0) {
+      this.snackBar.open('No offer found for this search term', 'Close', {
+        duration: 5000,
+      });
+    }
   }
   
+//button show more and show less
+  toggleAllOffers(): void {
+    this.showAllOffers = !this.showAllOffers;
+  }
+
+  searchOffers(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      const target = event.target as HTMLInputElement;
+      const keyword = target.value.trim();
+      if (keyword !== '') {
+        this.offreService.searchOffresByTitle(keyword).subscribe({
+          next: (offres: Offre[]) => {
+            this.filteredOffres = offres;
+            this.saveSearchHistory(keyword);
+          },
+          error: (error: any) => {
+            console.error('Error searching for offers:', error);
+            this.filteredOffres = [];
+          }
+        });
+      } else {
+        this.loadOffres();
+      }
+    }
+  }
+  
+  
+  handleKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      this.searchOffers(event);
+    }
+  }
+
+ 
+  saveSearchHistory(keyword: string) {
+    const searchHistory: SearchHistory = {
+      keyword,
+      searchDate: new Date(),
+    };
+  
+    this.offreService.addSearchHistory(searchHistory).subscribe(
+      (response) => {
+        console.log('Search history saved:', response);
+        this.searchHistory.push(response); 
+        localStorage.setItem('searchHistory', JSON.stringify(this.searchHistory));
+      },
+      (error) => console.error('Error saving search history:', error)
+    );
+  }
+  fetchSearchHistory(): void {
+    this.offreService.getSearchHistory().subscribe(
+      (history: SearchHistory[]) => this.searchHistory = history,
+      (error: any) => console.error('Error fetching search history:', error)
+    );
+  }
+  updateSearchHistory(newEntry: SearchHistory) {
+    this.searchHistory.push(newEntry);
+
+    // Maintain a maximum of 10 entries based on search date 
+    if (this.searchHistory.length > 10) {
+      const entriesToRemove = this.searchHistory.length - 10;
+      this.searchHistory.sort((a, b) => b.searchDate.getTime() - a.searchDate.getTime()); 
+      this.searchHistory.splice(entriesToRemove); 
+    }
+    localStorage.setItem('searchHistory', JSON.stringify(this.searchHistory));
+  }
+  clearSearchHistory(historyItem: SearchHistory) {
+    const index = this.searchHistory.indexOf(historyItem);
+    if (index > -1) {
+      this.searchHistory.splice(index, 1);
+        this.offreService.deleteSearchHistory(historyItem.keyword).subscribe({
+        next: () => console.log('Search history item deleted successfully'),
+        error: (error) => console.error('Error deleting search history item:', error)
+      });
+    }
+  }
+  deleteSearchHistory(keyword: string) {
+    this.offreService.deleteSearchHistory(keyword)
+      .subscribe(
+        () => console.log('Search history item deleted successfully'),
+        (error) => {
+          let errorMessage = 'Failed to delete search history item.';
+          if (error.error) {
+            errorMessage = error.error.message || errorMessage; 
+          }
+          console.error('Error deleting search history:', error);
+          alert(errorMessage);
+        }
+      );
+  }
+  
+  clearSearchHistoryAll() {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) { 
+        this.searchHistory = [];
+        this.offreService.deleteAllSearchHistory().subscribe({
+          next: () => console.log('Search history cleared successfully'),
+          error: (error: any) => console.error('Error clearing search history:', error)
+        });
+      } else {
+      }
+    });
+  }
+  
+  //button tous et nouveaux
+  filterOffers(filterType: string) {
+    if (filterType === 'all') {
+      this.filteredOffres = [...this.offres]; 
+    } else if (filterType === 'new') {
+      const oneDayAgo = new Date(Date.now() - (24 * 60 * 60 * 1000));
+      this.filteredOffres = this.offres.filter(offre => new Date(offre.publicationDate) >= oneDayAgo);
+    } else {
+      console.warn(`Filter type "${filterType}" not implemented yet.`);
+      this.filteredOffres = [...this.offres]; 
+    }
+  }
+  
+  
+
   
   }
   

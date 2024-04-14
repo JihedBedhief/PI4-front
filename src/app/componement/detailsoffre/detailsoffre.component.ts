@@ -24,15 +24,15 @@ export class DetailsoffreComponent implements OnInit {
     contratType: '',
     skills: '',
     experienceLevel: '',
-    favorite: false ,// Initialize favouris as false
+    favorite: false ,
     publicationDate: new Date(),
     rating: 0,
     ratings: []
   
   };  
   reference: any;
-  isShareDropdownOpen: boolean = false; // Declare isShareDropdownOpen here
-  elapsedTime: string = ''; // Variable pour stocker le temps écoulé
+  isShareDropdownOpen: boolean = false; 
+  elapsedTime: string = ''; 
   similarOffers: Offre[] = [];
 
 
@@ -48,36 +48,19 @@ export class DetailsoffreComponent implements OnInit {
     }
   }
 
- /* ngOnInit(): void {
+  ngOnInit(): void {
     const navigation = this.router.getCurrentNavigation();
     if (navigation && navigation.extras && navigation.extras.state) {
-      const stateData = navigation.extras.state as { offre: Offre }; // Explicitly type state
+      const stateData = navigation.extras.state as { offre: Offre }; 
       this.offre = stateData.offre;
-      this.loadElapsedTime(this.offre.reference); // Load elapsed time here
+      this.loadElapsedTime(this.offre.reference); 
     } else {
       this.route.paramMap.subscribe(params => {
         const reference = params.get('reference');
         if (reference) {
           this.loadOfferDetails(reference);
           this.loadElapsedTime(reference); 
-
-        }
-      });
-    }
-  }*/
-  ngOnInit(): void {
-    const navigation = this.router.getCurrentNavigation();
-    if (navigation && navigation.extras && navigation.extras.state) {
-      const stateData = navigation.extras.state as { offre: Offre }; // Explicitly type state
-      this.offre = stateData.offre;
-      this.loadElapsedTime(this.offre.reference); // Load elapsed time here
-    } else {
-      this.route.paramMap.subscribe(params => {
-        const reference = params.get('reference');
-        if (reference) {
-          this.loadOfferDetails(reference);
-          this.loadElapsedTime(reference); // Load elapsed time here
-          this.loadSimilarOffers(reference); // Charger les offres similaires lors de l'initialisation
+          this.loadSimilarOffers(reference); 
 
         }
       });
@@ -100,7 +83,7 @@ export class DetailsoffreComponent implements OnInit {
   openEditPopup(): void {
     const dialogRef = this.dialog.open(EditFormComponent, {
       width: '500px',
-      data: { offre: this.offre } // Pass the data here
+      data: { offre: this.offre } 
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -118,7 +101,7 @@ export class DetailsoffreComponent implements OnInit {
     this.offreService.deleteOffre(reference).subscribe(
       () => {
         console.log('Offer deleted successfully.');
-        this.router.navigateByUrl('/offercard'); // Redirect to offer card page after deletion
+        this.router.navigateByUrl('/offercard'); 
       },
       (error) => {
         console.error('Error deleting offer:', error);
@@ -127,17 +110,14 @@ export class DetailsoffreComponent implements OnInit {
   }
   addToFavorites(): void {
     if (this.offre && this.offre.reference) {
-        // Vérifier si l'offre est déjà dans la liste des favoris
         if (this.offre.favorite) {
             alert('Cette offre est déjà dans vos favoris.');
-            return; // Arrêter l'exécution de la fonction
+            return; 
         }
 
-        // Ajouter l'offre aux favoris seulement si elle n'est pas déjà dans la liste des favoris
         this.offreService.addToFavorites(this.offre.reference, true).subscribe(
             () => {
                 console.log('Offer added to favorites successfully.');
-                // Mettre à jour le statut de l'offre localement pour refléter son ajout aux favoris
                 this.offre.favorite = true;
                 alert('L\'offre a été ajoutée avec succès à vos favoris.');
             },
@@ -177,21 +157,21 @@ shareOnInstagram(): void {
 loadElapsedTime(reference: string): void {
   this.offreService.calculateElapsedTime(reference).subscribe(
     (response: any) => {
-      console.log('Elapsed Time:', response.elapsedTime); // Log the response
+      console.log('Elapsed Time:', response.elapsedTime); 
       this.elapsedTime = response.elapsedTime;
     },
     (error) => {
       console.error('Error loading elapsed time:', error);
-      this.elapsedTime = 'N/A'; // Set a default value or display a message to indicate the error
+      this.elapsedTime = 'N/A'; 
     }
   );
 }
 rateOffer(reference: string, rating: number): void {
   this.offreService.rateOffre(reference, rating).subscribe(
     (offre: Offre) => {
-      this.offre = offre; // Update the offer with the new rating
+      this.offre = offre; 
       console.log('Offer rated successfully.');
-      // Open the dialog
+     
       this.openRatingDialog();
     },
     (error) => {

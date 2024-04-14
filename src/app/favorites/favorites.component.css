@@ -1,11 +1,11 @@
 .custom-container {
     position: fixed;
-    top: 80px; /* Adjust this value based on your navbar height */
+    top: 80px; 
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    overflow-y: auto; /* Allow vertical scrolling */
-    max-height: calc(100vh - 80px); /* Adjust the maximum height to fit the viewport */
+    overflow-y: auto; 
+    max-height: calc(100vh - 80px); 
 }
 
 .custom-card {
@@ -32,11 +32,11 @@
 }
 
 .card-body {
-    font-size: 14px; /* Decrease font size for smaller cards */
+    font-size: 14px; 
     font-family: Arial, sans-serif;
     color: #333;
     line-height: 1.6;
-    padding: 1rem; /* Adjust padding for smaller cards */
+    padding: 1rem; 
 }
 
 .btn-favorites {
