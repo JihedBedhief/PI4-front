@@ -47,7 +47,8 @@ export class AddApplicationComponent {
   ngOnInit(): void {
     this.applicationForm = this.fb.group({
       contact: ['', [Validators.required, Validators.email]],
-      portfolio: ['', [Validators.required, Validators.pattern('https?://.+')]]
+      portfolio: ['', [Validators.required, Validators.pattern('https?://.+')]],
+      cv: ['']
     });
   }
 

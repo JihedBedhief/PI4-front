@@ -28,7 +28,10 @@ export class ScheduleInterviewComponent {
 
     this.form = this.fb.group({
       type: [''],
-      location: ['']
+      location: [''],
+      title:[''],
+      startDate:[''],
+      endDate:['']
     });
   }
 

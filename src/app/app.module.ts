@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -42,17 +42,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { DetailsApplicationComponent } from './componement/details-application/details-application.component';
 import { AddApplicationComponent } from './componement/add-application/add-application.component';
 import { UpdateApplicationComponent } from './componement/update-application/update-application.component';
-import { ListOffersComponent } from './componement/list-offers/list-offers.component';
-import { DetailsOfferComponent } from './componement/details-offer/details-offer.component';
 import { QuizComponent } from './componement/quiz/quiz.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StatisticsComponent } from './componement/statistics/statistics.component';
 import { RouterModule } from '@angular/router';
-
 import { MatDialogModule } from '@angular/material/dialog';
 import { ScorePopupComponent } from './componement/score-popup/score-popup.component';
 import { ListInterviewsComponent } from './componement/list-interviews/list-interviews.component';
 import { ScheduleInterviewComponent } from './componement/schedule-interview/schedule-interview.component';
+import { CalenderComponent } from './componement/calender/calender.component';
+import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService, DragAndDrop, DragAndDropService, ResizeService } from '@syncfusion/ej2-angular-schedule';
+import { InterviewDetailsComponent } from './componement/interview-details/interview-details.component';
+import { MeetingComponent } from './componement/meeting/meeting.component';
+import { MapComponent } from './componement/map/map.component';
+
 
 
 
@@ -78,13 +81,15 @@ import { ScheduleInterviewComponent } from './componement/schedule-interview/sch
     DetailsApplicationComponent,
     AddApplicationComponent,
     UpdateApplicationComponent,
-    ListOffersComponent,
-    DetailsOfferComponent,
     QuizComponent,
     StatisticsComponent,
     ScorePopupComponent,
     ListInterviewsComponent,
     ScheduleInterviewComponent,
+    CalenderComponent,
+    InterviewDetailsComponent,
+    MeetingComponent,
+    MapComponent,
 
 
   ],
@@ -103,9 +108,14 @@ import { ScheduleInterviewComponent } from './componement/schedule-interview/sch
     RouterModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    ScheduleModule, RecurrenceEditorModule,
+   
+    
+   
+ 
 
   ],
-  providers: [],
+  providers: [DayService, WeekService , WorkWeekService , MonthService , MonthAgendaService , DragAndDropService , ResizeService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

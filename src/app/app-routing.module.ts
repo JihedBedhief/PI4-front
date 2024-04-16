@@ -10,13 +10,15 @@ import { FrontOfficeComponent } from './componement/front-office/front-office/fr
 import { ListApplicationsComponent } from './componement/list-applications/list-applications.component';
 import { DetailsApplicationComponent } from './componement/details-application/details-application.component';
 import { AddApplicationComponent } from './componement/add-application/add-application.component';
-import { ListOffersComponent } from './componement/list-offers/list-offers.component';
-import { DetailsOfferComponent } from './componement/details-offer/details-offer.component';
 import { QuizComponent } from './componement/quiz/quiz.component';
 import { UpdateApplicationComponent } from './componement/update-application/update-application.component';
 import { StatisticsComponent } from './componement/statistics/statistics.component';
 import { ScheduleInterviewComponent } from './componement/schedule-interview/schedule-interview.component';
 import { ListInterviewsComponent } from './componement/list-interviews/list-interviews.component';
+import { CalenderComponent } from './componement/calender/calender.component';
+import { InterviewDetailsComponent } from './componement/interview-details/interview-details.component';
+import { MeetingComponent } from './componement/meeting/meeting.component';
+import { MapComponent } from './componement/map/map.component';
 
 
 const routes: Routes = [
@@ -26,12 +28,14 @@ const routes: Routes = [
   { path : 'exposant', component : CompanyCardComponent },
   { path : 'login' , component : LoginComponent},
   {path:'appList',component:ListApplicationsComponent},
-  {path:'offerList',component:ListOffersComponent},
   {path:'quiz',component:QuizComponent},
   { path: 'application-details/:codeCandidature', component: DetailsApplicationComponent },
+  { path: 'interview-details/:codeInterview', component: InterviewDetailsComponent },
   { path: 'scheduleInterview/:id', component: ScheduleInterviewComponent },
   {path:'interviewList',component:ListInterviewsComponent},
-  { path: 'offerDetails', component: DetailsOfferComponent },
+  {path:'calender',component:CalenderComponent},
+  {path:'meeting',component:MeetingComponent},
+  {path:'map',component:MapComponent},
   {path:'addApp',component:AddApplicationComponent},
   { path: 'editApp/:id', component: UpdateApplicationComponent },
   {path:'stat',component:StatisticsComponent},
