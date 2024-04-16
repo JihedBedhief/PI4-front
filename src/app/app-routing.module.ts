@@ -36,6 +36,18 @@ import { EditFormComponent } from './componement/edit-form/edit-form.component';
 import { OfferCardComponent } from './componement/offer-card/offer-card.component';
 import { DetailsoffreComponent } from './componement/detailsoffre/detailsoffre.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { ListApplicationsComponent } from './componement/list-applications/list-applications.component';
+import { DetailsApplicationComponent } from './componement/details-application/details-application.component';
+import { AddApplicationComponent } from './componement/add-application/add-application.component';
+import { QuizComponent } from './componement/quiz/quiz.component';
+import { UpdateApplicationComponent } from './componement/update-application/update-application.component';
+import { StatisticsComponent } from './componement/statistics/statistics.component';
+import { ScheduleInterviewComponent } from './componement/schedule-interview/schedule-interview.component';
+import { ListInterviewsComponent } from './componement/list-interviews/list-interviews.component';
+import { CalenderComponent } from './componement/calender/calender.component';
+import { InterviewDetailsComponent } from './componement/interview-details/interview-details.component';
+import { MeetingComponent } from './componement/meeting/meeting.component';
+import { MapComponent } from './componement/map/map.component';
 
 
 const routes: Routes = [
@@ -53,6 +65,18 @@ const routes: Routes = [
   { path : 'chooseRole' , component : RoleSelectionComponent,canActivate:[AuthGuard]},
   { path : 'updateProfile' , component : UserUpdateComponent,canActivate:[AuthGuard]},
   { path : 'login' , component : LoginComponent},
+  {path:'appList',component:ListApplicationsComponent},
+  {path:'quiz',component:QuizComponent},
+  { path: 'application-details/:codeCandidature', component: DetailsApplicationComponent },
+  { path: 'interview-details/:codeInterview', component: InterviewDetailsComponent },
+  { path: 'scheduleInterview/:id', component: ScheduleInterviewComponent },
+  {path:'interviewList',component:ListInterviewsComponent},
+  {path:'calender',component:CalenderComponent},
+  {path:'meeting',component:MeetingComponent},
+  {path:'map',component:MapComponent},
+  {path:'addApp',component:AddApplicationComponent},
+  { path: 'editApp/:id', component: UpdateApplicationComponent },
+  {path:'stat',component:StatisticsComponent},
   { path : 'info-pratiques' , component : InfoForumComponent},
   { path : 'signup' , component : SignupComponent},
  

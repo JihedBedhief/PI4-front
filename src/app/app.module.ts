@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -57,6 +57,20 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 import { RatingPopupComponent } from './rating-popup/rating-popup.component';
 import { FormsModule } from '@angular/forms';
 //import { ScrollSpyModule } from 'ngx-scrollspy';
+import { ListApplicationsComponent } from './componement/list-applications/list-applications.component';
+import { DetailsApplicationComponent } from './componement/details-application/details-application.component';
+import { AddApplicationComponent } from './componement/add-application/add-application.component';
+import { UpdateApplicationComponent } from './componement/update-application/update-application.component';
+import { QuizComponent } from './componement/quiz/quiz.component';
+import { StatisticsComponent } from './componement/statistics/statistics.component';
+import { RouterModule } from '@angular/router';
+import { ScorePopupComponent } from './componement/score-popup/score-popup.component';
+import { ListInterviewsComponent } from './componement/list-interviews/list-interviews.component';
+import { ScheduleInterviewComponent } from './componement/schedule-interview/schedule-interview.component';
+import { CalenderComponent } from './componement/calender/calender.component';
+import { InterviewDetailsComponent } from './componement/interview-details/interview-details.component';
+import { MeetingComponent } from './componement/meeting/meeting.component';
+import { MapComponent } from './componement/map/map.component';
 import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
 import { AddBidComponent } from './DashboardAdmin/Bid/AddBid/add-bid/add-bid.component';
 import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
@@ -86,14 +100,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
     });
 }
 
-
-
-
-
-
-//I keep the new line
-
-//I keep the new line
 @NgModule({
   declarations: [
     AppComponent,
@@ -143,6 +149,19 @@ function initializeKeycloak(keycloak: KeycloakService) {
     FavoritesComponent,
     ConfirmationDialogComponent,
     RatingPopupComponent,
+    ListApplicationsComponent,
+    DetailsApplicationComponent,
+    AddApplicationComponent,
+    UpdateApplicationComponent,
+    QuizComponent,
+    StatisticsComponent,
+    ScorePopupComponent,
+    ListInterviewsComponent,
+    ScheduleInterviewComponent,
+    CalenderComponent,
+    InterviewDetailsComponent,
+    MeetingComponent,
+    MapComponent,
 
 
   ],
@@ -160,7 +179,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     MatDialogModule,
     MatStepperModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    
   ],
   providers: [{
     provide: APP_INITIALIZER,
