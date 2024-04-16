@@ -6,7 +6,11 @@
   <form [formGroup]="commentForm" (ngSubmit)="addComment()">
     <div id="form">
     <div class="space-y-5 mt-7" >
-      <div *ngIf="!hideCodeReclamation">
+      <input type="text" id="userIdInput" class="w-full mt-3" matInput formControlName="userId" placeholder="User ID">
+      <mat-error *ngIf="commentForm.get('userId')?.hasError('required')">
+        User ID is required!
+      </mat-error>
+      <div >
         <input type="text" id="inputText" class="w-full mt-3"  matInput formControlName="codepost" placeholder="codepost">
         <mat-error *ngIf="commentForm.get('codepost')?.hasError('required')">
             This input required!

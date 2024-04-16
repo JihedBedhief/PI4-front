@@ -11,8 +11,8 @@ export class ServiceCommentService {
 
 
   constructor(private http: HttpClient) {}
-  addComment(commentDto: any, postId: string): Observable<any> {
-    return this.http.post(`${BASE_URL}/add?postId=${postId}`, commentDto);
+  addComment(commentDto: any, postId: string,userId: string): Observable<any> {
+    return this.http.post(`${BASE_URL}/add?postId=${postId}&userId=${userId}`, commentDto);
   }
 
   getAllComments(): Observable<any> {

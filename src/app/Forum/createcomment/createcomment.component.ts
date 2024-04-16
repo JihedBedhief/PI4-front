@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { PostlistComponent } from '../post/postlist/postlist.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServicePostService } from 'src/app/services/ServiceForum/service-post.service';
@@ -17,8 +15,6 @@ export class CreatecommentComponent {
   commentForm!: FormGroup; 
   itemId: any;
   item: any;
-  hideCodeReclamation: boolean = true;
-width: any;
 
   constructor(
     private fb: FormBuilder,
@@ -39,6 +35,7 @@ width: any;
       this.getPostById(this.itemId);
     });
   }
+
   getPostById(itemId: any): void {
     this.post.getPostById(itemId).subscribe(res => {
       this.item = res;
@@ -52,21 +49,22 @@ width: any;
   initializeForm(): void {
     this.commentForm = this.fb.group({
       codepost: [null, Validators.required], 
-     
+      userId: [null, Validators.required], // Add userId field to the form
       comment: [null, Validators.required],
-      
     });
   }
+
   addComment(): void {
     if (this.commentForm.valid) {
       const postId = this.commentForm.value.codepost;
-      
+      const userId = this.commentForm.value.userId;
+  
       const commentPayload = {
         comment: this.commentForm.value.comment,
-    
+        userId: userId
       };
-      
-      this.commentService.addComment(commentPayload, postId).subscribe({
+
+      this.commentService.addComment(commentPayload, postId,userId).subscribe({
         next: (res) => {
           this.snackbar.open('Comment added successfully', 'Close', { duration: 5000 });
           this.router.navigate(['/post']); 
@@ -80,5 +78,4 @@ width: any;
       this.commentForm.markAllAsTouched();
     }
   }
-  
 }
