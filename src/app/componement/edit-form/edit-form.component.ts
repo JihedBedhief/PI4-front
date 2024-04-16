@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Inject } from '@angular/core';
-import { Offre } from 'src/app/models/offre';
-import { OffreService } from 'src/app/services/offre.service';
+import { Offre } from 'app/models/offre';
+import { OffreService } from 'app/services/offre.service';
 
 @Component({
   selector: 'app-edit-form',

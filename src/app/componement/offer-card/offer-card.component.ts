@@ -6,9 +6,9 @@ import { Offre } from '../../models/offre';
 import { ChangeDetectorRef } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import * as XLSX from 'xlsx';
-import { SearchHistory } from 'src/app/models/SearchHistory';
+import { SearchHistory } from 'app/models/SearchHistory';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmationDialogComponent } from 'src/app/confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogComponent } from 'app/confirmation-dialog/confirmation-dialog.component';
 
 enum ExperienceLevel {
   Beginner = 'Beginner',

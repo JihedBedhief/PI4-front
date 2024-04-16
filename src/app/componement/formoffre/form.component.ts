@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { Offre } from 'src/app/models/offre';
-import { OffreService } from 'src/app/services/offre.service';
+import { Offre } from 'app/models/offre';
+import { OffreService } from 'app/services/offre.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

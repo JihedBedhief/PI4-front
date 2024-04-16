@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Offre } from 'src/app/models/offre';
-import { OffreService } from 'src/app/services/offre.service';
+import { Offre } from 'app/models/offre';
+import { OffreService } from 'app/services/offre.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EditFormComponent } from '../edit-form/edit-form.component';
-import { RatingPopupComponent } from 'src/app/rating-popup/rating-popup.component';
+import { RatingPopupComponent } from 'app/rating-popup/rating-popup.component';
 
 
 
