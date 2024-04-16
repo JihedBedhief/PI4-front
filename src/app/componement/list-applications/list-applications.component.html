@@ -27,17 +27,17 @@
                     <td>{{ application.status }}</td>
                     <td>{{ application.date | date }}</td>
                     <td>
-                        <a routerLink="/application-details/{{application.codeCandidature}}" class="view" data-toggle="tooltip" title="Details">
+                        <a routerLink="/application-details/{{application.applicationCode}}" class="view" data-toggle="tooltip" title="Details">
                             <i class="material-icons">&#xE417;</i>
                         </a>
-                        <a (click)="cancelApplication(application.codeCandidature)" class="delete" data-toggle="modal" 
+                        <a (click)="cancelApplication(application.applicationCode)" class="delete" data-toggle="modal" 
                         title="Delete">
                             <i class="material-icons" data-toggle="tooltip">&#xE872;</i>
                     </a>
-                        <a [routerLink]="'/editApp/' + application.codeCandidature" class="edit" data-toggle="modal">
+                        <a [routerLink]="'/editApp/' + application.applicationCode" class="edit" data-toggle="modal">
                             <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
                         </a>
-                        <a [routerLink]="'/scheduleInterview/' + application.codeCandidature" class="edit" data-toggle="tooltip" title="Planifier un entretien">
+                        <a [routerLink]="'/scheduleInterview/' + application.applicationCode" class="edit" data-toggle="tooltip" title="Planifier un entretien">
                             <i class="material-icons">&#xE878;</i>
                         </a>
                     </td>
