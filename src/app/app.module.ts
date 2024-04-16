@@ -1,6 +1,5 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-
 import { MatButtonModule } from '@angular/material/button';
 import { NavbarComponent } from './componement/navbar/navbar.component';
 import { FooterComponent } from './componement/footer/footer/footer.component';
@@ -23,28 +21,54 @@ import { FrontOfficeComponent } from './componement/front-office/front-office/fr
 import { Home2Component } from './componement/home2/home2/home2.component';
 import { SliderComponent } from './componement/Slider/slider/slider.component';
 import { ForumComponent } from './componement/form/forum/forum.component';
-
-
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { UserInfoComponent } from './componement/user-info/user-info.component';
 import { AdminKeycloakComponent } from './componement/admin-keycloak/admin-keycloak.component';
 import { RoleSelectionComponent } from './componement/role-selection/role-selection.component';
-import { MatSelectModule } from '@angular/material/select';
 import { StudentInfoPageComponent } from './componement/student-info-page/student-info-page.component';
 import { TeacherInfoPageComponent } from './componement/teacher-info-page/teacher-info-page.component';
 import { CompanyInfoPageComponent } from './componement/company-info-page/company-info-page.component';
 import { AlumniInfoPageComponent } from './componement/alumni-info-page/alumni-info-page.component';
 import { UserInfoModalComponent } from './componement/user-info-modal/user-info-modal.component';
-
 import { DropDownListModule } from '@progress/kendo-angular-dropdowns';
 import { UserUpdateComponent } from './componement/user-update/user-update.component';
 import { ResumeFormComponent } from './componement/resume-form/resume-form.component';
-
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
+import { SignupComponent } from './componement/signup/signup/signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
+import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
+import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
+import { ScrollSpyModule } from 'ngx-scrollspy';
+import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
+import { AddFormComponent } from './componement/add-form/add-form.component';
+import { FormComponent } from './componement/formoffre/form.component';
+import { OfferCardComponent } from './componement/offer-card/offer-card.component';
+import { DetailsoffreComponent } from './componement/detailsoffre/detailsoffre.component';
+import { EditFormComponent } from './componement/edit-form/edit-form.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { RatingPopupComponent } from './rating-popup/rating-popup.component';
+import { FormsModule } from '@angular/forms';
+//import { ScrollSpyModule } from 'ngx-scrollspy';
+import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
+import { AddBidComponent } from './DashboardAdmin/Bid/AddBid/add-bid/add-bid.component';
+import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
+import { initializeApp } from "firebase/app";
+import { environment } from 'environment/environment';
+import { CardItemsComponent } from './DashboardAdmin/PostItems/post-items/CardItems/card-items/card-items.component';
+import { CountdownTimerComponent } from './DashboardAdmin/Auction/auction-card/countdown-timer/countdown-timer/countdown-timer.component';
+import { BidDetailsComponent } from './DashboardAdmin/Bid/BidDetails/bid-details/bid-details.component';
+import { ChatComponent } from './DashboardAdmin/chat/chat/chat.component';
+import { DeviListComponent } from './DashboardAdmin/Devi/DeviList/devi-list/devi-list.component';
+import { AddDeviComponent } from './DashboardAdmin/Devi/AddDevi/add-devi/add-devi.component';
+initializeApp(environment.firebaseConfig);
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
@@ -62,30 +86,14 @@ function initializeKeycloak(keycloak: KeycloakService) {
     });
 }
 
-import { SignupComponent } from './componement/signup/signup/signup.component';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
-import { HttpClientModule } from '@angular/common/http';
-import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
-
-//import { ScrollSpyModule } from 'ngx-scrollspy';
-import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
-import { AddBidComponent } from './DashboardAdmin/Bid/AddBid/add-bid/add-bid.component';
-import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
-import { initializeApp } from "firebase/app";
-import { environment } from 'environment/environment';
-import { CardItemsComponent } from './DashboardAdmin/PostItems/post-items/CardItems/card-items/card-items.component';
-import { CountdownTimerComponent } from './DashboardAdmin/Auction/auction-card/countdown-timer/countdown-timer/countdown-timer.component';
-import { BidDetailsComponent } from './DashboardAdmin/Bid/BidDetails/bid-details/bid-details.component';
-import { ChatComponent } from './DashboardAdmin/chat/chat/chat.component';
-import { DeviListComponent } from './DashboardAdmin/Devi/DeviList/devi-list/devi-list.component';
-import { AddDeviComponent } from './DashboardAdmin/Devi/AddDevi/add-devi/add-devi.component';
-import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
-import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
-initializeApp(environment.firebaseConfig);
 
 
+
+
+
+//I keep the new line
+
+//I keep the new line
 @NgModule({
   declarations: [
     AppComponent,
@@ -126,6 +134,16 @@ initializeApp(environment.firebaseConfig);
     ChatComponent,
     DeviListComponent,
     AddDeviComponent,
+    DashboardComponent,
+    AddFormComponent,
+    FormComponent,
+    OfferCardComponent,
+    DetailsoffreComponent,
+    EditFormComponent,
+    FavoritesComponent,
+    ConfirmationDialogComponent,
+    RatingPopupComponent,
+
 
   ],
   imports: [
@@ -143,9 +161,6 @@ initializeApp(environment.firebaseConfig);
     MatStepperModule,
     MatInputModule,
     MatFormFieldModule
-
-
-
   ],
   providers: [{
     provide: APP_INITIALIZER,

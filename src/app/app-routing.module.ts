@@ -28,6 +28,14 @@ import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid
 import { CardItemsComponent } from './DashboardAdmin/PostItems/post-items/CardItems/card-items/card-items.component';
 import { ChatComponent } from './DashboardAdmin/chat/chat/chat.component';
 import { DeviListComponent } from './DashboardAdmin/Devi/DeviList/devi-list/devi-list.component';
+import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
+import { AddFormComponent } from './componement/add-form/add-form.component';
+import { CardComponent } from './componement/Card/card/card.component';
+import { FormComponent } from './componement/formoffre/form.component';
+import { EditFormComponent } from './componement/edit-form/edit-form.component';
+import { OfferCardComponent } from './componement/offer-card/offer-card.component';
+import { DetailsoffreComponent } from './componement/detailsoffre/detailsoffre.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 
 const routes: Routes = [
@@ -60,8 +68,22 @@ const routes: Routes = [
 
 
 
+ 
+  { path: 'edit-form/:reference', component: EditFormComponent },
+  { path : 'exposant', component : CompanyCardComponent },
+  { path : 'login' , component : LoginComponent},
+  { path : 'info-pratiques' , component : InfoForumComponent},
+  { path : 'signup' , component : SignupComponent},
+  { path : 'card' , component : CardComponent},
+  {path:'dashboard/admin/item' , component:PostItemsComponent},
+  {path:'dashboard/admin/list',component:ListItemsComponent},
+  {path:'dashboard',component:DashboardComponent},
+  {path: 'form',component:FormComponent},
+  {path: 'add-form',component:AddFormComponent},
+  {path: 'offercard',component:OfferCardComponent},
+  {path: 'detailoffer/:reference',component:DetailsoffreComponent},
+  { path: 'favorites', component: FavoritesComponent },
   { path: 'not-found', component: Error404Component },
-  
   { path: '**', redirectTo: 'not-found', pathMatch: 'full'  }, 
 
 
