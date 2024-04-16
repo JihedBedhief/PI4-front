@@ -9,8 +9,32 @@ import { ResumeService } from 'app/services/resume/resume.service';
 export class ResumeFormComponent {
   constructor(private resumeService: ResumeService) { }
 
-  onSubmit(resumeData: any) {
-    this.resumeService.postResume(resumeData).subscribe(
+  resume: any = {
+    header: {},
+    education: [],
+    experience: [],
+    skills: {},
+    projects: []
+  };
+  addEducation() {
+    this.resume.education.push({});
+  }
+
+  addExperience() {
+    this.resume.experience.push({});
+  }
+
+  addSkill() {
+    this.resume.skills['New Skill'] = 'Proficiency Level';
+  }
+
+  addProject() {
+    this.resume.projects.push({});
+  }
+
+  
+  onSubmit() {
+    this.resumeService.postResume(this.resume).subscribe(
       response => {
         if (response === 'Success') {
           alert('Your resume is ready!');
