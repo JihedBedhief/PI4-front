@@ -1,7 +1,11 @@
+@import 'aos/dist/aos.css';
+
 .container {
     display: flex;
     flex-direction: row;
     margin-top: 5%;
+    margin-bottom : 10%;
+
   }
   
   .logo {

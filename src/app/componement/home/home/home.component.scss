@@ -1,3 +1,5 @@
+@import '~aos/dist/aos.css';
+
 html {
   font-size: 1.3rem;
 
@@ -128,7 +130,7 @@ h3{
       .timeline__event__title {
         color: red;
       }
-
+      
     }
 
     &--type3 {
