@@ -3,7 +3,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { DeviService } from 'src/app/services/devi.service';
+import { DeviService } from 'app/services/devi.service';
 
 @Component({
   selector: 'app-add-devi',

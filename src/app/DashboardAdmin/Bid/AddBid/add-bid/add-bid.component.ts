@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BidServiceService } from 'src/app/services/bid-service.service';
+import { BidServiceService } from 'app/services/bid-service.service';
 
 @Component({
   selector: 'app-add-bid',

@@ -36,14 +36,15 @@ import { TeacherInfoPageComponent } from './componement/teacher-info-page/teache
 import { CompanyInfoPageComponent } from './componement/company-info-page/company-info-page.component';
 import { AlumniInfoPageComponent } from './componement/alumni-info-page/alumni-info-page.component';
 import { UserInfoModalComponent } from './componement/user-info-modal/user-info-modal.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatStepperModule } from '@angular/material/stepper';
+
 import { DropDownListModule } from '@progress/kendo-angular-dropdowns';
 import { UserUpdateComponent } from './componement/user-update/user-update.component';
 import { ResumeFormComponent } from './componement/resume-form/resume-form.component';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatStepperModule } from '@angular/material/stepper';
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
@@ -67,25 +68,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
-import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
-import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
-import { ScrollSpyModule } from 'ngx-scrollspy';
+
+//import { ScrollSpyModule } from 'ngx-scrollspy';
 import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
 import { AddBidComponent } from './DashboardAdmin/Bid/AddBid/add-bid/add-bid.component';
 import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
 import { initializeApp } from "firebase/app";
-import { environment } from 'src/environment/environment';
+import { environment } from 'environment/environment';
 import { CardItemsComponent } from './DashboardAdmin/PostItems/post-items/CardItems/card-items/card-items.component';
 import { CountdownTimerComponent } from './DashboardAdmin/Auction/auction-card/countdown-timer/countdown-timer/countdown-timer.component';
 import { BidDetailsComponent } from './DashboardAdmin/Bid/BidDetails/bid-details/bid-details.component';
 import { ChatComponent } from './DashboardAdmin/chat/chat/chat.component';
 import { DeviListComponent } from './DashboardAdmin/Devi/DeviList/devi-list/devi-list.component';
 import { AddDeviComponent } from './DashboardAdmin/Devi/AddDevi/add-devi/add-devi.component';
+import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
+import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
 initializeApp(environment.firebaseConfig);
 
-//I keep the new line
 
-//I keep the new line
 @NgModule({
   declarations: [
     AppComponent,
@@ -139,7 +139,12 @@ initializeApp(environment.firebaseConfig);
     KeycloakAngularModule,
     DropDownListModule,
     DemoAngularMaterialModule,
-    ScrollSpyModule,
+    MatDialogModule,
+    MatStepperModule,
+    MatInputModule,
+    MatFormFieldModule
+
+
 
   ],
   providers: [{

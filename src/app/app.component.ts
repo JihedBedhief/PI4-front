@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, Event as RouterEvent } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import {getMessaging,getToken, onMessage} from 'firebase/messaging'
-import { environment } from 'src/environment/environment';
+import { environment } from 'environment/environment';
 import { NotificationServiceService } from './services/notification-service.service';
 
 @Component({

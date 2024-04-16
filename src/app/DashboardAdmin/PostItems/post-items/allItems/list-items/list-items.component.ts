@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { UpdateItemComponent } from 'src/app/DashboardAdmin/updateItems/update-item/update-item.component';
-import { AdminServiceService } from 'src/app/services/admin-service.service';
-import { AuctionService } from 'src/app/services/auction.service';
+import { UpdateItemComponent } from 'app/DashboardAdmin/updateItems/update-item/update-item.component';
+import { AdminServiceService } from 'app/services/admin-service.service';
+import { AuctionService } from 'app/services/auction.service';
 import { PostItemsComponent } from '../../post-items.component';
 
 @Component({

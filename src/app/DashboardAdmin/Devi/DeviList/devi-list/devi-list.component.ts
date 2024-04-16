@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { DeviService } from 'src/app/services/devi.service';
+import { DeviService } from 'app/services/devi.service';
 import { saveAs } from 'file-saver';
 import { MatDialog } from '@angular/material/dialog';
 import { AddDeviComponent } from '../../AddDevi/add-devi/add-devi.component';

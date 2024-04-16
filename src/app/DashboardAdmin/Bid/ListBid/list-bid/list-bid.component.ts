@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { BidServiceService } from 'src/app/services/bid-service.service';
+import { BidServiceService } from 'app/services/bid-service.service';
 
 @Component({
   selector: 'app-list-bid',

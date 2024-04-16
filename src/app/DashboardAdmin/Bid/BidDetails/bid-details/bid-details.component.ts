@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { BidServiceService } from 'src/app/services/bid-service.service';
+import { BidServiceService } from 'app/services/bid-service.service';
 
 @Component({
   selector: 'app-bid-details',
