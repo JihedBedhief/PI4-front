@@ -10,6 +10,7 @@ import { KeycloakProfile } from 'keycloak-js';
 })
 export class UserInfoComponent implements OnInit {
 
+  Exist:boolean=false;
   profile! :KeycloakProfile ;
   userId!: string;
   user: any = {
@@ -36,6 +37,7 @@ export class UserInfoComponent implements OnInit {
       let id = this.profile.id;
     this.user = this.userService.getUser(id!).subscribe(data=>{
       this.user= data;
+      this.Exist=true;
      console.log(data)
     });
   }

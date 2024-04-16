@@ -10,7 +10,6 @@ import { FooterComponent } from './componement/footer/footer/footer.component';
 import { CardComponent } from './componement/Card/card/card.component';
 import { CompanyCardComponent } from './componement/CompanyCard/company-card/company-card.component';
 import { ContactComponent } from './componement/Contact/contact/contact.component';
-import { Error404Component } from './componement/error404/error404/error404.component';
 import { HomeComponent } from './componement/home/home/home.component';
 import { InfoForumComponent } from './componement/Info/info-forum/info-forum.component';
 import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
@@ -19,7 +18,6 @@ import { SliderComponent } from './componement/Slider/slider/slider.component';
 import { ForumComponent } from './componement/form/forum/forum.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './componement/login/login/login.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { UserInfoComponent } from './componement/user-info/user-info.component';
@@ -37,6 +35,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
 import { DropDownListModule } from '@progress/kendo-angular-dropdowns';
 import { UserUpdateComponent } from './componement/user-update/user-update.component';
+import { ResumeFormComponent } from './componement/resume-form/resume-form.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -66,7 +65,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
     FooterComponent,
     HomeComponent,
     InfoForumComponent,
-    LoginComponent,
     FrontOfficeComponent,
     Home2Component,
     SliderComponent,
@@ -80,6 +78,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     AlumniInfoPageComponent,
     UserInfoModalComponent,
     UserUpdateComponent,
+    ResumeFormComponent,
     
 
     
