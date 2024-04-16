@@ -1,0 +1,24 @@
+.container {
+    padding-top: 140px; /* Ajoutez un espacement au-dessus du conteneur pour tenir compte de la hauteur du navbar */
+  }
+  
+  .pack-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; /* Définissez la position sur relative pour permettre un positionnement absolu à l'intérieur */
+    z-index: 1; /* Assurez-vous que le conteneur est au-dessus du navbar */
+  }
+  
+  .pack-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pack-container input,
+  .pack-container button {
+    margin-bottom: 10px;
+  }
+  
