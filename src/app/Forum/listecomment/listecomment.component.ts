@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { ServiceCommentService } from 'src/app/services/Comment/service-comment.service';
-import { CreatecommentComponent } from '../createcomment/createcomment.component';
-import { CreatepostComponent } from '../createpost/createpost/createpost.component';
+import { ServiceCommentService } from 'app/services/Comment/service-comment.service';
+
 
 @Component({
   selector: 'app-listecomment',

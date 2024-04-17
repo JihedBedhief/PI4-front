@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { ReclamationService } from 'src/app/services/ServiceReclamation/reclamation.service';
+import { ReclamationService } from 'app/services/ServiceReclamation/reclamation.service';
 
 @Component({
   selector: 'app-reclamation-services',

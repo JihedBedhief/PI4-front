@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { ServicePostService } from 'src/app/services/ServiceForum/service-post.service';
+import { ServicePostService } from 'app/services/ServiceForum/service-post.service';
 import { PostlistComponent } from '../../post/postlist/postlist.component';
 
 @Component({

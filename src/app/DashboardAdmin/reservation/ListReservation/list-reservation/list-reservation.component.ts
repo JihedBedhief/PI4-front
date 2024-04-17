@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
-import { ReservationServiceService } from 'src/app/services/reservation-service.service';
+
+import { ReservationServiceService } from 'app/services/reservation/reservation-service.service';
 
 @Component({
   selector: 'app-list-reservation',

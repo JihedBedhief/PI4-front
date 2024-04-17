@@ -67,7 +67,6 @@ import { AddDeviComponent } from './DashboardAdmin/Devi/AddDevi/add-devi/add-dev
 import { CommonModule } from '@angular/common';
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
-import { SignupComponent } from './componement/signup/signup/signup.component';
 import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
 import { ReclamationServicesComponent } from './componement/reclamation-services/reclamation-services.component';
 import { PostReclamationComponent } from './componement/reclamation-services/PostReclamation/post-reclamation/post-reclamation.component';
@@ -81,6 +80,7 @@ import { ListecommentComponent } from './Forum/listecomment/listecomment.compone
 import { StatestiqueReclamationComponent } from './statestique-reclamation/statestique-reclamation.component';
 
 import { UsernameComponent } from './Forum/ChatRoom/username/username/username.component';
+import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
 
 initializeApp(environment.firebaseConfig);
 
@@ -130,7 +130,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
     UserUpdateComponent,
     ResumeFormComponent,
     Error404Component,
-    PostItemsComponent,
     UpdateItemComponent,
     AuctionCardComponent,
     PostItemsComponent,
@@ -176,6 +175,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     StatestiqueReclamationComponent,
     ChatComponent,
     UsernameComponent,
+    PostReservationComponent
     
   ],
 

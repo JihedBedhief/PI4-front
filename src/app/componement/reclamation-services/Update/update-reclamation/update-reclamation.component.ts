@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ReclamationService } from 'src/app/services/ServiceReclamation/reclamation.service';
+import { ReclamationService } from 'app/services/ServiceReclamation/reclamation.service';
 
 @Component({
   selector: 'app-update-reclamation',

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ServicePostService } from 'src/app/services/ServiceForum/service-post.service';
-import { ServiceCommentService } from 'src/app/services/Comment/service-comment.service';
+import { ServicePostService } from 'app/services/ServiceForum/service-post.service';
+import { ServiceCommentService } from 'app/services/Comment/service-comment.service';
 
 @Component({
   selector: 'app-createcomment',

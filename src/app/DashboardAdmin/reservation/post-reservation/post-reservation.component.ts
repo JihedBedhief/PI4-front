@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
-import { ReservationServiceService } from 'src/app/services/reservation-service.service';
+
+import { ReservationServiceService } from 'app/services/reservation/reservation-service.service';
 
 @Component({
   selector: 'app-post-reservation',

@@ -3,7 +3,7 @@ import { CreatepostComponent } from '../../createpost/createpost/createpost.comp
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ServicePostService } from 'src/app/services/ServiceForum/service-post.service';
+import { ServicePostService } from 'app/services/ServiceForum/service-post.service';
 import { CreatecommentComponent } from '../../createcomment/createcomment.component';
 
 @Component({
