@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdminServiceService } from 'src/app/services/admin-service.service';
+import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
 import { ReservationServiceService } from 'src/app/services/reservation-service.service';
 
 @Component({

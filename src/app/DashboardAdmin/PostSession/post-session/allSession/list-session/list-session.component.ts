@@ -4,14 +4,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ListStandComponent } from 'src/app/DashboardAdmin/list-stand/list-stand.component';
 import { PlaceComponent } from 'src/app/DashboardAdmin/place/place.component';
-import { AdminServiceService } from 'src/app/services/admin-service.service';
+import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
 
 @Component({
-  selector: 'app-list-items',
-  templateUrl: './list-items.component.html',
-  styleUrls: ['./list-items.component.css']
+  selector: 'app-list-session',
+  templateUrl: './list-session.component.html',
+  styleUrls: ['./list-session.component.css']
 })
-export class ListItemsComponent {
+export class ListSessionComponent {
   sessions: any[] = [];
 
   constructor(private adminservice : AdminServiceService,

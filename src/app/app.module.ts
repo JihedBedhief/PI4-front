@@ -27,11 +27,11 @@ import { ForumComponent } from './componement/form/forum/forum.component';
 import { SignupComponent } from './componement/signup/signup/signup.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
+import { PostSessionComponent } from './DashboardAdmin/PostSession/post-session/post-session.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
-import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
-import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
+import { ListSessionComponent } from './DashboardAdmin/PostSession/post-session/allSession/list-session/list-session.component';
+import { UpdateSessionComponent } from './DashboardAdmin/updateSession/update-session/update-session.component';
 import { CommonModule, DatePipe } from '@angular/common';
 import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
 import { ListReservationComponent } from './DashboardAdmin/reservation/ListReservation/list-reservation/list-reservation.component';
@@ -63,9 +63,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     ForumComponent,
     SignupComponent,
     Error404Component,
-    PostItemsComponent,
-    ListItemsComponent,
-    UpdateItemComponent,
+    PostSessionComponent,
+    ListSessionComponent,
+    UpdateSessionComponent,
     PostReservationComponent,
     ListReservationComponent,
     PlaceComponent,

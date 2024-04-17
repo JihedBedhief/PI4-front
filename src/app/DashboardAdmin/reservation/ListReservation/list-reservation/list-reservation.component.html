@@ -4,10 +4,9 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-            <h2>Manage <b>Items</b></h2>
+            <h2>RESERVATION  <b>LIST</b></h2>
           </div>
                     <div class="col-sm-6 text-right"> <!-- Alignement à droite -->
-                        <a href="/Add/reservation" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Offer</span></a>                  
 
                     </div>
                 </div>
@@ -18,27 +17,25 @@
                 
                 <th>Exposant Name</th>
                 <th>Pack</th>
-                <th>Stand price</th>
                 <th>Stand num</th>
-
                 <th>Session</th>
                 <th>price</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let res of items">
-                <td>{{ res.ExposantName }}</td>
-                <td>{{ res.packType }}</td>
-                <td>{{ res.standPrice }}</td>
-                <td>{{ res.standNum }}</td>
-                <td>{{ res.sessionLocation }}</td>
-                <td>{{ res.price }}</td>
+            
+            <tr *ngFor="let ress of items">
+                <td>{{ ress.ExposantName }}</td>
+                <td>{{ ress.pack }}</td>
+                <td>{{ ress.standNum }}</td>
+                <td>{{ ress.sessionId }}</td>
+                <td>{{ ress.price }}</td>
                 <td>
 
                 </td>
                 <td>
-                    <button class="btn btn-info" [routerLink]="'/item/'+res.codeItem">Update</button>
-                    <button (click)="deleteItem(res.codeItem)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
+
+                    <button (click)="deleteItem(ress.id)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
                     <!-- Add Auction button -->
                 </td>
             </tr>

@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdminServiceService } from 'src/app/services/admin-service.service';
+import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
 
 @Component({
-  selector: 'app-update-item',
-  templateUrl: './update-item.component.html',
-  styleUrls: ['./update-item.component.css']
+  selector: 'app-update-session',
+  templateUrl: './update-session.component.html',
+  styleUrls: ['./update-session.component.css']
 })
-export class UpdateItemComponent {
+export class UpdateSessionComponent {
 
   itemId = this.activatedroute.snapshot.params['id']; 
   itemForm!: FormGroup;

@@ -1,9 +1,8 @@
 <div class="container">
     <div id="canvas-container">
-      <button (click)="addRectangle('diamond' , $event)">Ajouter un stand premium</button>
-      <button (click)="addRectangle('gold' , $event)">Ajouter un stand vip</button>
-      <button (click)="addRectangle('gratuit', $event)">Ajouter un stand gratuit</button>
-      <button (click)="addRectangle('porte', $event)">Ajouter l'entrée de l'espace </button>
+      <button (click)="addRectangle('diamond' , $event)">Add Premium</button>
+      <button (click)="addRectangle('gold' , $event)">Add vip</button>
+      <button (click)="addRectangle('gratuit', $event)">Add free</button>
 
       <button (click)="submitStandsToDatabase()">Submit Stands</button>
       <canvas id="canvas"></canvas>

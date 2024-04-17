@@ -8,8 +8,8 @@ import { InfoForumComponent } from './componement/Info/info-forum/info-forum.com
 import { Error404Component } from './componement/error404/error404/error404.component';
 import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
 import { SignupComponent } from './componement/signup/signup/signup.component';
-import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
-import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
+import { PostSessionComponent } from './DashboardAdmin/PostSession/post-session/post-session.component';
+import { ListSessionComponent } from './DashboardAdmin/PostSession/post-session/allSession/list-session/list-session.component';
 import { ListReservationComponent } from './DashboardAdmin/reservation/ListReservation/list-reservation/list-reservation.component';
 import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
 import { PlaceComponent } from './DashboardAdmin/place/place.component';
@@ -26,8 +26,8 @@ const routes: Routes = [
   { path : 'login' , component : LoginComponent},
   { path : 'info-pratiques' , component : InfoForumComponent},
   { path : 'signup' , component : SignupComponent},
-  {path:'dashboard/admin/session' , component:PostItemsComponent},
-  {path:'dashboard/admin/list',component:ListItemsComponent},
+  {path:'dashboard/admin/session' , component:PostSessionComponent},
+  {path:'dashboard/admin/list',component:ListSessionComponent},
   {path:'reservation',component:ListReservationComponent},
   {path:'Add/reservation/:id' , component:PostReservationComponent},
   {path:'place' , component:PlaceComponent},

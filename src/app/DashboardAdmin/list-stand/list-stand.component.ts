@@ -99,7 +99,7 @@ export class ListStandComponent implements AfterViewInit {
 
 
     };
-    
+
     console.log(ress)
     this.reservService.addItem(ress).subscribe(() => {
       console.log(this.email);
@@ -114,7 +114,7 @@ export class ListStandComponent implements AfterViewInit {
   }
 
   displayStandsOnCanvas() {
-    this.canvas = new fabric.Canvas('canvas', { width: 800, height: 600 });
+    this.canvas = new fabric.Canvas('canvas', { width: 480, height: 600 });
 
     if (!this.canvas) return;
 
@@ -135,8 +135,8 @@ export class ListStandComponent implements AfterViewInit {
           stand.reserved == 1
         ) {
           const fabricRect = new fabric.Rect({
-            width: 80,
-            height: 80,
+            width: 50,
+            height: 50,
             left: stand.xposition,
             top: stand.yposition,
             fill: 'red',
@@ -155,8 +155,8 @@ export class ListStandComponent implements AfterViewInit {
           stand.reserved == 0
         ) {
           const fabricRect = new fabric.Rect({
-            width: 80,
-            height: 80,
+            width: 50,
+            height: 50,
             left: stand.xposition,
             top: stand.yposition,
             fill: 'green',

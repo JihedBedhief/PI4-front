@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostItemsComponent } from './post-items.component';
+import { ListSessionComponent } from './list-session.component';
 
-describe('PostItemsComponent', () => {
-  let component: PostItemsComponent;
-  let fixture: ComponentFixture<PostItemsComponent>;
+describe('ListSessionComponent', () => {
+  let component: ListSessionComponent;
+  let fixture: ComponentFixture<ListSessionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PostItemsComponent ]
+      declarations: [ ListSessionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PostItemsComponent);
+    fixture = TestBed.createComponent(ListSessionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

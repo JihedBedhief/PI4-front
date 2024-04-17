@@ -2,7 +2,7 @@
 import { Component, AfterViewInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { fabric } from 'fabric';
-import { AdminServiceService } from 'src/app/services/admin-service.service';
+import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
 
 @Component({
   selector: 'app-place',
@@ -19,7 +19,7 @@ export class PlaceComponent implements AfterViewInit {
     private _dialogue : MatDialogRef<PlaceComponent>,@Inject(MAT_DIALOG_DATA) public data: { id: any },
   ) {console.log(data.id);}
     ngAfterViewInit() {
-    this.canvas = new fabric.Canvas('canvas', { width: 800, height: 600 });
+    this.canvas = new fabric.Canvas('canvas', { width: 480, height: 600 });
     
     fabric.Image.fromURL('assets/floor-plan.jpg', (img) => {
       img.scaleToWidth(this.canvas.width);
@@ -53,8 +53,8 @@ export class PlaceComponent implements AfterViewInit {
   
       // Créer le rectangle avec les coordonnées initiales
       const rect: any = new fabric.Rect({
-        width: 80,
-        height: 80,
+        width: 50,
+        height: 50,
         left: offsetX,
         top: offsetY,
         fill: fill,
