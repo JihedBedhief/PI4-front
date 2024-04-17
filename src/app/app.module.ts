@@ -29,8 +29,6 @@ import { UserInfoModalComponent } from './componement/user-info-modal/user-info-
 import { UserUpdateComponent } from './componement/user-update/user-update.component';
 import { ResumeFormComponent } from './componement/resume-form/resume-form.component';
 import { HttpClientModule } from '@angular/common/http';
-
-
 import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
 import { AddFormComponent } from './componement/add-form/add-form.component';
 import { FormComponent } from './componement/formoffre/form.component';
@@ -40,9 +38,7 @@ import { EditFormComponent } from './componement/edit-form/edit-form.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { RatingPopupComponent } from './rating-popup/rating-popup.component';
-
 import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
-
 import { FormStepperComponent } from './DashboardAdmin/form-stepper/form-stepper.component';
 import { PackComponent } from './DashboardAdmin/pack/pack.component';
 import { ListApplicationsComponent } from './componement/list-applications/list-applications.component';
@@ -71,6 +67,20 @@ import { AddDeviComponent } from './DashboardAdmin/Devi/AddDevi/add-devi/add-dev
 import { CommonModule } from '@angular/common';
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
+import { SignupComponent } from './componement/signup/signup/signup.component';
+import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
+import { ReclamationServicesComponent } from './componement/reclamation-services/reclamation-services.component';
+import { PostReclamationComponent } from './componement/reclamation-services/PostReclamation/post-reclamation/post-reclamation.component';
+import { UpdateReclamationComponent } from './componement/reclamation-services/Update/update-reclamation/update-reclamation.component';
+import { IgxBadgeModule, IgxButtonGroupModule, IgxButtonModule, IgxCardModule, IgxCheckboxModule, IgxIconModule, IgxInputGroupModule, IgxMaskModule, IgxRadioModule, IgxSelectModule, IgxStepperModule } from 'igniteui-angular';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PostlistComponent } from './Forum/post/postlist/postlist.component';
+import { CreatepostComponent } from './Forum/createpost/createpost/createpost.component';
+import { CreatecommentComponent } from './Forum/createcomment/createcomment.component';
+import { ListecommentComponent } from './Forum/listecomment/listecomment.component';
+import { StatestiqueReclamationComponent } from './statestique-reclamation/statestique-reclamation.component';
+
+import { UsernameComponent } from './Forum/ChatRoom/username/username/username.component';
 
 initializeApp(environment.firebaseConfig);
 
@@ -90,8 +100,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
       bearerExcludedUrls: ['/assets', '/clients/public'],
     });
 }
+//I keep the new line
 
-
+//I keep the new line
 @NgModule({
   declarations: [
     AppComponent,
@@ -155,6 +166,17 @@ function initializeKeycloak(keycloak: KeycloakService) {
     FormStepperComponent,
     PackComponent,
     ConfirmationDialogComponent,
+    ReclamationServicesComponent,
+    PostReclamationComponent,
+    UpdateReclamationComponent,
+    PostlistComponent,
+    CreatepostComponent,
+    CreatecommentComponent,
+    ListecommentComponent,
+    StatestiqueReclamationComponent,
+    ChatComponent,
+    UsernameComponent,
+    
   ],
 
   imports: [

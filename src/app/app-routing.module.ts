@@ -16,39 +16,50 @@ import { LoginComponent } from './componement/login/login/login.component';
 import { InfoForumComponent } from './componement/Info/info-forum/info-forum.component';
 import { Error404Component } from './componement/error404/error404/error404.component';
 import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
-
-import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
+import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
+import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
+import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
+import { ReclamationServicesComponent } from './componement/reclamation-services/reclamation-services.component';
+import { PostReclamationComponent } from './componement/reclamation-services/PostReclamation/post-reclamation/post-reclamation.component';
+import { UpdateReclamationComponent } from './componement/reclamation-services/Update/update-reclamation/update-reclamation.component';
+import { PostlistComponent } from './Forum/post/postlist/postlist.component';
+import { CreatecommentComponent } from './Forum/createcomment/createcomment.component';
+import { ListecommentComponent } from './Forum/listecomment/listecomment.component';
+import { StatestiqueReclamationComponent } from './statestique-reclamation/statestique-reclamation.component';
+import { ListApplicationsComponent } from './componement/list-applications/list-applications.component';
+import { QuizComponent } from './componement/quiz/quiz.component';
+import { DetailsApplicationComponent } from './componement/details-application/details-application.component';
+import { InterviewDetailsComponent } from './componement/interview-details/interview-details.component';
+import { ScheduleInterviewComponent } from './componement/schedule-interview/schedule-interview.component';
+import { ListInterviewsComponent } from './componement/list-interviews/list-interviews.component';
+import { MeetingComponent } from './componement/meeting/meeting.component';
+import { MapComponent } from './componement/map/map.component';
+import { AddApplicationComponent } from './componement/add-application/add-application.component';
+import { UpdateApplicationComponent } from './componement/update-application/update-application.component';
+import { StatisticsComponent } from './componement/statistics/statistics.component';
 import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
+import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
 import { CardItemsComponent } from './DashboardAdmin/PostItems/post-items/CardItems/card-items/card-items.component';
 import { ChatComponent } from './DashboardAdmin/chat/chat/chat.component';
 import { DeviListComponent } from './DashboardAdmin/Devi/DeviList/devi-list/devi-list.component';
-import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
-import { AddFormComponent } from './componement/add-form/add-form.component';
+import { EditFormComponent } from './componement/edit-form/edit-form.component';
 import { CardComponent } from './componement/Card/card/card.component';
 import { FormComponent } from './componement/formoffre/form.component';
-import { EditFormComponent } from './componement/edit-form/edit-form.component';
+import { AddFormComponent } from './componement/add-form/add-form.component';
 import { OfferCardComponent } from './componement/offer-card/offer-card.component';
 import { DetailsoffreComponent } from './componement/detailsoffre/detailsoffre.component';
 import { FavoritesComponent } from './favorites/favorites.component';
-import { ListApplicationsComponent } from './componement/list-applications/list-applications.component';
-import { DetailsApplicationComponent } from './componement/details-application/details-application.component';
-import { AddApplicationComponent } from './componement/add-application/add-application.component';
-import { QuizComponent } from './componement/quiz/quiz.component';
-import { UpdateApplicationComponent } from './componement/update-application/update-application.component';
-import { StatisticsComponent } from './componement/statistics/statistics.component';
-import { ScheduleInterviewComponent } from './componement/schedule-interview/schedule-interview.component';
-import { ListInterviewsComponent } from './componement/list-interviews/list-interviews.component';
-import { InterviewDetailsComponent } from './componement/interview-details/interview-details.component';
-import { MeetingComponent } from './componement/meeting/meeting.component';
-import { MapComponent } from './componement/map/map.component';
 import { FormStepperComponent } from './DashboardAdmin/form-stepper/form-stepper.component';
 import { PackComponent } from './DashboardAdmin/pack/pack.component';
+import { ListReservationComponent } from './DashboardAdmin/reservation/ListReservation/list-reservation/list-reservation.component';
+import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
+
+
 
 
 const routes: Routes = [
   { path: 'home', component: FrontOfficeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'contact', component: ContactComponent },
   { path: 'exposant', component: CompanyCardComponent },
   { path: 'info-pratiques', component: InfoForumComponent },
   { path: 'UserInfo', component: UserInfoComponent, canActivate: [AuthGuard] },
@@ -69,10 +80,10 @@ const routes: Routes = [
   { path: 'meeting', component: MeetingComponent },
   { path: 'map', component: MapComponent },
   { path: 'addApp', component: AddApplicationComponent },
-  { path: 'editApp/:id', component: UpdateApplicationComponent },
+  { path: 'editApp/:id', component: UpdateApplicationComponent},
   { path: 'stat', component: StatisticsComponent },
   { path: 'info-pratiques', component: InfoForumComponent },
-  // { path: 'Items', component: ListItemsComponent },
+  { path: 'Items', component: ListItemsComponent },
   { path: 'Bid', component: ListBidComponent },
   { path: 'Card', component: AuctionCardComponent },
   { path: 'i', component: CardItemsComponent },
@@ -83,8 +94,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'info-pratiques', component: InfoForumComponent },
   { path: 'card', component: CardComponent },
-  // { path: 'dashboard/admin/item', component: PostItemsComponent },
-  // { path: 'dashboard/admin/list', component: ListItemsComponent },
+  { path: 'dashboard/admin/item', component: PostItemsComponent },
+  { path: 'dashboard/admin/list', component: ListItemsComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'form', component: FormComponent },
   { path: 'add-form', component: AddFormComponent },
@@ -92,13 +103,35 @@ const routes: Routes = [
   { path: 'detailoffer/:reference', component: DetailsoffreComponent },
   { path: 'favorites', component: FavoritesComponent },
   { path: 'not-found', component: Error404Component },
-  // { path: 'dashboard/admin/session', component: PostItemsComponent },
-  // { path: 'dashboard/admin/list', component: ListItemsComponent },
-  // { path: 'reservation', component: ListReservationComponent },
-  // { path: 'Add/reservation/:id', component: PostReservationComponent },
+  { path: 'dashboard/admin/session', component: PostItemsComponent },
+  { path: 'dashboard/admin/list', component: ListItemsComponent },
+  { path: 'reservation', component: ListReservationComponent },
+  { path: 'Add/reservation/:id', component: PostReservationComponent },
   { path: 'forr', component: FormStepperComponent },
   { path: 'pack', component: PackComponent },
-  { path: '**', component: Error404Component },
+ 
+  { path : 'contact' , component : ContactComponent},
+  { path : 'exposant', component : CompanyCardComponent },
+  { path : 'login' , component : LoginComponent},
+  { path : 'info-pratiques' , component : InfoForumComponent},
+  
+  {path:'dashboard/admin/item' , component:PostItemsComponent},
+  {path:'dashboard/admin/list',component:ListItemsComponent},
+  { path: 'not-found', component: Error404Component },
+  { path : 'reclamation' , component : ReclamationServicesComponent},
+  { path : 'addreclamation' , component : PostReclamationComponent},
+  { path: 'updatereclamation/:id', component: UpdateReclamationComponent },
+  { path: 'getidtocomment/:id', component: CreatecommentComponent },
+  { path: 'comments/:postId', component: ListecommentComponent },
+
+  { path: 'post', component: PostlistComponent },
+  {path:'dashboard',component:DashboardComponent},
+  {path:'rec',component:StatestiqueReclamationComponent},
+
+  { path: '**', redirectTo: 'not-found', pathMatch: 'full'  }, 
+
+
+
 ];
 
 @NgModule({
