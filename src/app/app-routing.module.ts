@@ -19,7 +19,6 @@ import { LoginComponent } from './componement/login/login/login.component';
 import { InfoForumComponent } from './componement/Info/info-forum/info-forum.component';
 import { Error404Component } from './componement/error404/error404/error404.component';
 import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
-import { SignupComponent } from './componement/signup/signup/signup.component';
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
 import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
@@ -44,7 +43,6 @@ import { UpdateApplicationComponent } from './componement/update-application/upd
 import { StatisticsComponent } from './componement/statistics/statistics.component';
 import { ScheduleInterviewComponent } from './componement/schedule-interview/schedule-interview.component';
 import { ListInterviewsComponent } from './componement/list-interviews/list-interviews.component';
-import { CalenderComponent } from './componement/calender/calender.component';
 import { InterviewDetailsComponent } from './componement/interview-details/interview-details.component';
 import { MeetingComponent } from './componement/meeting/meeting.component';
 import { MapComponent } from './componement/map/map.component';
@@ -71,19 +69,14 @@ const routes: Routes = [
   { path: 'interview-details/:codeInterview', component: InterviewDetailsComponent },
   { path: 'scheduleInterview/:id', component: ScheduleInterviewComponent },
   {path:'interviewList',component:ListInterviewsComponent},
-  {path:'calender',component:CalenderComponent},
   {path:'meeting',component:MeetingComponent},
   {path:'map',component:MapComponent},
   {path:'addApp',component:AddApplicationComponent},
   { path: 'editApp/:id', component: UpdateApplicationComponent },
   {path:'stat',component:StatisticsComponent},
   { path : 'info-pratiques' , component : InfoForumComponent},
-  { path : 'signup' , component : SignupComponent},
- 
-    { path:'Items',component:ListItemsComponent},
-    { path: 'Bid' , component : ListBidComponent},
-
-  
+  { path:'Items',component:ListItemsComponent},
+  { path: 'Bid' , component : ListBidComponent},
   {path: 'Card',component:AuctionCardComponent},
   {path: 'i',component:CardItemsComponent},
   {path: 'chat',component:ChatComponent},
@@ -97,7 +90,6 @@ const routes: Routes = [
   { path : 'exposant', component : CompanyCardComponent },
   { path : 'login' , component : LoginComponent},
   { path : 'info-pratiques' , component : InfoForumComponent},
-  { path : 'signup' , component : SignupComponent},
   { path : 'card' , component : CardComponent},
   {path:'dashboard/admin/item' , component:PostItemsComponent},
   {path:'dashboard/admin/list',component:ListItemsComponent},

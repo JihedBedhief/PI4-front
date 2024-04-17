@@ -30,21 +30,18 @@ import { TeacherInfoPageComponent } from './componement/teacher-info-page/teache
 import { CompanyInfoPageComponent } from './componement/company-info-page/company-info-page.component';
 import { AlumniInfoPageComponent } from './componement/alumni-info-page/alumni-info-page.component';
 import { UserInfoModalComponent } from './componement/user-info-modal/user-info-modal.component';
-import { DropDownListModule } from '@progress/kendo-angular-dropdowns';
 import { UserUpdateComponent } from './componement/user-update/user-update.component';
 import { ResumeFormComponent } from './componement/resume-form/resume-form.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
-import { SignupComponent } from './componement/signup/signup/signup.component';
-import { ReactiveFormsModule } from '@angular/forms';
+
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
 import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
 import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
-import { ScrollSpyModule } from 'ngx-scrollspy';
 import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
 import { AddFormComponent } from './componement/add-form/add-form.component';
 import { FormComponent } from './componement/formoffre/form.component';
@@ -55,19 +52,16 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { RatingPopupComponent } from './rating-popup/rating-popup.component';
-import { FormsModule } from '@angular/forms';
-//import { ScrollSpyModule } from 'ngx-scrollspy';
+
 import { ListApplicationsComponent } from './componement/list-applications/list-applications.component';
 import { DetailsApplicationComponent } from './componement/details-application/details-application.component';
 import { AddApplicationComponent } from './componement/add-application/add-application.component';
 import { UpdateApplicationComponent } from './componement/update-application/update-application.component';
 import { QuizComponent } from './componement/quiz/quiz.component';
 import { StatisticsComponent } from './componement/statistics/statistics.component';
-import { RouterModule } from '@angular/router';
 import { ScorePopupComponent } from './componement/score-popup/score-popup.component';
 import { ListInterviewsComponent } from './componement/list-interviews/list-interviews.component';
 import { ScheduleInterviewComponent } from './componement/schedule-interview/schedule-interview.component';
-import { CalenderComponent } from './componement/calender/calender.component';
 import { InterviewDetailsComponent } from './componement/interview-details/interview-details.component';
 import { MeetingComponent } from './componement/meeting/meeting.component';
 import { MapComponent } from './componement/map/map.component';
@@ -82,6 +76,7 @@ import { BidDetailsComponent } from './DashboardAdmin/Bid/BidDetails/bid-details
 import { ChatComponent } from './DashboardAdmin/chat/chat/chat.component';
 import { DeviListComponent } from './DashboardAdmin/Devi/DeviList/devi-list/devi-list.component';
 import { AddDeviComponent } from './DashboardAdmin/Devi/AddDevi/add-devi/add-devi.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 initializeApp(environment.firebaseConfig);
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -126,7 +121,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     UserInfoModalComponent,
     UserUpdateComponent,
     ResumeFormComponent,
-    SignupComponent,
+
     Error404Component,
     PostItemsComponent,
     ListItemsComponent,
@@ -158,7 +153,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
     ScorePopupComponent,
     ListInterviewsComponent,
     ScheduleInterviewComponent,
-    CalenderComponent,
     InterviewDetailsComponent,
     MeetingComponent,
     MapComponent,
@@ -169,17 +163,17 @@ function initializeKeycloak(keycloak: KeycloakService) {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgbModule,
+    NgModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     KeycloakAngularModule,
-    DropDownListModule,
     DemoAngularMaterialModule,
     MatDialogModule,
     MatStepperModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDialogModule
     
   ],
   providers: [{

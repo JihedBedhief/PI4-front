@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { InterviewService } from 'src/app/services/interview.service';
+import { InterviewService } from 'app/services/interview.service';
 
 @Component({
   selector: 'app-schedule-interview',

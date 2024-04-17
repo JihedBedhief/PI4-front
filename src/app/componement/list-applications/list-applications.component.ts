@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApplicationService } from 'src/app/services/application.service';
+import { ApplicationService } from 'app/services/application.service';
 
 @Component({
   selector: 'app-list-applications',

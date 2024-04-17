@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { InterviewService } from 'src/app/services/interview.service';
+import { InterviewService } from 'app/services/interview.service';
 
 @Component({
   selector: 'app-interview-details',
