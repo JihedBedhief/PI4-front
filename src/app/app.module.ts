@@ -1,5 +1,5 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -69,6 +69,8 @@ import { ChatComponent } from './DashboardAdmin/chat/chat/chat.component';
 import { DeviListComponent } from './DashboardAdmin/Devi/DeviList/devi-list/devi-list.component';
 import { AddDeviComponent } from './DashboardAdmin/Devi/AddDevi/add-devi/add-devi.component';
 import { CommonModule } from '@angular/common';
+import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
+import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
 
 initializeApp(environment.firebaseConfig);
 
@@ -117,7 +119,10 @@ function initializeKeycloak(keycloak: KeycloakService) {
     UserUpdateComponent,
     ResumeFormComponent,
     Error404Component,
-  
+    PostItemsComponent,
+    UpdateItemComponent,
+    AuctionCardComponent,
+    PostItemsComponent,
     AddBidComponent,
     ListBidComponent,
 
@@ -151,7 +156,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     PackComponent,
     ConfirmationDialogComponent,
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -161,7 +166,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
     HttpClientModule,
     KeycloakAngularModule,
     DemoAngularMaterialModule,
-    CommonModule
   ],
   providers: [{
     provide: APP_INITIALIZER,

@@ -4,15 +4,12 @@ import { Observable } from 'rxjs';
 
 
 const BASE_URL ="http://localhost:8088/";
-
 @Injectable({
   providedIn: 'root'
 })
 export class AdminServiceService {
-  getAllOffres() {
-    throw new Error('Method not implemented.');
-  }
 
+  
   constructor(private http:HttpClient) { }
 
  
@@ -35,5 +32,4 @@ export class AdminServiceService {
     return this.http.put(BASE_URL+`api/admin/items/Update/${idItem}`,itemDto);
   }
 
-  
 }

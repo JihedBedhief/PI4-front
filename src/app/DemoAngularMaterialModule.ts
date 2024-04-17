@@ -18,6 +18,7 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatTableModule} from "@angular/material/table";
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatError } from "@angular/material/form-field";
 
 
 
@@ -47,7 +48,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatInputModule,
     MatFormFieldModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+  
 
    
   ]
