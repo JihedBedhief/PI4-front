@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ChatService {
 
-  springURL = 'http://localhost:8088/api/chat/chatgpt';
+  springURL = 'http://localhost:9090/api/chat/chatgpt';
 
   constructor(private httpClient: HttpClient) { }
 

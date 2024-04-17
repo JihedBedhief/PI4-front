@@ -53,13 +53,14 @@ import { FormStepperComponent } from './DashboardAdmin/form-stepper/form-stepper
 import { PackComponent } from './DashboardAdmin/pack/pack.component';
 import { ListReservationComponent } from './DashboardAdmin/reservation/ListReservation/list-reservation/list-reservation.component';
 import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
+import { HomeComponent } from './componement/home/home/home.component';
 
 
 
 
 const routes: Routes = [
-  { path: 'home', component: FrontOfficeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, 
+  { path: 'home', component: HomeComponent },
   { path: 'exposant', component: CompanyCardComponent },
   { path: 'info-pratiques', component: InfoForumComponent },
   { path: 'UserInfo', component: UserInfoComponent, canActivate: [AuthGuard] },
@@ -70,7 +71,6 @@ const routes: Routes = [
   { path: 'alumni-page', component: AlumniInfoPageComponent, canActivate: [AuthGuard] },
   { path: 'chooseRole', component: RoleSelectionComponent, canActivate: [AuthGuard] },
   { path: 'updateProfile', component: UserUpdateComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent },
   { path: 'appList', component: ListApplicationsComponent },
   { path: 'quiz', component: QuizComponent },
   { path: 'application-details/:codeCandidature', component: DetailsApplicationComponent },
@@ -80,9 +80,8 @@ const routes: Routes = [
   { path: 'meeting', component: MeetingComponent },
   { path: 'map', component: MapComponent },
   { path: 'addApp', component: AddApplicationComponent },
-  { path: 'editApp/:id', component: UpdateApplicationComponent},
+  { path: 'editApp/:id', component: UpdateApplicationComponent },
   { path: 'stat', component: StatisticsComponent },
-  { path: 'info-pratiques', component: InfoForumComponent },
   { path: 'Items', component: ListItemsComponent },
   { path: 'Bid', component: ListBidComponent },
   { path: 'Card', component: AuctionCardComponent },
@@ -91,44 +90,31 @@ const routes: Routes = [
   { path: 'devi', component: DeviListComponent },
   { path: 'edit-form/:reference', component: EditFormComponent },
   { path: 'exposant', component: CompanyCardComponent },
-  { path: 'login', component: LoginComponent },
   { path: 'info-pratiques', component: InfoForumComponent },
   { path: 'card', component: CardComponent },
   { path: 'dashboard/admin/item', component: PostItemsComponent },
   { path: 'dashboard/admin/list', component: ListItemsComponent },
-  { path: 'dashboard', component: DashboardComponent },
   { path: 'form', component: FormComponent },
   { path: 'add-form', component: AddFormComponent },
   { path: 'offercard', component: OfferCardComponent },
   { path: 'detailoffer/:reference', component: DetailsoffreComponent },
   { path: 'favorites', component: FavoritesComponent },
-  { path: 'not-found', component: Error404Component },
   { path: 'dashboard/admin/session', component: PostItemsComponent },
-  { path: 'dashboard/admin/list', component: ListItemsComponent },
   { path: 'reservation', component: ListReservationComponent },
   { path: 'Add/reservation/:id', component: PostReservationComponent },
   { path: 'forr', component: FormStepperComponent },
   { path: 'pack', component: PackComponent },
- 
-  { path : 'contact' , component : ContactComponent},
-  { path : 'exposant', component : CompanyCardComponent },
-  { path : 'login' , component : LoginComponent},
-  { path : 'info-pratiques' , component : InfoForumComponent},
-  
-  {path:'dashboard/admin/item' , component:PostItemsComponent},
-  {path:'dashboard/admin/list',component:ListItemsComponent},
-  { path: 'not-found', component: Error404Component },
-  { path : 'reclamation' , component : ReclamationServicesComponent},
-  { path : 'addreclamation' , component : PostReclamationComponent},
+  { path: 'contact', component: ContactComponent },
+  { path: 'reclamation', component: ReclamationServicesComponent },
+  { path: 'addreclamation', component: PostReclamationComponent },
   { path: 'updatereclamation/:id', component: UpdateReclamationComponent },
   { path: 'getidtocomment/:id', component: CreatecommentComponent },
   { path: 'comments/:postId', component: ListecommentComponent },
-
   { path: 'post', component: PostlistComponent },
-  {path:'dashboard',component:DashboardComponent},
-  {path:'rec',component:StatestiqueReclamationComponent},
-
-  { path: '**', redirectTo: 'not-found', pathMatch: 'full'  }, 
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'rec', component: StatestiqueReclamationComponent },
+  { path: 'not-found', component: Error404Component },
+  { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 
 
 

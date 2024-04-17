@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, take } from 'rxjs';
 
 
-const BASE_URL ="http://localhost:8088/api/v1/notifications/";
+const BASE_URL ="http://localhost:9090/api/v1/notifications/";
 
 @Injectable({
   providedIn: 'root'
