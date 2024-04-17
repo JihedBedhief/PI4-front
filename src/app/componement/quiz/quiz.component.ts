@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { QuizService } from 'app/services/quiz.service';
+import { QuizService } from 'app/services/quiz/quiz.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ScorePopupComponent } from '../score-popup/score-popup.component';

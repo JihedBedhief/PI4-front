@@ -3,7 +3,7 @@ import { NavigationEnd, Router, Event as RouterEvent } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import {getMessaging,getToken, onMessage} from 'firebase/messaging'
 import { environment } from 'environment/environment';
-import { NotificationServiceService } from './services/notification-service.service';
+import { NotificationServiceService } from './services/notification/notification-service.service';
 
 @Component({
   selector: 'app-root',

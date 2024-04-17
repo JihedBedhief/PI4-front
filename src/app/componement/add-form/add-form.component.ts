@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { OffreService } from '../../services/offre.service';
+import { OffreService } from '../../services/offre/offre.service';
 
 enum ExperienceLevel {
   Beginner = 'Beginner',

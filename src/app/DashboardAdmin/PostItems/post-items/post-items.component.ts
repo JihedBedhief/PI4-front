@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AdminServiceService } from 'app/services/admin-service.service';
+import { AdminServiceService } from 'app/services/admin/admin-service.service';
 
 @Component({
   selector: 'app-post-items',

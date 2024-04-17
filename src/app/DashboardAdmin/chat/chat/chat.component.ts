@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ChatService } from 'app/services/chat.service';
-import { DeviService } from 'app/services/devi.service';
+import { ChatService } from 'app/services/chat/chat.service';
+import { DeviService } from 'app/services/devi/devi.service';
 import { saveAs } from 'file-saver';
 
 

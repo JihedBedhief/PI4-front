@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PackServiceService } from 'app/services/pack-service.service';
+import { PackServiceService } from 'app/services/pack/pack-service.service';
 
 @Component({
   selector: 'app-pack',

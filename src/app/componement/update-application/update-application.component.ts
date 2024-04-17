@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApplicationService } from 'app/services/application.service';
+import { ApplicationService } from 'app/services/application/application.service';
 
 @Component({
   selector: 'app-update-application',

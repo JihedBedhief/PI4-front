@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdminServiceService } from 'app/services/admin-service.service';
+import { AdminServiceService } from 'app/services/admin/admin-service.service';
 import { Location } from '@angular/common';
 
 

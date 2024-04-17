@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { InterviewService } from 'app/services/interview.service';
+import { InterviewService } from 'app/services/interview/interview.service';
 
 @Component({
   selector: 'app-list-interviews',

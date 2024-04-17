@@ -3,8 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UpdateItemComponent } from 'app/DashboardAdmin/updateItems/update-item/update-item.component';
-import { AdminServiceService } from 'app/services/admin-service.service';
-import { AuctionService } from 'app/services/auction.service';
+import { AdminServiceService } from 'app/services/admin/admin-service.service';
+import { AuctionService } from 'app/services/auction/auction.service';
 import { PostItemsComponent } from '../../post-items.component';
 
 @Component({

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApplicationService } from 'app/services/application.service';
+import { ApplicationService } from 'app/services/application/application.service';
 
 @Component({
   selector: 'app-add-application',
