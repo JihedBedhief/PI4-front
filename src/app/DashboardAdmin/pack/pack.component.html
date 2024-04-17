@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="pack-container">
+    <form [formGroup]="packForm" (submit)="addItem()">
+      <select formControlName="packType" name="packType">
+        <option *ngFor="let type of packTypes" [value]="type">{{ type }}</option>
+      </select>
+      <input type="number" formControlName="pricePack" name="pricePack" placeholder="Prix du pack">
+      <button type="submit">Ajouter</button>
+    </form>
+  </div>
+</div>

@@ -5,7 +5,7 @@ import { OffreService } from '../../services/offre.service';
 import { Offre } from '../../models/offre';
 import { ChangeDetectorRef } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import * as XLSX from 'xlsx';
+
 import { SearchHistory } from 'app/models/SearchHistory';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'app/confirmation-dialog/confirmation-dialog.component';
@@ -140,10 +140,10 @@ sortOffersByRating() {
       data.push([reference, title, location, description, deadline, contratType, skills, experienceLevel]);
     });
 
-    const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet([['Reference', 'Title', 'Location', 'Description', 'Deadline', 'Contract Type', 'Skills', 'Experience Level'], ...data]);
-    const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Offers');
-    XLSX.writeFile(wb, 'offers.xlsx');
+    // const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet([['Reference', 'Title', 'Location', 'Description', 'Deadline', 'Contract Type', 'Skills', 'Experience Level'], ...data]);
+    // const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    // XLSX.utils.book_append_sheet(wb, ws, 'Offers');
+    // XLSX.writeFile(wb, 'offers.xlsx');
   }
 
 

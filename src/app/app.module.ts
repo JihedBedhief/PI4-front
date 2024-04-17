@@ -1,13 +1,9 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 import { NavbarComponent } from './componement/navbar/navbar.component';
 import { FooterComponent } from './componement/footer/footer/footer.component';
 import { CardComponent } from './componement/Card/card/card.component';
@@ -32,14 +28,7 @@ import { AlumniInfoPageComponent } from './componement/alumni-info-page/alumni-i
 import { UserInfoModalComponent } from './componement/user-info-modal/user-info-modal.component';
 import { UserUpdateComponent } from './componement/user-update/user-update.component';
 import { ResumeFormComponent } from './componement/resume-form/resume-form.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatStepperModule } from '@angular/material/stepper';
-
-import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
 import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
 import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
 import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
@@ -48,11 +37,15 @@ import { FormComponent } from './componement/formoffre/form.component';
 import { OfferCardComponent } from './componement/offer-card/offer-card.component';
 import { DetailsoffreComponent } from './componement/detailsoffre/detailsoffre.component';
 import { EditFormComponent } from './componement/edit-form/edit-form.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { RatingPopupComponent } from './rating-popup/rating-popup.component';
-
+import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
+import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
+import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
+import { ListReservationComponent } from './DashboardAdmin/reservation/ListReservation/list-reservation/list-reservation.component';
+import { FormStepperComponent } from './DashboardAdmin/form-stepper/form-stepper.component';
+import { PackComponent } from './DashboardAdmin/pack/pack.component';
 import { ListApplicationsComponent } from './componement/list-applications/list-applications.component';
 import { DetailsApplicationComponent } from './componement/details-application/details-application.component';
 import { AddApplicationComponent } from './componement/add-application/add-application.component';
@@ -76,8 +69,10 @@ import { BidDetailsComponent } from './DashboardAdmin/Bid/BidDetails/bid-details
 import { ChatComponent } from './DashboardAdmin/chat/chat/chat.component';
 import { DeviListComponent } from './DashboardAdmin/Devi/DeviList/devi-list/devi-list.component';
 import { AddDeviComponent } from './DashboardAdmin/Devi/AddDevi/add-devi/add-devi.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 initializeApp(environment.firebaseConfig);
+
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
@@ -94,6 +89,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
       bearerExcludedUrls: ['/assets', '/clients/public'],
     });
 }
+
 
 @NgModule({
   declarations: [
@@ -121,7 +117,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
     UserInfoModalComponent,
     UserUpdateComponent,
     ResumeFormComponent,
-
     Error404Component,
     PostItemsComponent,
     ListItemsComponent,
@@ -156,25 +151,23 @@ function initializeKeycloak(keycloak: KeycloakService) {
     InterviewDetailsComponent,
     MeetingComponent,
     MapComponent,
-
-
+    PostReservationComponent,
+    ListReservationComponent,
+    FormStepperComponent,
+    PackComponent,
+    ConfirmationDialogComponent,
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     KeycloakAngularModule,
     DemoAngularMaterialModule,
-    MatDialogModule,
-    MatStepperModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatDialogModule
-    
+    CommonModule
   ],
   providers: [{
     provide: APP_INITIALIZER,

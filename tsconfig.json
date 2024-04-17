@@ -1,13 +1,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "paths": {
-      "@zoomus/websdk": ["node_modules/@zoomus/websdk/dist/index.d.ts"]
-    },
     "baseUrl": "src",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "typeRoots": ["node_modules/@types"],
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,

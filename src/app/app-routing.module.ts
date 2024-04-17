@@ -10,9 +10,6 @@ import { TeacherInfoPageComponent } from './componement/teacher-info-page/teache
 import { CompanyInfoPageComponent } from './componement/company-info-page/company-info-page.component';
 import { AlumniInfoPageComponent } from './componement/alumni-info-page/alumni-info-page.component';
 import { UserUpdateComponent } from './componement/user-update/user-update.component';
-
- 
-import { HomeComponent } from './componement/home/home/home.component';
 import { ContactComponent } from './componement/Contact/contact/contact.component';
 import { CompanyCardComponent } from './componement/CompanyCard/company-card/company-card.component';
 import { LoginComponent } from './componement/login/login/login.component';
@@ -21,7 +18,6 @@ import { Error404Component } from './componement/error404/error404/error404.comp
 import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
-import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
 import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
 import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
 import { CardItemsComponent } from './DashboardAdmin/PostItems/post-items/CardItems/card-items/card-items.component';
@@ -47,63 +43,66 @@ import { InterviewDetailsComponent } from './componement/interview-details/inter
 import { MeetingComponent } from './componement/meeting/meeting.component';
 import { MapComponent } from './componement/map/map.component';
 
+import { ListReservationComponent } from './DashboardAdmin/reservation/ListReservation/list-reservation/list-reservation.component';
+import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
+import { FormStepperComponent } from './DashboardAdmin/form-stepper/form-stepper.component';
+import { PackComponent } from './DashboardAdmin/pack/pack.component';
+
 
 const routes: Routes = [
   { path: 'home', component: FrontOfficeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path : 'contact' , component : ContactComponent},
-  { path : 'exposant', component : CompanyCardComponent },
-  { path : 'info-pratiques' , component : InfoForumComponent},
-  { path : 'UserInfo' , component : UserInfoComponent,canActivate:[AuthGuard]},
-  { path : 'adminKeyCloak' , component : AdminKeycloakComponent,canActivate:[AuthGuard] ,data:{roles:['ADMIN']}},
-  { path : 'student-page' , component : StudentInfoPageComponent,canActivate:[AuthGuard]},
-  { path : 'teacher-page' , component : TeacherInfoPageComponent,canActivate:[AuthGuard]},
-  { path : 'company-page' , component : CompanyInfoPageComponent,canActivate:[AuthGuard]},
-  { path : 'alumni-page' , component : AlumniInfoPageComponent,canActivate:[AuthGuard]},
-  { path : 'chooseRole' , component : RoleSelectionComponent,canActivate:[AuthGuard]},
-  { path : 'updateProfile' , component : UserUpdateComponent,canActivate:[AuthGuard]},
-  { path : 'login' , component : LoginComponent},
-  {path:'appList',component:ListApplicationsComponent},
-  {path:'quiz',component:QuizComponent},
+  { path: 'contact', component: ContactComponent },
+  { path: 'exposant', component: CompanyCardComponent },
+  { path: 'info-pratiques', component: InfoForumComponent },
+  { path: 'UserInfo', component: UserInfoComponent, canActivate: [AuthGuard] },
+  { path: 'adminKeyCloak', component: AdminKeycloakComponent, canActivate: [AuthGuard], data: { roles: ['ADMIN'] } },
+  { path: 'student-page', component: StudentInfoPageComponent, canActivate: [AuthGuard] },
+  { path: 'teacher-page', component: TeacherInfoPageComponent, canActivate: [AuthGuard] },
+  { path: 'company-page', component: CompanyInfoPageComponent, canActivate: [AuthGuard] },
+  { path: 'alumni-page', component: AlumniInfoPageComponent, canActivate: [AuthGuard] },
+  { path: 'chooseRole', component: RoleSelectionComponent, canActivate: [AuthGuard] },
+  { path: 'updateProfile', component: UserUpdateComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'appList', component: ListApplicationsComponent },
+  { path: 'quiz', component: QuizComponent },
   { path: 'application-details/:codeCandidature', component: DetailsApplicationComponent },
   { path: 'interview-details/:codeInterview', component: InterviewDetailsComponent },
   { path: 'scheduleInterview/:id', component: ScheduleInterviewComponent },
-  {path:'interviewList',component:ListInterviewsComponent},
-  {path:'meeting',component:MeetingComponent},
-  {path:'map',component:MapComponent},
-  {path:'addApp',component:AddApplicationComponent},
+  { path: 'interviewList', component: ListInterviewsComponent },
+  { path: 'meeting', component: MeetingComponent },
+  { path: 'map', component: MapComponent },
+  { path: 'addApp', component: AddApplicationComponent },
   { path: 'editApp/:id', component: UpdateApplicationComponent },
-  {path:'stat',component:StatisticsComponent},
-  { path : 'info-pratiques' , component : InfoForumComponent},
-  { path:'Items',component:ListItemsComponent},
-  { path: 'Bid' , component : ListBidComponent},
-  {path: 'Card',component:AuctionCardComponent},
-  {path: 'i',component:CardItemsComponent},
-  {path: 'chat',component:ChatComponent},
-  {path: 'devi',component:DeviListComponent},
-
-
-
-
- 
+  { path: 'stat', component: StatisticsComponent },
+  { path: 'info-pratiques', component: InfoForumComponent },
+  { path: 'Items', component: ListItemsComponent },
+  { path: 'Bid', component: ListBidComponent },
+  { path: 'Card', component: AuctionCardComponent },
+  { path: 'i', component: CardItemsComponent },
+  { path: 'chat', component: ChatComponent },
+  { path: 'devi', component: DeviListComponent },
   { path: 'edit-form/:reference', component: EditFormComponent },
-  { path : 'exposant', component : CompanyCardComponent },
-  { path : 'login' , component : LoginComponent},
-  { path : 'info-pratiques' , component : InfoForumComponent},
-  { path : 'card' , component : CardComponent},
-  {path:'dashboard/admin/item' , component:PostItemsComponent},
-  {path:'dashboard/admin/list',component:ListItemsComponent},
-  {path:'dashboard',component:DashboardComponent},
-  {path: 'form',component:FormComponent},
-  {path: 'add-form',component:AddFormComponent},
-  {path: 'offercard',component:OfferCardComponent},
-  {path: 'detailoffer/:reference',component:DetailsoffreComponent},
+  { path: 'exposant', component: CompanyCardComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'info-pratiques', component: InfoForumComponent },
+  { path: 'card', component: CardComponent },
+  { path: 'dashboard/admin/item', component: PostItemsComponent },
+  { path: 'dashboard/admin/list', component: ListItemsComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'form', component: FormComponent },
+  { path: 'add-form', component: AddFormComponent },
+  { path: 'offercard', component: OfferCardComponent },
+  { path: 'detailoffer/:reference', component: DetailsoffreComponent },
   { path: 'favorites', component: FavoritesComponent },
   { path: 'not-found', component: Error404Component },
-  { path: '**', redirectTo: 'not-found', pathMatch: 'full'  }, 
-
-
-
+  { path: 'dashboard/admin/session', component: PostItemsComponent },
+  { path: 'dashboard/admin/list', component: ListItemsComponent },
+  { path: 'reservation', component: ListReservationComponent },
+  { path: 'Add/reservation/:id', component: PostReservationComponent },
+  { path: 'forr', component: FormStepperComponent },
+  { path: 'pack', component: PackComponent },
+  { path: '**', component: Error404Component },
 ];
 
 @NgModule({

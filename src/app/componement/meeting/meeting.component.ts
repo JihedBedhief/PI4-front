@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-
 import { ZoomMtg } from '@zoomus/websdk';
-
 declare var JitsiMeetExternalAPI: any;
+
 @Component({
   selector: 'app-meeting',
   templateUrl: './meeting.component.html',
