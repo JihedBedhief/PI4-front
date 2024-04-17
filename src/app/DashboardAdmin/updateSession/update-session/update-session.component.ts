@@ -3,16 +3,21 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdminServiceService } from 'app/services/admin-service.service';
-import { Location } from '@angular/common';
-
+import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
 
 @Component({
-  selector: 'app-update-item',
-  templateUrl: './update-item.component.html',
-  styleUrls: ['./update-item.component.css']
+  selector: 'app-update-session',
+  templateUrl: './update-session.component.html',
+  styleUrls: ['./update-session.component.css']
 })
-export class UpdateItemComponent {
+export class UpdateSessionComponent {
+
+  itemId = this.activatedroute.snapshot.params['id']; 
+  itemForm!: FormGroup;
+  selectedFile: File | null = null;
+  imagePreview: string | ArrayBuffer | null = null;
+  existingImage : string |null= null ;
+
   constructor(
     private fb: FormBuilder,
     private snackbar: MatSnackBar,

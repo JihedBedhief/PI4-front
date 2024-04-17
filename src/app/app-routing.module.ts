@@ -16,6 +16,7 @@ import { LoginComponent } from './componement/login/login/login.component';
 import { InfoForumComponent } from './componement/Info/info-forum/info-forum.component';
 import { Error404Component } from './componement/error404/error404/error404.component';
 import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
+
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
 import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';

@@ -2,19 +2,17 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { UpdateItemComponent } from 'app/DashboardAdmin/updateItems/update-item/update-item.component';
-import { AdminServiceService } from 'app/services/admin-service.service';
-import { AuctionService } from 'app/services/auction.service';
-import { PostItemsComponent } from '../../post-items.component';
+import { ListStandComponent } from 'src/app/DashboardAdmin/list-stand/list-stand.component';
+import { PlaceComponent } from 'src/app/DashboardAdmin/place/place.component';
+import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
 
 @Component({
-  selector: 'app-list-items',
-  templateUrl: './list-items.component.html',
-  styleUrls: ['./list-items.component.css']
+  selector: 'app-list-session',
+  templateUrl: './list-session.component.html',
+  styleUrls: ['./list-session.component.css']
 })
-export class ListItemsComponent {
-
-  items: any[] = [];
+export class ListSessionComponent {
+  sessions: any[] = [];
 
   constructor(private adminservice : AdminServiceService,
     private snackbar : MatSnackBar,

@@ -3,17 +3,19 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AdminServiceService } from 'app/services/admin-service.service';
+import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
+import { DatePipe } from '@angular/common';
+import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-post-items',
-  templateUrl: './post-items.component.html',
-  styleUrls: ['./post-items.component.scss']
+  selector: 'app-post-session',
+  templateUrl: './post-session.component.html',
+  styleUrls: ['./post-session.component.scss']
 })
-export class PostItemsComponent implements OnInit{
-
-  itemForm!: FormGroup;
-  selectedFile: File | null = null;
+export class PostSessionComponent implements OnInit {
+  stepOneForm: FormGroup = new FormGroup({});
+  dateControl = new FormControl(); // Contrôle pour la date
+  selectedFile!: File ;
   imagePreview: string | ArrayBuffer | null = null;
 
   constructor(
