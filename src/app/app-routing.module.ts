@@ -17,8 +17,6 @@ import { InfoForumComponent } from './componement/Info/info-forum/info-forum.com
 import { Error404Component } from './componement/error404/error404/error404.component';
 import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
 
-import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
-import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
 import { AuctionCardComponent } from './DashboardAdmin/Auction/auction-card/auction-card.component';
 import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
 import { CardItemsComponent } from './DashboardAdmin/PostItems/post-items/CardItems/card-items/card-items.component';
@@ -43,9 +41,6 @@ import { ListInterviewsComponent } from './componement/list-interviews/list-inte
 import { InterviewDetailsComponent } from './componement/interview-details/interview-details.component';
 import { MeetingComponent } from './componement/meeting/meeting.component';
 import { MapComponent } from './componement/map/map.component';
-
-import { ListReservationComponent } from './DashboardAdmin/reservation/ListReservation/list-reservation/list-reservation.component';
-import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
 import { FormStepperComponent } from './DashboardAdmin/form-stepper/form-stepper.component';
 import { PackComponent } from './DashboardAdmin/pack/pack.component';
 
@@ -77,7 +72,7 @@ const routes: Routes = [
   { path: 'editApp/:id', component: UpdateApplicationComponent },
   { path: 'stat', component: StatisticsComponent },
   { path: 'info-pratiques', component: InfoForumComponent },
-  { path: 'Items', component: ListItemsComponent },
+  // { path: 'Items', component: ListItemsComponent },
   { path: 'Bid', component: ListBidComponent },
   { path: 'Card', component: AuctionCardComponent },
   { path: 'i', component: CardItemsComponent },
@@ -88,8 +83,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'info-pratiques', component: InfoForumComponent },
   { path: 'card', component: CardComponent },
-  { path: 'dashboard/admin/item', component: PostItemsComponent },
-  { path: 'dashboard/admin/list', component: ListItemsComponent },
+  // { path: 'dashboard/admin/item', component: PostItemsComponent },
+  // { path: 'dashboard/admin/list', component: ListItemsComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'form', component: FormComponent },
   { path: 'add-form', component: AddFormComponent },
@@ -97,10 +92,10 @@ const routes: Routes = [
   { path: 'detailoffer/:reference', component: DetailsoffreComponent },
   { path: 'favorites', component: FavoritesComponent },
   { path: 'not-found', component: Error404Component },
-  { path: 'dashboard/admin/session', component: PostItemsComponent },
-  { path: 'dashboard/admin/list', component: ListItemsComponent },
-  { path: 'reservation', component: ListReservationComponent },
-  { path: 'Add/reservation/:id', component: PostReservationComponent },
+  // { path: 'dashboard/admin/session', component: PostItemsComponent },
+  // { path: 'dashboard/admin/list', component: ListItemsComponent },
+  // { path: 'reservation', component: ListReservationComponent },
+  // { path: 'Add/reservation/:id', component: PostReservationComponent },
   { path: 'forr', component: FormStepperComponent },
   { path: 'pack', component: PackComponent },
   { path: '**', component: Error404Component },

@@ -29,8 +29,8 @@ import { UserInfoModalComponent } from './componement/user-info-modal/user-info-
 import { UserUpdateComponent } from './componement/user-update/user-update.component';
 import { ResumeFormComponent } from './componement/resume-form/resume-form.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
-import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
+
+
 import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
 import { AddFormComponent } from './componement/add-form/add-form.component';
 import { FormComponent } from './componement/formoffre/form.component';
@@ -40,10 +40,9 @@ import { EditFormComponent } from './componement/edit-form/edit-form.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { RatingPopupComponent } from './rating-popup/rating-popup.component';
-import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
+
 import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
-import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
-import { ListReservationComponent } from './DashboardAdmin/reservation/ListReservation/list-reservation/list-reservation.component';
+
 import { FormStepperComponent } from './DashboardAdmin/form-stepper/form-stepper.component';
 import { PackComponent } from './DashboardAdmin/pack/pack.component';
 import { ListApplicationsComponent } from './componement/list-applications/list-applications.component';
@@ -118,13 +117,10 @@ function initializeKeycloak(keycloak: KeycloakService) {
     UserUpdateComponent,
     ResumeFormComponent,
     Error404Component,
-    PostItemsComponent,
-    ListItemsComponent,
-    UpdateItemComponent,
-    AuctionCardComponent,
+  
     AddBidComponent,
     ListBidComponent,
-    CardItemsComponent,
+
     CountdownTimerComponent,
     BidDetailsComponent,
     ChatComponent,
@@ -151,8 +147,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
     InterviewDetailsComponent,
     MeetingComponent,
     MapComponent,
-    PostReservationComponent,
-    ListReservationComponent,
     FormStepperComponent,
     PackComponent,
     ConfirmationDialogComponent,
