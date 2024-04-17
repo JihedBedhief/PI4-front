@@ -12,9 +12,9 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./post-session.component.scss']
 })
 export class PostSessionComponent implements OnInit {
-  stepOneForm: FormGroup = new FormGroup({});
+  stepOneForm!: FormGroup;
   dateControl = new FormControl(); // Contrôle pour la date
-  selectedFile!: File ;
+  selectedFile!: File;
   imagePreview: string | ArrayBuffer | null = null;
 
   constructor(
@@ -26,11 +26,14 @@ export class PostSessionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.initializeForm();
+  }
+
+  initializeForm(): void {
     this.stepOneForm = this.fb.group({
       date: this.dateControl,
       location: [null, [Validators.required]],
       duration: [null, [Validators.required]],
-
     });
   }
 
@@ -49,27 +52,27 @@ export class PostSessionComponent implements OnInit {
 
   submitSession(): void {
     if (this.stepOneForm.invalid) {
-        // Highlight the form's validation errors
-        for (const i in this.stepOneForm.controls) {
-            if (this.stepOneForm.controls.hasOwnProperty(i)) {
-                this.stepOneForm.controls[i].markAsDirty();
-                this.stepOneForm.controls[i].updateValueAndValidity();
-            }
+      // Highlight the form's validation errors
+      for (const i in this.stepOneForm.controls) {
+        if (this.stepOneForm.controls.hasOwnProperty(i)) {
+          this.stepOneForm.controls[i].markAsDirty();
+          this.stepOneForm.controls[i].updateValueAndValidity();
         }
+      }
     } else {
-        // Process the form's valid data
-        const sessionData = this.stepOneForm.value;
-        
-        console.log(sessionData)
-        // Here, you could send sessionData to your backend or process it as needed.
-        this.adminService.addItem2(sessionData,this.selectedFile).subscribe((response) => {
-          // Traiter la réponse du backend après l'ajout du stand
-          console.log('Session ajouté:', response);
+      // Process the form's valid data
+      const sessionData = this.stepOneForm.value;
+      
+      console.log(sessionData)
+      // Here, you could send sessionData to your backend or process it as needed.
+      this.adminService.addItem2(sessionData,this.selectedFile).subscribe((response) => {
+        // Traiter la réponse du backend après l'ajout du stand
+        console.log('Session ajouté:', response);
       });
 
-        // Optionally navigate away or reset form
-        // this.router.navigate(['/someRoute']);
-        // this.stepOneForm.reset();
+      // Optionally navigate away or reset form
+      // this.router.navigate(['/someRoute']);
+      // this.stepOneForm.reset();
     }
   }
 }

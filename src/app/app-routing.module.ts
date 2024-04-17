@@ -35,7 +35,7 @@ const routes: Routes = [
   {path:'pack' , component:PackComponent},
 
   
-  {path:'standss/:idsessions/:idpack' , component:ListStandComponent},
+  {path:'standss/:idsessions/:idpack/:email' , component:ListStandComponent},
 
   { path: '**', component: Error404Component },
 

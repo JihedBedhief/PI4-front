@@ -17,21 +17,20 @@ export class ListStandComponent implements AfterViewInit {
   canvas: any;
   idsessions!: number;
   idpack!: number;
-  exposant!:number ; 
-  email!:string;
+  exposant!: number; 
+  email: any;
 
   constructor(
     private actR: ActivatedRoute,
     private standService: StandServiceService,
-
     private reservService: ReservationServiceService,
-
     private dialog: MatDialog
   ) {}
 
   ngAfterViewInit() {
     this.idsessions = Number(this.actR.snapshot.paramMap.get('idsessions'));
     this.idpack = Number(this.actR.snapshot.paramMap.get('idpack'));
+    this.email = (this.actR.snapshot.paramMap.get('email'));
     console.log(this.idsessions, this.idpack);
     this.standService.getStandsBySession(this.idsessions).subscribe((data) => {
       this.stands = data;
@@ -54,62 +53,37 @@ export class ListStandComponent implements AfterViewInit {
   }
 
   performAction(id: any) {
-    const BidDto = {
-      // codeitem: a // Example DTO structure, replace with your actual AuctionDTO requirements
-      // Add other properties as required e.g. startingBid, auctionDate etc.
-      // startDate: new Date(),
-      // endDate: ...
-    };
+    const BidDto = {};
 
     this.standService.chageStauts(id, BidDto).subscribe({
       next: (response) => {
-        // Handle response from your backend if necessary
         console.log('Auction created successfully', response);
-
-        // You may want to refresh your item/auction list or navigate
-        // this.router.navigate(['/path-to-auction-details', response.id]);
       },
       error: (error) => {
-        // Handle any errors here
         console.error('Error creating auction', error);
       },
     });
   }
 
   reserveStand() {
-    // Votre logique de réservation du stand ici
     console.log('Stand réservé:', this.selectedStand);
     this.performAction(this.selectedStand.id);
-    // const ress = {
-    //   // packType: 'DIAMOND',
-    //   // packPrice: this.selectedStand.price,
-    //   standNum: this.selectedStand.id,
-    //   sessionId: this.idsessions,
-    //   sessionLocation: 'aaaaaa',
-    //   price: this.selectedStand.price + 33,
-    //     ExposantName: 'ayoub',
-    // };
-    const ress ={
+    const ress = {
       standNum: this.selectedStand.id,
       sessionId: this.idsessions,
       pack: this.idpack,
       exposant: 12345,
-      
-      email:this.email,
-
-
+      email: this.email,
     };
 
     console.log(ress)
     this.reservService.addItem(ress).subscribe(() => {
       console.log(this.email);
-
       console.log("cv mrgla")
-      }, error => {
+    }, error => {
       console.error('Error adding item:', error);
-    });;
+    });
 
-    // Mettre à jour la couleur et la sélection du stand
     this.updateSelectedStandColor();
   }
 
@@ -144,10 +118,6 @@ export class ListStandComponent implements AfterViewInit {
           });
           console.log(stand.yposition);
 
-          fabricRect.on('mousedown', () => {
-            this.handleRectClick(stand);
-          });
-
           this.canvas?.add(fabricRect);
         } else if (
           stand.xposition !== undefined &&
@@ -177,16 +147,24 @@ export class ListStandComponent implements AfterViewInit {
         }
       });
     });
+
+    // Ajouter un gestionnaire d'événements pour les clics sur le canevas
+    this.canvas.on('mouse:down', (event: any) => {
+      if (!event.target) {
+        // Si aucun élément n'est ciblé, réinitialiser selectedStand à null
+        this.selectedStand = null;
+      }
+    });
   }
+
   openConfirmationDialog() {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '250px',
-      data: { message: 'Confirmez-vous la réservation du stand?' }, // Message de confirmation à afficher dans la boîte de dialogue
+      data: { message: 'Confirmez-vous la réservation du stand?' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        // Si l'utilisateur a confirmé, réservez le stand
         this.reserveStand();
       }
     });

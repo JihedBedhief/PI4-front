@@ -18,7 +18,7 @@
                     <td> {{session.date}} </td>
                     <td> {{session.location}} </td>
                     <td> {{session.duration}} </td>
-                    <td>    <img [src]="session.processedImg" alt="session-flyer" style="max-width: 100px; max-height: 100px;" />
+                    <td>    <img [src]="'data:image/jpeg;base64,' + session.flyer" style="max-width: 100px; max-height: 100px;" />
                     </td>
                     <td>
                         <button  class="btn btn-info">Update</button>

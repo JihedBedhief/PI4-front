@@ -35,7 +35,6 @@ export class ListSessionComponent {
       this.sessions=[];
       this.adminservice.getItem().subscribe(res =>{
         res.forEach((element: { processedImg: string; byteImg: string; }) => {
-          element.processedImg = 'data:image/jpeg;base64,'+element.byteImg;
           this.sessions.push(element);
           
         });

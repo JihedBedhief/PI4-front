@@ -1,42 +1,42 @@
 <div class="container">
-  <mat-horizontal-stepper>
-    <mat-step [stepControl]="stepOneForm">
-      <ng-template matStepLabel>Session Info</ng-template>
-      <form [formGroup]="stepOneForm" (ngSubmit)="submitSession()">
-        <div id="form">
-          <div class="file-upload-container">
-            <!-- Section de téléchargement de fichier -->
-          </div>
+  <form [formGroup]="stepOneForm" (ngSubmit)="submitSession()">
+    <div id="form">
+      <div class="file-upload-container">
+        <!-- Section de téléchargement de fichier -->
+      </div>
 
-          <!-- Champs de date, de durée, et de téléchargement de fichier -->
-          <div class="row">
-            <mat-form-field>
-              <input matInput [matDatepicker]="picker" formControlName="date">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-            <div class="col-6">
-              <div class="form-floating">
-                <input matInput formControlName="duration" type="text" placeholder="durée">
-                <mat-error *ngIf="stepOneForm.get('duration')?.hasError('required')">Cet input est requis!</mat-error>
-              </div>
-            </div>
-            <div class="file-upload-container">
-              <input type="file" (change)="onFileSelected($event)">
-              <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview">
-            </div>
-          </div>
-
-          <!-- Champ d'emplacement -->
+      <!-- Champs de date, de durée, et de téléchargement de fichier -->
+      <div class="row">
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div class="col-6">
           <div class="form-floating">
-            <input matInput formControlName="location" placeholder="emplacement">
-            <mat-error *ngIf="stepOneForm.get('location')?.hasError('required')">Cet input est requis!</mat-error>
+            <input matInput formControlName="duration" type="text" placeholder="durée">
+            <mat-error *ngIf="stepOneForm.get('duration')?.hasError('required')">Cet input est requis!</mat-error>
           </div>
-
-          <button mat-button type="submit">Terminer</button>
         </div>
-      </form>
-    </mat-step>
-  </mat-horizontal-stepper>
+        <div class="file-upload-container">
+          <input type="file" (change)="onFileSelected($event)">
+          <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview">
+        </div>
+      </div>
+
+      <!-- Champ d'emplacement -->
+      <mat-form-field>
+        <mat-label>Emplacement</mat-label>
+        <mat-select formControlName="location" placeholder="Emplacement">
+          <mat-option value="ESB">ESB</mat-option>
+          <mat-option value="ESPRIT">ESPRIT</mat-option>
+          <mat-option value="ESPRIM">ESPRIM</mat-option>
+        </mat-select>
+        <mat-error *ngIf="stepOneForm.get('location')?.hasError('required')">Cet input est requis!</mat-error>
+      </mat-form-field>
+
+      <button mat-button type="submit">Terminer</button>
+    </div>
+  </form>
   <router-outlet></router-outlet>
 </div>

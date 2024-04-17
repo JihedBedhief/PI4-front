@@ -2,7 +2,7 @@
   <h3>Book a Reservation</h3>
   <form [formGroup]="ReservationForm" (ngSubmit)="addItem()" class="form">
     <div id="form-content">
-      <input type="email" formControlName="email" placeholder="Email" class="form-control">
+      <input type="email" formControlName="email" placeholder="Email" class="form-control" [(ngModel)]="email">
       <input type="number" [(ngModel)]="exposant" placeholder="Entrez votre numéro d'exposant" class="form-control">
       
       <mat-form-field appearance="outline" class="form-field">
