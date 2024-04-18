@@ -41,6 +41,15 @@ export class ListSessionComponent {
         });
       })
     }
+    deleteExpiredSessions() {
+      const currentDate = new Date();
+      this.sessions.forEach(session => {
+        const sessionDate = new Date(session.date); // Supposons que 'date' est le champ contenant la date de la session
+        if (currentDate > sessionDate) {
+          this.deleteItem(session.id); // Appel de la méthode de suppression pour les sessions expirées
+        }
+      });
+    }
     deleteItem(itemId:any){
       this.adminservice.deleteItemById(itemId).subscribe(
         res => {

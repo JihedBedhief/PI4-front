@@ -8,8 +8,8 @@
   <div class="selected-info" *ngIf="selectedStand">
     <div class="info-container">
       <p><strong>ID:</strong> {{ selectedStand?.id }}</p>
-      <p><strong>Prix:</strong> {{ selectedStand?.price }}</p>
-      <button type="button" (click)="openConfirmationDialog()" [ngClass]="{ 'disabled-button': selectedStand.reserved === 1 }">Réserver</button>
+      <p><strong>Price:</strong> {{ selectedStand?.price }}</p>
+      <button type="button" (click)="openConfirmationDialog()" [ngClass]="{ 'disabled-button': selectedStand.reserved === 1 }">Book</button>
 
     </div>
   </div>

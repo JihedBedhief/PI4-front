@@ -10,14 +10,14 @@
     
 
           <div class="form-group">
-            <label for="packType">Type de Pack</label>
+            <label for="packType">pack type</label>
             <select formControlName="packType" id="packType" name="packType" class="form-control">
               <option *ngFor="let type of packTypes" [value]="type">{{ type }}</option>
             </select>
         </div>
     
         <div class="form-group">
-          <label for="pricePack">Prix du Pack</label>
+          <label for="pricePack">PAck price</label>
           <input type="number" formControlName="pricePack" id="pricePack" name="pricePack" placeholder="Prix du pack" class="form-control">
          
         </div>

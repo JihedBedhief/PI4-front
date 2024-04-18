@@ -1,9 +1,12 @@
 <div class="pack-list-container">
+  <button routerLink="/pack" class="btn btn-danger">Add a Session </button>
+
     <h2 class="pack-list-title">List of Packs</h2>
+
     <div *ngFor="let pack of packs" class="pack-item">
       <div>{{ pack.packType }}</div>
       <div>{{ pack.pricePack }}</div>
-      <button (click)="deletePack(pack.id)">Supprimer</button>
+      <button (click)="deletePack(pack.id)">delete</button>
     </div>
   </div>
   
