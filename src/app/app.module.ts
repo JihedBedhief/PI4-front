@@ -41,6 +41,7 @@ import { ListStandComponent } from './DashboardAdmin/list-stand/list-stand.compo
 import { PackComponent } from './DashboardAdmin/pack/pack.component';
 import { ConfirmationDialogComponent } from './DashboardAdmin/confirmation-dialog/confirmation-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { PackListComponent } from './DashboardAdmin/pack-list/pack-list.component';
 
 //I keep the new line
 
@@ -73,6 +74,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ListStandComponent,
     PackComponent,
     ConfirmationDialogComponent,
+    PackListComponent,
 
   ],
   

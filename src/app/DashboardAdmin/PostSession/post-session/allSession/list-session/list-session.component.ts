@@ -13,6 +13,7 @@ import { AdminServiceService } from 'src/app/services/Session/admin-service.serv
 })
 export class ListSessionComponent {
   sessions: any[] = [];
+  id: any;
 
   constructor(private adminservice : AdminServiceService,
     private snackbar : MatSnackBar,
@@ -41,19 +42,24 @@ export class ListSessionComponent {
       })
     }
     deleteItem(itemId:any){
-      this.adminservice.deleteItemById(itemId).subscribe(res=>{
-        if(res && res.body){
-          this.snackbar.open('Erreur', 'Close', { duration: 5000 });
-          //this.router.navigateByUrl('/admin/dashboard');
-        //  window.location.reload(); // or location.reload()
-        }else{
-          this.snackbar.open('item deleted successfully', 'Close', { duration: 5000 });
-  
-         // window.location.reload(); // or location.reload()
-                 this.getAllItems();
+      this.adminservice.deleteItemById(itemId).subscribe(
+        res => {
+          this.snackbar.open('Item deleted successfully', 'Close', { duration: 5000 });
+          this.getAllItems(); // Rafraîchir la liste des sessions après la suppression
+        },
+        error => {
+          console.error('Error deleting item:', error);
+          this.snackbar.open('Error deleting item', 'Close', { duration: 5000 });
         }
-      })
+      );
     }
+    update(){
+      const idsessions = this.id; // Assuming you want to use 'id' as 'idsessions'
+     
+      if (idsessions ) {
+        this.router.navigate([`session/${idsessions}`]);
+      }
+    }    
 
     reserver(id:any){
       this.router.navigate([`/Add/reservation/${id}`]);

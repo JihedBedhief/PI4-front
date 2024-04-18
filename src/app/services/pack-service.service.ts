@@ -29,4 +29,7 @@ export class PackServiceService {
   getPackTypes(): Observable<any> { // Ajout de la méthode pour récupérer les types de pack
     return this.http.get(BASE_URL + "/api/admin/Pack/types");
   }
+  deleteItemById(idItem : any):Observable<any>{
+    return this.http.delete(BASE_URL+`api/admin/Pack/delete/${idItem}`)
+  }
 }

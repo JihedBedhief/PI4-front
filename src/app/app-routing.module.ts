@@ -1,3 +1,4 @@
+import { PackListComponent } from './DashboardAdmin//pack-list/pack-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './componement/home/home/home.component';
@@ -16,6 +17,7 @@ import { PlaceComponent } from './DashboardAdmin/place/place.component';
 import { FormStepperComponent } from './DashboardAdmin/form-stepper/form-stepper.component';
 import { ListStandComponent } from './DashboardAdmin/list-stand/list-stand.component';
 import { PackComponent } from './DashboardAdmin/pack/pack.component';
+import { UpdateSessionComponent } from './DashboardAdmin/updateSession/update-session/update-session.component';
 
 
 const routes: Routes = [
@@ -27,12 +29,16 @@ const routes: Routes = [
   { path : 'info-pratiques' , component : InfoForumComponent},
   { path : 'signup' , component : SignupComponent},
   {path:'dashboard/admin/session' , component:PostSessionComponent},
+  {path:'session/:idsession' , component:UpdateSessionComponent},
+
   {path:'dashboard/admin/list',component:ListSessionComponent},
   {path:'reservation',component:ListReservationComponent},
   {path:'Add/reservation/:id' , component:PostReservationComponent},
   {path:'place' , component:PlaceComponent},
   {path:'forr' , component:FormStepperComponent},
   {path:'pack' , component:PackComponent},
+  {path:'pack/List' , component:PackListComponent},
+
 
   
   {path:'standss/:idsessions/:idpack/:email' , component:ListStandComponent},

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
 import { DatePipe } from '@angular/common';
 import { FormControl } from '@angular/forms';
+import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
 
 @Component({
   selector: 'app-post-session',
@@ -59,6 +59,7 @@ export class PostSessionComponent implements OnInit {
           this.stepOneForm.controls[i].updateValueAndValidity();
         }
       }
+      
     } else {
       // Process the form's valid data
       const sessionData = this.stepOneForm.value;
@@ -75,4 +76,12 @@ export class PostSessionComponent implements OnInit {
       // this.stepOneForm.reset();
     }
   }
+getNavbarHeight(): string {
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    return navbar.clientHeight + 'px';
+  }
+  return '0px';
+}
+
 }
