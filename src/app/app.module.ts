@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -81,6 +81,7 @@ import { StatestiqueReclamationComponent } from './statestique-reclamation/state
 
 import { UsernameComponent } from './Forum/ChatRoom/username/username/username.component';
 import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
+import { ChatAzizComponent } from './componement/aziz/chat-aziz/chat-aziz.component';
 
 initializeApp(environment.firebaseConfig);
 
@@ -100,9 +101,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
       bearerExcludedUrls: ['/assets', '/clients/public'],
     });
 }
-//I keep the new line
 
-//I keep the new line
 @NgModule({
   declarations: [
     AppComponent,
@@ -175,11 +174,13 @@ function initializeKeycloak(keycloak: KeycloakService) {
     StatestiqueReclamationComponent,
     ChatComponent,
     UsernameComponent,
-    PostReservationComponent
+    PostReservationComponent,
+    ChatAzizComponent
     
   ],
 
   imports: [
+   
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -189,6 +190,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     KeycloakAngularModule,
     DemoAngularMaterialModule,
   ],
+  
   providers: [{
     provide: APP_INITIALIZER,
     useFactory: initializeKeycloak,

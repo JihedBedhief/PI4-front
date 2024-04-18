@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const BASE_URL ='http://localhost:9090/Reclamation';
+const BASE_URL ='http://localhost:9090/pidev/Reclamation';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,8 @@ const BASE_URL ='http://localhost:9090/Reclamation';
 export class ReclamationService {
   constructor(private http: HttpClient) {}
 
-  addItem(reclamationDto: any, userId: string): Observable<any> {
-    return this.http.post(`${BASE_URL}/add?userId=${userId}`, reclamationDto);
+  addItem(reclamationDto: any, user_id:string): Observable<any> {
+    return this.http.post(`${BASE_URL}/add/${user_id}`, reclamationDto);
   }
 
 

@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="title">Title:</label>
+        <label for="title">Title:</label>   
         <input type="text" id="title" formControlName="title" class="form-control" required>
         <div *ngIf="offreForm.get('title')?.touched && offreForm.get('title')?.invalid" class="text-danger">
             Title is required.

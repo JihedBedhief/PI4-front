@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApplicationService } from 'app/services/application/application.service';
+import { KeycloakService } from "keycloak-angular";
+import { KeycloakProfile } from "keycloak-js";
 
 @Component({
   selector: 'app-add-application',
@@ -10,68 +12,50 @@ import { ApplicationService } from 'app/services/application/application.service
   styleUrls: ['./add-application.component.css']
 })
 export class AddApplicationComponent {
-  /*applicationForm: FormGroup;
+  public profile!: KeycloakProfile;
 
-  constructor(private formBuilder: FormBuilder , private applicationService : ApplicationService) {
-    this.applicationForm = this.formBuilder.group({
-      contact: ['', [Validators.required, Validators.email]],
-      portfolio: ['', Validators.required],
-      cv: [''],
-      lettre: ['']
-    });
-  }
 
- 
-  onSubmit() {
-    
-      const formData = new FormData();
-      formData.append('titre', this.applicationForm.get('contact')!.value);
-      formData.append('content', this.applicationForm.get('portfolio')!.value);
-  
-      this.applicationService.addApplication(formData).subscribe((response) => {
-        console.log('App créée avec succès !', response);
-        
-      }, (error) => {
-        console.error('Erreur lors de la création de la App : ', error);
-      });
-    
-  }*/
-  
-  
   applicationForm!: FormGroup;
-  
 
-  constructor(private applicationService: ApplicationService, 
-    private http: HttpClient, private fb: FormBuilder , private router : Router  ) { }
 
-  ngOnInit(): void {
+  constructor(private applicationService: ApplicationService,
+    private http: HttpClient, public ks: KeycloakService, private fb: FormBuilder, private router: Router) { }
+
+  async ngOnInit() {
+
+    if (this.ks.isLoggedIn()) {
+      this.profile = await this.ks.loadUserProfile();
+      console.log(this.profile.id);
+    }
     this.applicationForm = this.fb.group({
       contact: ['', [Validators.required, Validators.email]],
       portfolio: ['', [Validators.required, Validators.pattern('https?://.+')]],
-      cv: ['']
+
     });
   }
 
 
   addApplication(): void {
-    
+    if (this.ks.isLoggedIn()) {
+      let user_id = this.profile.id;
+      console.log(user_id)
+      if (this.applicationForm.value){
+        this.applicationService.addApplication(this.applicationForm.value, user_id as string).subscribe(
+          (response) => {
+            console.log(response);
+            console.log('App créée avec succès !', response);
+            this.router.navigate(['/appList']);
+          },
+          (error) => {
+            console.error('Erreur lors de la création de la App : ', error);
+          }
 
-if(this.applicationForm.value)
-      this.applicationService.addApplication(this.applicationForm.value).subscribe(
-        (response) => {
-          console.log(response);
-          console.log('App créée avec succès !', response);
-          this.router.navigate(['/appList']);
-        },
-        (error) => {
-          console.error('Erreur lors de la création de la App : ', error);
-        }
-
-      )
+        )
+      }
+    }
   }
-
   cancelAdd(): void {
     window.location.href = '/appList';
   }
-  
+
 }

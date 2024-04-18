@@ -3,10 +3,7 @@
         <form [formGroup]="itemForm" (ngSubmit)="addItem()">
           <div id="form">
           <div class="row" >
-           <input type="text" id="userIdInput" class="w-full mt-3" matInput formControlName="userId" placeholder="User ID">
-          <mat-error *ngIf="itemForm.get('userId')?.hasError('required')">
-            User ID is required!
-          </mat-error>
+          
             <div class="col-6">
               <div class="form-floating">
                 <mat-form-field appearance="fill">

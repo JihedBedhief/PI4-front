@@ -54,6 +54,7 @@ import { PackComponent } from './DashboardAdmin/pack/pack.component';
 import { ListReservationComponent } from './DashboardAdmin/reservation/ListReservation/list-reservation/list-reservation.component';
 import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
 import { HomeComponent } from './componement/home/home/home.component';
+import { ChatAzizComponent } from './componement/aziz/chat-aziz/chat-aziz.component';
 
 
 
@@ -79,7 +80,7 @@ const routes: Routes = [
   { path: 'interviewList', component: ListInterviewsComponent },
   { path: 'meeting', component: MeetingComponent },
   { path: 'map', component: MapComponent },
-  { path: 'addApp', component: AddApplicationComponent },
+  { path: 'addApp', component: AddApplicationComponent , canActivate: [AuthGuard]},
   { path: 'editApp/:id', component: UpdateApplicationComponent },
   { path: 'stat', component: StatisticsComponent },
   { path: 'Items', component: ListItemsComponent },
@@ -87,6 +88,7 @@ const routes: Routes = [
   { path: 'Card', component: AuctionCardComponent },
   { path: 'i', component: CardItemsComponent },
   { path: 'chat', component: ChatComponent },
+  { path: 'chatroom/:userId', component: ChatAzizComponent },
   { path: 'devi', component: DeviListComponent },
   { path: 'edit-form/:reference', component: EditFormComponent },
   { path: 'exposant', component: CompanyCardComponent },
@@ -95,8 +97,8 @@ const routes: Routes = [
   { path: 'dashboard/admin/item', component: PostItemsComponent },
   { path: 'dashboard/admin/list', component: ListItemsComponent },
   { path: 'form', component: FormComponent },
-  { path: 'add-form', component: AddFormComponent },
-  { path: 'offercard', component: OfferCardComponent },
+  { path: 'add-form', component: AddFormComponent , canActivate: [AuthGuard]},
+  { path: 'offercard', component: OfferCardComponent , canActivate: [AuthGuard]},
   { path: 'detailoffer/:reference', component: DetailsoffreComponent },
   { path: 'favorites', component: FavoritesComponent },
   { path: 'dashboard/admin/session', component: PostItemsComponent },
@@ -106,11 +108,11 @@ const routes: Routes = [
   { path: 'pack', component: PackComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'reclamation', component: ReclamationServicesComponent },
-  { path: 'addreclamation', component: PostReclamationComponent },
+  { path: 'addreclamation', component: PostReclamationComponent,canActivate: [AuthGuard] },
   { path: 'updatereclamation/:id', component: UpdateReclamationComponent },
-  { path: 'getidtocomment/:id', component: CreatecommentComponent },
+  { path: 'getidtocomment/:id', component: CreatecommentComponent,canActivate: [AuthGuard] },
   { path: 'comments/:postId', component: ListecommentComponent },
-  { path: 'post', component: PostlistComponent },
+  { path: 'post', component: PostlistComponent,canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'rec', component: StatestiqueReclamationComponent },
   { path: 'not-found', component: Error404Component },

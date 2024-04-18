@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BidServiceService } from 'app/services/bid/bid-service.service';
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile } from 'keycloak-js';
 
 @Component({
   selector: 'app-add-bid',
@@ -11,18 +13,22 @@ import { BidServiceService } from 'app/services/bid/bid-service.service';
 })
 export class AddBidComponent {
   BifForm!: FormGroup ;
-  constructor(private bidservice : BidServiceService ,  private _fb : FormBuilder,    private snackbar : MatSnackBar,
+  userid!:string ;
+  public profile!: KeycloakProfile;
+  constructor(private bidservice : BidServiceService ,  private _fb : FormBuilder,  public ks: KeycloakService,  private snackbar : MatSnackBar,
     private _dialogue : MatDialogRef<AddBidComponent>,@Inject(MAT_DIALOG_DATA) public data: { codeAuction: any }) {
     console.log(this.data); // This will log the passed ID in the console
 } 
 
-ngOnInit():void{
+async ngOnInit(){
+  if (this.ks.isLoggedIn()) {
+    this.profile = await this.ks.loadUserProfile();
+    this.userid!=this.profile.id;
+  }
   this.BifForm = this._fb.group({
-    idUser:1,
+    idUser:this.profile.id || this.userid,
     idAuction:this.data.codeAuction,
     amount:''
-
-
   });
  // this.populateForm();
 }

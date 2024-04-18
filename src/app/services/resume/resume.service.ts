@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ResumeService {
 
-  private apiUrl = 'http://localhost:8080/api'; // Update with your backend URL
+  private apiUrl = 'http://localhost:9090/api'; 
+  
 
   constructor(private http: HttpClient) { }
 

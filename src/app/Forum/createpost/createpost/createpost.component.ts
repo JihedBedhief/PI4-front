@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ServicePostService } from 'app/services/ServiceForum/service-post.service';
 import { PostlistComponent } from '../../post/postlist/postlist.component';
+import { KeycloakService } from "keycloak-angular";
+import { KeycloakProfile } from "keycloak-js";
 
 @Component({
   selector: 'app-createpost',
@@ -12,6 +14,7 @@ import { PostlistComponent } from '../../post/postlist/postlist.component';
   styleUrls: ['./createpost.component.css']
 })
 export class CreatepostComponent {
+  public profile!: KeycloakProfile;
   container: any;
   overlayWrapper: any;
 
@@ -31,9 +34,14 @@ export class CreatepostComponent {
     private snackbar: MatSnackBar,
     private adminService: ServicePostService,
     private router: Router,
-    public dialogRef: MatDialogRef<PostlistComponent>
-  ) { }
-  ngOnInit(): void {
+    public dialogRef: MatDialogRef<PostlistComponent>,@Inject(MAT_DIALOG_DATA) public data: { id: any },
+    public ks: KeycloakService,
+  ) {console.log(data.id); }
+  async ngOnInit() {
+    if (this.ks.isLoggedIn()) {
+      this.profile = await this.ks.loadUserProfile();
+      console.log(this.profile.id);
+    }
 
     this.itemForm = this.fb.group({
       description: [null, [Validators.required]],
@@ -57,6 +65,9 @@ export class CreatepostComponent {
     reader.readAsDataURL(this.selectedFile as Blob);
   }
   addpost(): void {
+    if (this.ks.isLoggedIn()) {
+      let user_id = this.profile.id;
+      console.log(user_id)
     if (this.itemForm.invalid) {
       for (const i in this.itemForm.controls) {
         if (Object.prototype.hasOwnProperty.call(this.itemForm.controls, i)) {
@@ -74,7 +85,7 @@ export class CreatepostComponent {
       formData.forEach((value, key) => {
         console.log(key + ': ' + value);
       });
-      this.adminService.addPost(formData).subscribe((res) => {
+      this.adminService.addPost(formData,this.data.id).subscribe((res) => {
         if (res.id !== null) {
           this.snackbar.open('Post added successfully', 'Close', { duration: 5000 });
           window.location.reload();
@@ -86,6 +97,7 @@ export class CreatepostComponent {
       });
     }
 }
+  }
 
 
 }

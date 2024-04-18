@@ -1,8 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ReclamationService } from 'app/services/ServiceReclamation/reclamation.service';
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile } from 'keycloak-js';
 
 @Component({
   selector: 'app-post-reclamation',
@@ -11,6 +14,7 @@ import { ReclamationService } from 'app/services/ServiceReclamation/reclamation.
 })
 export class PostReclamationComponent implements OnInit {
   itemForm!: FormGroup;
+  public profile!: KeycloakProfile;
   
   types = [
     {value: 'Inappropriate Content', viewValue: 'Inappropriate Content'},
@@ -24,24 +28,31 @@ export class PostReclamationComponent implements OnInit {
     private fb: FormBuilder,
     private snackbar: MatSnackBar,
     private reclamationService: ReclamationService,
-    private router: Router
-  ) {}
-
-  ngOnInit(): void {
+    private router: Router,
+    public ks: KeycloakService  ) {}
+ 
+  async ngOnInit(): Promise<void> {
     this.initializeForm();
+    if (this.ks.isLoggedIn()) {
+      this.profile = await this.ks.loadUserProfile();
+      console.log(this.profile.id);
+    }
   }
 
   initializeForm(): void {
     this.itemForm = this.fb.group({
-      userId: [null, [Validators.required]], // Add user ID field
+
       description: [null, [Validators.required]],
       type: [null, [Validators.required]]
     });
   }
 
   addItem(): void {
+    if (this.ks.isLoggedIn()) {
+      let user_id = this.profile.id;
+      console.log(user_id)
     if (this.itemForm.valid) {
-      const userId = this.itemForm.value.userId;
+      
       const commentPayload = {
         description: this.itemForm.value.description,
         type: this.itemForm.value.type
@@ -49,7 +60,7 @@ export class PostReclamationComponent implements OnInit {
       };
       
       // Call the service method to add the item
-      this.reclamationService.addItem(commentPayload, userId).subscribe(
+      this.reclamationService.addItem(commentPayload, user_id as string).subscribe(
         (res) => {
           if (res.id !== null) {
             // If the item is added successfully, show success message and navigate
@@ -71,4 +82,4 @@ export class PostReclamationComponent implements OnInit {
       this.itemForm.markAllAsTouched();
     }
   }
-}
+}}

@@ -12,7 +12,7 @@ export class OffreService {
     throw new Error('Method not implemented.');
   }
 
-  private BASE_URL = "http://localhost:9090/";
+  private BASE_URL = "http://localhost:9090/pidev/";
  
 
   constructor(private http: HttpClient) { }
@@ -21,8 +21,12 @@ getAllOffres(): Observable<any> {
   return this.http.get(`${this.BASE_URL}Offer/getAll`);
 }
 
- addOffre(offre: any): Observable<any> {
-  return this.http.post(`${this.BASE_URL}Offer/addOffre`, offre);
+ addOffre(offre: any,user_id: string): Observable<any> {
+  return this.http.post(`${this.BASE_URL}Offer/addOffre/${user_id}`, offre);
+}
+
+addOffre1(offre: any,user_id:string): Observable<any> {
+  return this.http.post(`${this.BASE_URL}Offer/addOffre/${user_id}`, offre);
 }
 
 updateOffre(reference: string, offre: Offre): Observable<Offre> {

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const BASE_URL ='http://localhost:9090/Post';
+const BASE_URL ='http://localhost:9090/pidev/Post';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,8 @@ const BASE_URL ='http://localhost:9090/Post';
 export class ServicePostService {
 
   constructor(private http: HttpClient) {}
-  addPost(PostDto: any): Observable<any> {
-    return this.http.post(`${BASE_URL}/addpost`, PostDto);
+  addPost(PostDto: any, user_id:string): Observable<any> {
+    return this.http.post(`${BASE_URL}/addpost/${user_id}`, PostDto);
   }
 
   getAllPosts(): Observable<any> {

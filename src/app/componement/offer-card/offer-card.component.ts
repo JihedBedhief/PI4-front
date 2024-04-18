@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, NavigationExtras } from '@angular/router';
-import { OffreService } from '../../services/offre/offre.service';
+import { OffreService } from 'app/services/offre/offre.service';
 import { Offre } from '../../models/offre';
 import { ChangeDetectorRef } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile } from 'keycloak-js';
 import { SearchHistory } from 'app/models/SearchHistory';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'app/confirmation-dialog/confirmation-dialog.component';
+import { AddFormComponent } from '../add-form/add-form.component';
 
 enum ExperienceLevel {
   Beginner = 'Beginner',
@@ -37,7 +39,8 @@ export class OfferCardComponent implements OnInit {
   experienceLevels = Object.values(ExperienceLevel);
   contratTypes = Object.values(ContratType);
   showConfirmation: boolean = false;
-
+  public profile!: KeycloakProfile;
+  user_id :any ;
 
   constructor(
     private offreService: OffreService, 
@@ -46,9 +49,38 @@ export class OfferCardComponent implements OnInit {
     private cdr: ChangeDetectorRef ,
     private snackBar: MatSnackBar,
     private dialog: MatDialog
+    ,public ks: KeycloakService
   ) {}
 
-  ngOnInit(): void {
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddFormComponent, {
+      data:{ id : this.user_id},
+      width: '500px',
+     
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // You can handle any result or action after the dialog is closed
+    });
+  }
+  openDialog2(): void {
+    
+    const dialogRef = this.dialog.open(AddFormComponent, {
+      width: '500px',
+     
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // You can handle any result or action after the dialog is closed
+    });
+  }
+   async ngOnInit() {
+    if (this.ks.isLoggedIn()) {
+      this.profile = await this.ks.loadUserProfile();
+      this.user_id = this.profile.id;
+    }
     this.loadOffres();
     const storedSearchHistory = localStorage.getItem('searchHistory');
   if (storedSearchHistory) {
@@ -72,14 +104,15 @@ export class OfferCardComponent implements OnInit {
       skills: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
       experienceLevel: ['', [Validators.required]],
     });
-  }
+  
+}
 
   addItem(): void {
     if (this.offreForm.invalid) {
         this.snackBar.open('Please fill in all required fields', 'Close');
         return;
     }
-    this.offreService.addOffre(this.offreForm.value).subscribe({
+    this.offreService.addOffre(this.offreForm.value,this.user_id).subscribe({
         next: (res: any) => {
             if (res.reference) {
                 this.snackBar.open('Offer added successfully', 'Close', {

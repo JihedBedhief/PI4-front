@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const BASE_URL ='http://localhost:9090/Comment';
+const BASE_URL ='http://localhost:9090/pidev/Comment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,8 @@ export class ServiceCommentService {
 
 
   constructor(private http: HttpClient) {}
-  addComment(commentDto: any, postId: string,userId: string): Observable<any> {
-    return this.http.post(`${BASE_URL}/add?postId=${postId}&userId=${userId}`, commentDto);
+  addComment(commentDto: any, postId: string,user_id: string): Observable<any> {
+    return this.http.post(`${BASE_URL}/add/${user_id}?postId=${postId}`, commentDto);
   }
 
   getAllComments(): Observable<any> {

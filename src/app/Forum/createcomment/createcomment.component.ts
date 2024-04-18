@@ -4,6 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServicePostService } from 'app/services/ServiceForum/service-post.service';
 import { ServiceCommentService } from 'app/services/Comment/service-comment.service';
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile } from 'keycloak-js';
 
 @Component({
   selector: 'app-createcomment',
@@ -11,7 +13,7 @@ import { ServiceCommentService } from 'app/services/Comment/service-comment.serv
   styleUrls: ['./createcomment.component.css']
 })
 export class CreatecommentComponent {
-
+  public profile!: KeycloakProfile;
   commentForm!: FormGroup; 
   itemId: any;
   item: any;
@@ -22,11 +24,16 @@ export class CreatecommentComponent {
     private commentService: ServiceCommentService, 
     private post: ServicePostService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public ks: KeycloakService
   ) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.initializeForm();
+    if (this.ks.isLoggedIn()) {
+      this.profile = await this.ks.loadUserProfile();
+      console.log(this.profile.id);
+    }
 
     // Retrieve the ID of the post from the route parameters
     this.route.params.subscribe(params => {
@@ -49,22 +56,25 @@ export class CreatecommentComponent {
   initializeForm(): void {
     this.commentForm = this.fb.group({
       codepost: [null, Validators.required], 
-      userId: [null, Validators.required], // Add userId field to the form
+   
       comment: [null, Validators.required],
     });
   }
 
   addComment(): void {
+    if (this.ks.isLoggedIn()) {
+      let user_id = this.profile.id;
+      console.log(user_id)
     if (this.commentForm.valid) {
       const postId = this.commentForm.value.codepost;
-      const userId = this.commentForm.value.userId;
+    
   
       const commentPayload = {
         comment: this.commentForm.value.comment,
-        userId: userId
+       
       };
 
-      this.commentService.addComment(commentPayload, postId,userId).subscribe({
+      this.commentService.addComment(commentPayload, postId,user_id as string).subscribe({
         next: (res) => {
           this.snackbar.open('Comment added successfully', 'Close', { duration: 5000 });
           this.router.navigate(['/post']); 
@@ -78,4 +88,4 @@ export class CreatecommentComponent {
       this.commentForm.markAllAsTouched();
     }
   }
-}
+}}

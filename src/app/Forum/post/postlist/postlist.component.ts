@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ServicePostService } from 'app/services/ServiceForum/service-post.service';
 import { CreatecommentComponent } from '../../createcomment/createcomment.component';
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile } from 'keycloak-js';
 
 @Component({
   selector: 'app-postlist',
@@ -16,15 +18,22 @@ export class PostlistComponent {
 width: any;
 token:any;
 items: any[] = [];
+user_id :any ;
+
+public profile!: KeycloakProfile;
+
 
 constructor(private dialog: MatDialog,
   private postservice :ServicePostService ,
   private snackbar : MatSnackBar,
-  private router :Router
+  private router :Router,
+  public ks: KeycloakService
+
   ){}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CreatepostComponent, {
+      data:{ id : this.user_id},
       width: '500px',
      
     });
@@ -35,6 +44,7 @@ constructor(private dialog: MatDialog,
     });
   }
   openDialog2(): void {
+    
     const dialogRef = this.dialog.open(CreatecommentComponent, {
       width: '500px',
      
@@ -47,8 +57,17 @@ constructor(private dialog: MatDialog,
   }
   
 
+  
 
-    ngOnInit():void{
+   async ngOnInit(){
+    if (this.ks.isLoggedIn()) {
+      this.profile = await this.ks.loadUserProfile();
+      console.log(this.profile.id);
+      this.user_id = this.profile.id;
+      console.log(this.user_id);
+
+    }
+
       this.getAllPosts();
       
     }

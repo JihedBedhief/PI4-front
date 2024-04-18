@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { OffreService } from '../../services/offre/offre.service';
+import { OffreService } from 'app/services/offre/offre.service';
+import { KeycloakProfile } from 'keycloak-js';
+import { KeycloakService } from 'keycloak-angular';
+import { OfferCardComponent } from '../offer-card/offer-card.component';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 enum ExperienceLevel {
   Beginner = 'Beginner',
@@ -26,10 +30,19 @@ export class AddFormComponent implements OnInit {
   contratTypes = Object.values(ContratType);
   offreForm!: FormGroup;
   OfferArray: any[] = [];
+  user_id :any ;
+  public profile!: KeycloakProfile;
 
-  constructor(private offreservice: OffreService, private http: HttpClient, private fb: FormBuilder  ) { }
+  constructor(private offreservice: OffreService, 
+    private http: HttpClient, private fb: FormBuilder ,
+    public dialogRef: MatDialogRef<OfferCardComponent>,@Inject(MAT_DIALOG_DATA) public data: { id: any },
+    private ks:KeycloakService ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(){
+    if (this.ks.isLoggedIn()) {
+      this.profile = await this.ks.loadUserProfile();
+      console.log(this.profile.id);
+    }
     this.offreForm = this.fb.group({
       reference: [null, [Validators.required]],
       title: [null, [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]], 
@@ -46,11 +59,14 @@ export class AddFormComponent implements OnInit {
 
 
   addItem(): void {
+    if (this.ks.isLoggedIn()) {
+      let user_id = this.profile.id;
+      console.log(user_id)
     if (this.offreForm.invalid) {
       this.offreForm.markAllAsTouched();
     } else {
       
-      this.offreservice.addOffre(this.offreForm.value).subscribe(
+      this.offreservice.addOffre(this.offreForm.value,this.data.id).subscribe(
         (res: any) => {
           if (res['id'] !== null) {
             this.offreForm.reset();
@@ -65,6 +81,7 @@ export class AddFormComponent implements OnInit {
       );
     }
   }
+}
   
   getAllOffres(): void {
     this.offreservice.getAllOffres().subscribe(

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as AOS from 'aos';
+import * as aos from 'aos';
 
 @Component({
   selector: 'app-home2',
@@ -9,7 +9,7 @@ import * as AOS from 'aos';
 export class Home2Component implements OnInit {
 
   ngOnInit() {
-    AOS.init({
+    aos.init({
       duration: 1200, // animation duration
       once: false, // whether animation should happen only once or every time an element comes into view
     });
