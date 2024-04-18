@@ -12,11 +12,11 @@ export class ApplicationService {
 
    
   
-addApplication(app:any,user_id:string):Observable<any>{
+addApplication(app:any,user_id:string,offer_id:string):Observable<any>{
   const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
-  return this.http.post(`${this.BASE_URL}/add/${user_id}`,app, httpOptions);
+  return this.http.post(`${this.BASE_URL}/add/${user_id}/${offer_id}`,app, httpOptions);
  
 }
 

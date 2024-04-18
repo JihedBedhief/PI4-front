@@ -54,7 +54,7 @@ import { PackComponent } from './DashboardAdmin/pack/pack.component';
 import { ListReservationComponent } from './DashboardAdmin/reservation/ListReservation/list-reservation/list-reservation.component';
 import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
 import { HomeComponent } from './componement/home/home/home.component';
-import { ChatAzizComponent } from './componement/aziz/chat-aziz/chat-aziz.component';
+import { ChatAzizComponent } from './componement/chat-aziz/chat-aziz.component';
 
 
 
@@ -80,7 +80,7 @@ const routes: Routes = [
   { path: 'interviewList', component: ListInterviewsComponent },
   { path: 'meeting', component: MeetingComponent },
   { path: 'map', component: MapComponent },
-  { path: 'addApp', component: AddApplicationComponent , canActivate: [AuthGuard]},
+  { path: 'addApp/:reference', component: AddApplicationComponent , canActivate: [AuthGuard]},
   { path: 'editApp/:id', component: UpdateApplicationComponent },
   { path: 'stat', component: StatisticsComponent },
   { path: 'Items', component: ListItemsComponent },

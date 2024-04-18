@@ -35,7 +35,7 @@ export class ChatAzizService {
   }
   
   sendMessage(roomId: string, chatMessage: ChatMessage) {
-    this.stompClient.send(`/app/componement/aziz/chat-aziz/${roomId}`, {}, JSON.stringify(chatMessage));
+    this.stompClient.send(`/app/componement/chat-aziz/${roomId}`, {}, JSON.stringify(chatMessage));
   }
 
   getMessageSubject() {

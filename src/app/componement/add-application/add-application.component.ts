@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApplicationService } from 'app/services/application/application.service';
 import { KeycloakService } from "keycloak-angular";
 import { KeycloakProfile } from "keycloak-js";
@@ -19,7 +19,7 @@ export class AddApplicationComponent {
 
 
   constructor(private applicationService: ApplicationService,
-    private http: HttpClient, public ks: KeycloakService, private fb: FormBuilder, private router: Router) { }
+    private http: HttpClient, public ks: KeycloakService, private fb: FormBuilder, private router: Router , private ac : ActivatedRoute) { }
 
   async ngOnInit() {
 
@@ -36,11 +36,13 @@ export class AddApplicationComponent {
 
 
   addApplication(): void {
+    const offre = this.ac.snapshot.paramMap.get('reference');
+    console.log("offre : ", offre);
     if (this.ks.isLoggedIn()) {
       let user_id = this.profile.id;
       console.log(user_id)
       if (this.applicationForm.value){
-        this.applicationService.addApplication(this.applicationForm.value, user_id as string).subscribe(
+        this.applicationService.addApplication(this.applicationForm.value, user_id as string , offre as string).subscribe(
           (response) => {
             console.log(response);
             console.log('App créée avec succès !', response);

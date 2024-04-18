@@ -30,7 +30,7 @@
       </div>
       <div class="button-group mt-4">
         <button class="btn custom-button" data-toggle="tooltip" title="Apply">
-          <i class="fa fa-check-circle"></i>
+          <a routerLink="/addApp/{{offre.reference}}" class="btn btn-success" data-toggle="modal">Apply</a>
         </button>
         <button class="btn custom-button" (click)="openEditPopup()" data-toggle="tooltip" title="Edit Offer">
           <i class="fa fa-edit"></i>

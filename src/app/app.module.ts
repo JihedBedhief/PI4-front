@@ -81,7 +81,7 @@ import { StatestiqueReclamationComponent } from './statestique-reclamation/state
 
 import { UsernameComponent } from './Forum/ChatRoom/username/username/username.component';
 import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
-import { ChatAzizComponent } from './componement/aziz/chat-aziz/chat-aziz.component';
+import { ChatAzizComponent } from './componement/chat-aziz/chat-aziz.component';
 
 initializeApp(environment.firebaseConfig);
 
