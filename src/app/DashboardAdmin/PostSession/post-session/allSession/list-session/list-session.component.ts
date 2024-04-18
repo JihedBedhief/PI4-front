@@ -53,12 +53,11 @@ export class ListSessionComponent {
         }
       );
     }
-    update(){
-      const idsessions = this.id; // Assuming you want to use 'id' as 'idsessions'
+    update(id:any){
      
-      if (idsessions ) {
-        this.router.navigate([`session/${idsessions}`]);
-      }
+      
+        this.router.navigate([`/session/${id}`]);
+      
     }    
 
     reserver(id:any){

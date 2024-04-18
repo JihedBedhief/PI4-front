@@ -12,7 +12,7 @@
                 <div class="session-location">Location: {{ session.location }}</div>
                 <div class="session-duration">Duration: {{ session.duration }}</div>
                 <div class="session-actions">
-                    <button class="btn btn-info" (click)="update()" >Update</button>
+                    <button class="btn btn-info" (click)="update(session.id)" >Update</button>
                     <button (click)="deleteItem(session.id)" class="btn btn-danger">Delete</button>
                     <button class="btn btn-info" (click)="openAddBid(session.id)">Add Stand</button>
                     <button class="btn btn-info" (click)="reserver(session.id)">Reserver</button>

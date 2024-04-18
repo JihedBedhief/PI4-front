@@ -1,4 +1,3 @@
-import { PackListComponent } from './DashboardAdmin//pack-list/pack-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './componement/home/home/home.component';
@@ -18,6 +17,7 @@ import { FormStepperComponent } from './DashboardAdmin/form-stepper/form-stepper
 import { ListStandComponent } from './DashboardAdmin/list-stand/list-stand.component';
 import { PackComponent } from './DashboardAdmin/pack/pack.component';
 import { UpdateSessionComponent } from './DashboardAdmin/updateSession/update-session/update-session.component';
+import { PackListComponent } from './DashboardAdmin/pack-list/pack-list.component';
 
 
 const routes: Routes = [
