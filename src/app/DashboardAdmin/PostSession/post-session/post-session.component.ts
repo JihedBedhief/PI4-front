@@ -72,7 +72,7 @@ export class PostSessionComponent implements OnInit {
       });
 
       // Optionally navigate away or reset form
-      // this.router.navigate(['/someRoute']);
+      this.router.navigate(['/dashboard/admin/list']);
       // this.stepOneForm.reset();
     }
   }

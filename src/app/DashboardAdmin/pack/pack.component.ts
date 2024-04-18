@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PackServiceService } from 'src/app/services/pack-service.service';
 
 @Component({
@@ -14,7 +15,9 @@ export class PackComponent implements OnInit{
 
 
 
-  constructor(private packService: PackServiceService,private fb: FormBuilder
+  constructor(private packService: PackServiceService,
+    private router: Router,
+    private fb: FormBuilder
     ) { }
 
   ngOnInit(): void {
@@ -64,6 +67,8 @@ export class PackComponent implements OnInit{
         }, error => {
           console.error('Error adding item:', error);
         });
+        this.router.navigate(['/pack/List']);
+
     }
   }
 }
