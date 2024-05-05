@@ -58,6 +58,7 @@ import { ChatAzizComponent } from './componement/chat-aziz/chat-aziz.component';
 import { ListSessionComponent } from './DashboardAdmin/PostSession/post-session/allSession/list-session/list-session.component';
 import { PlaceComponent } from './DashboardAdmin/place/place.component';
 import { ListStandComponent } from './DashboardAdmin/list-stand/list-stand.component';
+import { PackListComponent } from './DashboardAdmin/pack-list/pack-list.component';
 
 
 

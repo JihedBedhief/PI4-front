@@ -178,7 +178,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
     PostReservationComponent,
     ChatAzizComponent
     
-    PackListComponent,
 
   ],
 
