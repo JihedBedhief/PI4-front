@@ -1,8 +1,8 @@
 import { Component, AfterViewInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { fabric } from 'fabric';
-import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
-import { StandServiceService } from 'src/app/services/stand-service.service';
+import { AdminServiceService } from 'app/services/Session/admin-service.service';
+import { StandServiceService } from 'app/services/stand/stand-service.service';
 
 @Component({
   selector: 'app-place',

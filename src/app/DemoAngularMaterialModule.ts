@@ -23,9 +23,9 @@ import { MatError } from "@angular/material/form-field";
 
 
 
+
 @NgModule({
   exports: [
-    MatButtonModule,
     MatCardModule,
     MatInputModule,
     MatToolbarModule,
@@ -41,14 +41,13 @@ import { MatError } from "@angular/material/form-field";
     MatDividerModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule,
     MatTableModule,
-    MatDialogModule,
     MatStepperModule,
     MatInputModule,
     MatFormFieldModule,
     MatDialogModule,
     MatIconModule,
+    MatButtonModule
   
 
    

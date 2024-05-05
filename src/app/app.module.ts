@@ -36,7 +36,7 @@ import { OfferCardComponent } from './componement/offer-card/offer-card.componen
 import { DetailsoffreComponent } from './componement/detailsoffre/detailsoffre.component';
 import { EditFormComponent } from './componement/edit-form/edit-form.component';
 import { FavoritesComponent } from './favorites/favorites.component';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogComponent } from './DashboardAdmin/confirmation-dialog/confirmation-dialog.component';
 import { RatingPopupComponent } from './rating-popup/rating-popup.component';
 import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
 import { FormStepperComponent } from './DashboardAdmin/form-stepper/form-stepper.component';
@@ -58,16 +58,13 @@ import { AddBidComponent } from './DashboardAdmin/Bid/AddBid/add-bid/add-bid.com
 import { ListBidComponent } from './DashboardAdmin/Bid/ListBid/list-bid/list-bid.component';
 import { initializeApp } from "firebase/app";
 import { environment } from 'environment/environment';
-import { CardItemsComponent } from './DashboardAdmin/PostItems/post-items/CardItems/card-items/card-items.component';
 import { CountdownTimerComponent } from './DashboardAdmin/Auction/auction-card/countdown-timer/countdown-timer/countdown-timer.component';
 import { BidDetailsComponent } from './DashboardAdmin/Bid/BidDetails/bid-details/bid-details.component';
 import { ChatComponent } from './DashboardAdmin/chat/chat/chat.component';
 import { DeviListComponent } from './DashboardAdmin/Devi/DeviList/devi-list/devi-list.component';
 import { AddDeviComponent } from './DashboardAdmin/Devi/AddDevi/add-devi/add-devi.component';
-import { CommonModule } from '@angular/common';
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { UpdateItemComponent } from './DashboardAdmin/updateItems/update-item/update-item.component';
-import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
 import { ReclamationServicesComponent } from './componement/reclamation-services/reclamation-services.component';
 import { PostReclamationComponent } from './componement/reclamation-services/PostReclamation/post-reclamation/post-reclamation.component';
 import { UpdateReclamationComponent } from './componement/reclamation-services/Update/update-reclamation/update-reclamation.component';
@@ -79,10 +76,11 @@ import { CreatecommentComponent } from './Forum/createcomment/createcomment.comp
 import { ListecommentComponent } from './Forum/listecomment/listecomment.component';
 import { StatestiqueReclamationComponent } from './statestique-reclamation/statestique-reclamation.component';
 import { PackListComponent } from './DashboardAdmin/pack-list/pack-list.component';
-
+import { ConfirmationDialogFComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { UsernameComponent } from './Forum/ChatRoom/username/username/username.component';
 import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
 import { ChatAzizComponent } from './componement/chat-aziz/chat-aziz.component';
+import { ListStandComponent } from './DashboardAdmin/list-stand/list-stand.component';
 
 initializeApp(environment.firebaseConfig);
 
@@ -135,7 +133,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
     PostItemsComponent,
     AddBidComponent,
     ListBidComponent,
-
     CountdownTimerComponent,
     BidDetailsComponent,
     ChatComponent,
@@ -149,6 +146,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     EditFormComponent,
     FavoritesComponent,
     ConfirmationDialogComponent,
+    ConfirmationDialogFComponent,
     RatingPopupComponent,
     ListApplicationsComponent,
     DetailsApplicationComponent,
@@ -164,7 +162,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     MapComponent,
     FormStepperComponent,
     PackComponent,
-    ConfirmationDialogComponent,
+    
     ReclamationServicesComponent,
     PostReclamationComponent,
     UpdateReclamationComponent,
@@ -176,8 +174,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
     ChatComponent,
     UsernameComponent,
     PostReservationComponent,
-    ChatAzizComponent
-    
+    ChatAzizComponent,
+    ListStandComponent,
+
 
   ],
 
@@ -191,7 +190,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
     HttpClientModule,
     KeycloakAngularModule,
     DemoAngularMaterialModule,
+    
   ],
+  
   
   providers: [{
     provide: APP_INITIALIZER,

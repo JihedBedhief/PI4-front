@@ -1,10 +1,10 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { fabric } from 'fabric';
-import { StandServiceService } from 'src/app/services/stand-service.service';
+import { StandServiceService } from 'app/services/stand/stand-service.service';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { ActivatedRoute } from '@angular/router';
-import { ReservationServiceService } from 'src/app/services/reservation-service.service';
+import { ReservationServiceService } from 'app/services/reservation/reservation-service.service';
 
 @Component({
   selector: 'app-list-stand',

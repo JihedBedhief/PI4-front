@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PackServiceService } from 'src/app/services/pack-service.service';
+import { PackServiceService } from 'app/services/pack/pack-service.service';
 
 @Component({
   selector: 'app-pack-list',

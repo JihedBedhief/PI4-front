@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { ListStandComponent } from 'src/app/DashboardAdmin/list-stand/list-stand.component';
-import { PlaceComponent } from 'src/app/DashboardAdmin/place/place.component';
-import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
+
+import { PlaceComponent } from 'app/DashboardAdmin/place/place.component';
+import { AdminServiceService } from 'app/services/Session/admin-service.service';
 
 @Component({
   selector: 'app-list-session',

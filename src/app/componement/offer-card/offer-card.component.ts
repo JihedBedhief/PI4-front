@@ -9,7 +9,7 @@ import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
 import { SearchHistory } from 'app/models/SearchHistory';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmationDialogComponent } from 'app/confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogFComponent } from 'app/confirmation-dialog/confirmation-dialog.component';
 import { AddFormComponent } from '../add-form/add-form.component';
 
 enum ExperienceLevel {
@@ -329,7 +329,7 @@ sortOffersByRating() {
   }
   
   clearSearchHistoryAll() {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+    const dialogRef = this.dialog.open(ConfirmationDialogFComponent);
   
     dialogRef.afterClosed().subscribe(result => {
       if (result) { 
