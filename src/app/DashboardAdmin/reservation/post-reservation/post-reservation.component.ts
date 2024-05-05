@@ -15,6 +15,8 @@ export class PostReservationComponent {
     id!: number;
 
   selectedPack: any;
+  email: any;
+
   ReservationForm!: FormGroup;
   listStand :any[] = [];
   packList :any[] = [];
@@ -90,9 +92,9 @@ export class PostReservationComponent {
   stand(){
     const idsessions = this.id; // Assuming you want to use 'id' as 'idsessions'
     const idpack = this.selectedPack?.id; // Assuming selectedPack has an 'id' property
-
+console.log(this.email);
     if (idsessions && idpack) {
-      this.router.navigate([`standss/${idsessions}/${idpack}`]);
+      this.router.navigate([`standss/${idsessions}/${idpack}/${this.email}`]);
     }
   }
 }

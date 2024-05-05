@@ -10,6 +10,10 @@
   background-color: white;
   padding: 20px; /* Ajouter de l'espace autour du container pour ne pas coller aux bords de l'écran */
 }
+.disabled-button {
+  pointer-events: none; /* Désactive les événements de pointeur */
+  opacity: 0.5; /* Réduit l'opacité pour indiquer qu'il est désactivé */
+}
 .container {
     display: flex;
     justify-content: center;

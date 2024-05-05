@@ -78,6 +78,7 @@ import { CreatepostComponent } from './Forum/createpost/createpost/createpost.co
 import { CreatecommentComponent } from './Forum/createcomment/createcomment.component';
 import { ListecommentComponent } from './Forum/listecomment/listecomment.component';
 import { StatestiqueReclamationComponent } from './statestique-reclamation/statestique-reclamation.component';
+import { PackListComponent } from './DashboardAdmin/pack-list/pack-list.component';
 
 import { UsernameComponent } from './Forum/ChatRoom/username/username/username.component';
 import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
@@ -177,6 +178,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     PostReservationComponent,
     ChatAzizComponent
     
+    PackListComponent,
+
   ],
 
   imports: [

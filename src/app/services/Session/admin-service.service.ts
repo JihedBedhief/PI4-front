@@ -49,4 +49,6 @@ export class AdminServiceService {
   addStand(dto:any):Observable<any>{
     return this.http.post(BASE_URL+"api/admin/Stand/Add",dto)
   }
-}
+  updateItem(idItem : number, itemDto : any):Observable<any>{
+    return this.http.put(BASE_URL+`api/admin/Session/Update/${idItem}`,itemDto);
+  }}

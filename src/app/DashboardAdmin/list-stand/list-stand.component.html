@@ -9,7 +9,7 @@
     <div class="info-container">
       <p><strong>ID:</strong> {{ selectedStand?.id }}</p>
       <p><strong>Prix:</strong> {{ selectedStand?.price }}</p>
-      <button type="button"  (click)="openConfirmationDialog()" [disabled]="selectedStand?.reserved" [disabled]="selectedStand?.price==9999">Réserver</button>
+      <button type="button" (click)="openConfirmationDialog()" [ngClass]="{ 'disabled-button': selectedStand.reserved === 1 }">Réserver</button>
 
     </div>
   </div>

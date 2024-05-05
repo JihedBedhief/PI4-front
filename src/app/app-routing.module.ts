@@ -55,6 +55,9 @@ import { ListReservationComponent } from './DashboardAdmin/reservation/ListReser
 import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
 import { HomeComponent } from './componement/home/home/home.component';
 import { ChatAzizComponent } from './componement/chat-aziz/chat-aziz.component';
+import { ListSessionComponent } from './DashboardAdmin/PostSession/post-session/allSession/list-session/list-session.component';
+import { PlaceComponent } from './DashboardAdmin/place/place.component';
+import { ListStandComponent } from './DashboardAdmin/list-stand/list-stand.component';
 
 
 
@@ -115,6 +118,15 @@ const routes: Routes = [
   { path: 'post', component: PostlistComponent,canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'rec', component: StatestiqueReclamationComponent },
+  {path:'dashboard/admin/list',component:ListSessionComponent},
+  {path:'reservation',component:ListReservationComponent},
+  {path:'Add/reservation/:id' , component:PostReservationComponent},
+  {path:'place' , component:PlaceComponent},
+  {path:'forr' , component:FormStepperComponent},
+  {path:'pack' , component:PackComponent},
+  {path:'pack/List' , component:PackListComponent},
+
+  {path:'standss/:idsessions/:idpack/:email' , component:ListStandComponent},
   { path: 'not-found', component: Error404Component },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 

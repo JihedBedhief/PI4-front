@@ -12,7 +12,7 @@ import { AdminServiceService } from 'src/app/services/Session/admin-service.serv
 export class UpdateSessionComponent {
 
   itemId = this.activatedroute.snapshot.params['id']; 
-  itemForm!: FormGroup;
+  stepOneForm!: FormGroup;
   selectedFile: File | null = null;
   imagePreview: string | ArrayBuffer | null = null;
   existingImage : string |null= null ;
@@ -27,16 +27,16 @@ export class UpdateSessionComponent {
   ngOnInit(): void {
 
 
-    this.itemForm = this.fb.group({
-      name: [null, [Validators.required]],
-      description: [null, [Validators.required]],
-      quantity: [null, [Validators.required]]
+    this.stepOneForm = this.fb.group({
+      duration: [null, [Validators.required]],
+      location: [null, [Validators.required]],
+      Flyer: [null, [Validators.required]]
         });
   }
 
   getItemById(){
     this.adminService.getItemById(this.itemId).subscribe(res=>{
-      this.itemForm.patchValue(res);
+      this.stepOneForm.patchValue(res);
       this.existingImage = `data:image/jpeg;base64,`+ res.byteImg;
      } )
   }
@@ -55,19 +55,18 @@ export class UpdateSessionComponent {
   }
 
   addItem(): void {
-    if (this.itemForm.invalid) {
-      for (const i in this.itemForm.controls) {
-        if (Object.prototype.hasOwnProperty.call(this.itemForm.controls, i)) {
-          this.itemForm.controls[i].markAsDirty();
-          this.itemForm.controls[i].updateValueAndValidity();
+    if (this.stepOneForm.invalid) {
+      for (const i in this.stepOneForm.controls) {
+        if (Object.prototype.hasOwnProperty.call(this.stepOneForm.controls, i)) {
+          this.stepOneForm.controls[i].markAsDirty();
+          this.stepOneForm.controls[i].updateValueAndValidity();
         }
       }
     } else {
       const formData: FormData = new FormData();
-      formData.append('img', this.selectedFile as Blob);
-      formData.append('name', this.itemForm.get('name')!.value);
-      formData.append('description', this.itemForm.get('description')!.value);
-      formData.append('quantity', this.itemForm.get('quantity')!.value);
+      formData.append('flyer', this.selectedFile as Blob);
+      formData.append('duration', this.stepOneForm.get('duration')!.value);
+      formData.append('location', this.stepOneForm.get('location')!.value);
 
       this.adminService.addItem(formData).subscribe((res) => {
         if (res.id !== null) {
