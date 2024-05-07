@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { DatePipe } from '@angular/common';
 import { FormControl } from '@angular/forms';
-import { AdminServiceService } from 'src/app/services/Session/admin-service.service';
+import { AdminServiceService } from 'app/services/Session/admin-service.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-post-session',
@@ -14,6 +14,8 @@ import { AdminServiceService } from 'src/app/services/Session/admin-service.serv
 export class PostSessionComponent implements OnInit {
   stepOneForm!: FormGroup;
   dateControl = new FormControl(); // Contrôle pour la date
+  
+  
   selectedFile!: File;
   imagePreview: string | ArrayBuffer | null = null;
 
@@ -21,8 +23,8 @@ export class PostSessionComponent implements OnInit {
     private fb: FormBuilder,
     private snackbar: MatSnackBar,
     private adminService: AdminServiceService,
-    private router: Router,
-    private datePipe: DatePipe
+    private router: Router    
+    
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +34,8 @@ export class PostSessionComponent implements OnInit {
   initializeForm(): void {
     this.stepOneForm = this.fb.group({
       date: this.dateControl,
+      
+      
       location: [null, [Validators.required]],
       duration: [null, [Validators.required]],
     });
@@ -57,6 +61,7 @@ export class PostSessionComponent implements OnInit {
         if (this.stepOneForm.controls.hasOwnProperty(i)) {
           this.stepOneForm.controls[i].markAsDirty();
           this.stepOneForm.controls[i].updateValueAndValidity();
+          
         }
       }
       

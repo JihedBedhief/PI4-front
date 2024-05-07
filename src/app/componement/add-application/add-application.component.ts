@@ -36,13 +36,13 @@ export class AddApplicationComponent {
 
 
   addApplication(): void {
-    const offre = this.ac.snapshot.paramMap.get('reference');
-    console.log("offre : ", offre);
+    const offre_id = this.ac.snapshot.paramMap.get('reference');
+    
     if (this.ks.isLoggedIn()) {
       let user_id = this.profile.id;
       console.log(user_id)
       if (this.applicationForm.value){
-        this.applicationService.addApplication(this.applicationForm.value, user_id as string , offre as string).subscribe(
+        this.applicationService.addApplication(this.applicationForm.value, user_id as string ,1 ).subscribe(
           (response) => {
             console.log(response);
             console.log('App créée avec succès !', response);

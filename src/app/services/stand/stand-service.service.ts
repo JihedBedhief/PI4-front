@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 
-const BASE_URL = "http://localhost:8088/api/admin/Stand"; // Correction de l'URL de base
+const BASE_URL = "http://localhost:9090/api/admin/Stand"; // Correction de l'URL de base
 
 @Injectable({
   providedIn: 'root'

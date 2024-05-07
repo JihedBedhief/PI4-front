@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { AuthGuard } from './guards/auth.guard';
 import { UserInfoComponent } from './componement/user-info/user-info.component';
 import { AdminKeycloakComponent } from './componement/admin-keycloak/admin-keycloak.component';
@@ -12,10 +11,8 @@ import { AlumniInfoPageComponent } from './componement/alumni-info-page/alumni-i
 import { UserUpdateComponent } from './componement/user-update/user-update.component';
 import { ContactComponent } from './componement/Contact/contact/contact.component';
 import { CompanyCardComponent } from './componement/CompanyCard/company-card/company-card.component';
-import { LoginComponent } from './componement/login/login/login.component';
 import { InfoForumComponent } from './componement/Info/info-forum/info-forum.component';
 import { Error404Component } from './componement/error404/error404/error404.component';
-import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
 import { PostItemsComponent } from './DashboardAdmin/PostItems/post-items/post-items.component';
 import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
 import { DashboardComponent } from './DashboardAdmin/Dashboard/dashboard/dashboard.component';
@@ -59,13 +56,16 @@ import { ListSessionComponent } from './DashboardAdmin/PostSession/post-session/
 import { PlaceComponent } from './DashboardAdmin/place/place.component';
 import { ListStandComponent } from './DashboardAdmin/list-stand/list-stand.component';
 import { PackListComponent } from './DashboardAdmin/pack-list/pack-list.component';
+import { PostSessionComponent } from './DashboardAdmin/PostSession/post-session/post-session.component';
+import { Home2Component } from './componement/home2/home2/home2.component';
+import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
 
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, 
-  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: FrontOfficeComponent },
   { path: 'exposant', component: CompanyCardComponent },
   { path: 'info-pratiques', component: InfoForumComponent },
   { path: 'UserInfo', component: UserInfoComponent, canActivate: [AuthGuard] },
@@ -82,9 +82,9 @@ const routes: Routes = [
   { path: 'interview-details/:codeInterview', component: InterviewDetailsComponent },
   { path: 'scheduleInterview/:id', component: ScheduleInterviewComponent },
   { path: 'interviewList', component: ListInterviewsComponent },
-  { path: 'meeting', component: MeetingComponent },
+  { path: 'meeting', component: MeetingComponent, canActivate: [AuthGuard] },
   { path: 'map', component: MapComponent },
-  { path: 'addApp/:reference', component: AddApplicationComponent , canActivate: [AuthGuard]},
+  { path: 'addApp/:reference', component: AddApplicationComponent, canActivate: [AuthGuard] },
   { path: 'editApp/:id', component: UpdateApplicationComponent },
   { path: 'stat', component: StatisticsComponent },
   { path: 'Items', component: ListItemsComponent },
@@ -99,40 +99,32 @@ const routes: Routes = [
   { path: 'info-pratiques', component: InfoForumComponent },
   { path: 'card', component: CardComponent },
   { path: 'dashboard/admin/item', component: PostItemsComponent },
-  { path: 'dashboard/admin/list', component: ListItemsComponent },
+  { path: 'dashboard/admin/listt', component: ListItemsComponent },
   { path: 'form', component: FormComponent },
-  { path: 'add-form', component: AddFormComponent , canActivate: [AuthGuard]},
-  { path: 'offercard', component: OfferCardComponent , canActivate: [AuthGuard]},
+  { path: 'add-form', component: AddFormComponent, canActivate: [AuthGuard] },
+  { path: 'offercard', component: OfferCardComponent, canActivate: [AuthGuard] },
   { path: 'detailoffer/:reference', component: DetailsoffreComponent },
   { path: 'favorites', component: FavoritesComponent },
-  { path: 'dashboard/admin/session', component: PostItemsComponent },
+  { path: 'dashboard/admin/session', component: PostSessionComponent },
   { path: 'reservation', component: ListReservationComponent },
   { path: 'Add/reservation/:id', component: PostReservationComponent },
   { path: 'forr', component: FormStepperComponent },
   { path: 'pack', component: PackComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'reclamation', component: ReclamationServicesComponent },
-  { path: 'addreclamation', component: PostReclamationComponent,canActivate: [AuthGuard] },
+  { path: 'addreclamation', component: PostReclamationComponent, canActivate: [AuthGuard] },
   { path: 'updatereclamation/:id', component: UpdateReclamationComponent },
-  { path: 'getidtocomment/:id', component: CreatecommentComponent,canActivate: [AuthGuard] },
+  { path: 'getidtocomment/:id', component: CreatecommentComponent, canActivate: [AuthGuard] },
   { path: 'comments/:postId', component: ListecommentComponent },
-  { path: 'post', component: PostlistComponent,canActivate: [AuthGuard] },
+  { path: 'post', component: PostlistComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'rec', component: StatestiqueReclamationComponent },
-  {path:'dashboard/admin/list',component:ListSessionComponent},
-  {path:'reservation',component:ListReservationComponent},
-  {path:'Add/reservation/:id' , component:PostReservationComponent},
-  {path:'place' , component:PlaceComponent},
-  {path:'forr' , component:FormStepperComponent},
-  {path:'pack' , component:PackComponent},
-  {path:'pack/List' , component:PackListComponent},
-
-  {path:'standss/:idsessions/:idpack/:email' , component:ListStandComponent},
+  { path: 'dashboard/admin/list', component: ListSessionComponent },
+  { path: 'place', component: PlaceComponent },
+  { path: 'pack/List', component: PackListComponent },
+  { path: 'standss/:idsessions/:idpack/:email', component: ListStandComponent },
   { path: 'not-found', component: Error404Component },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
-
-
-
 ];
 
 @NgModule({

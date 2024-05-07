@@ -17,7 +17,7 @@ export class ChatAzizService {
   }
 
   initConnectionSocket() { // Correct the method name
-    const url = '//localhost:9090/pidev/chat-socket';
+    const url = '//localhost:9090/3chat-socket';
     const socket = new SockJS(url);
     this.stompClient = Stomp.over(socket);
   }

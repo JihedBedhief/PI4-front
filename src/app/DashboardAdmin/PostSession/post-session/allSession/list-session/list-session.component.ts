@@ -30,8 +30,9 @@ export class ListSessionComponent {
     
     ngOnInit():void{
       this.getAllItems();
+      console.log("jgjefjebkebfkebekjbkvbkdbvkdbvkbdvd")
     }
-
+    
     getAllItems(){
       this.sessions=[];
       this.adminservice.getItem().subscribe(res =>{

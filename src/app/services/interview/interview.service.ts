@@ -7,7 +7,7 @@ import { Observable, catchError, of } from 'rxjs';
 })
 export class InterviewService {
 
-  private BASE_URL = "http://localhost:9090/pidev/Interview"; 
+  private BASE_URL = "http://localhost:9090/Interview"; 
 
   constructor(private http: HttpClient) { }
 
@@ -36,6 +36,6 @@ export class InterviewService {
 
   
   addEventToGoogleCalendar(event: any) {
-    return this.http.post(`http://localhost:9090/pidev/Calender/add-event`, event);
+    return this.http.post(`http://localhost:9090/Calender/add-event`, event);
   }
 }

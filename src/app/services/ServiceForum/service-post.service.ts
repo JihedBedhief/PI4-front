@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const BASE_URL ='http://localhost:9090/pidev/Post';
+const BASE_URL ='http://localhost:9090/Post';
 
 @Injectable({
   providedIn: 'root'

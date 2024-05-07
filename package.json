@@ -60,6 +60,7 @@
     "@igniteui/angular-schematics": "~15.1.1110",
     "@types/aos": "^3.0.7",
     "@types/events": "^3.0.3",
+    "@types/fabric": "^5.3.0",
     "@types/hammerjs": "^2.0.40",
     "@types/jasmine": "~4.3.0",
     "@types/jitsi-meet": "^2.0.0",

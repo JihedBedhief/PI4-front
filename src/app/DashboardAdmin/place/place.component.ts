@@ -1,8 +1,10 @@
 import { Component, AfterViewInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { fabric } from 'fabric';
 import { AdminServiceService } from 'app/services/Session/admin-service.service';
 import { StandServiceService } from 'app/services/stand/stand-service.service';
+import * as fabric from 'fabric';
+
+// Use fabric here
 
 @Component({
   selector: 'app-place',
@@ -23,11 +25,11 @@ export class PlaceComponent implements AfterViewInit {
   ) { console.log(data.id); }
 
   ngAfterViewInit() {
-    this.canvas = new fabric.Canvas('canvas', { width: 480, height: 600 });
+    this.canvas = new fabric.fabric.Canvas('canvas', { width: 480, height: 600 });
 
     if (!this.canvas) return;
 
-    fabric.Image.fromURL('assets/floor-plan.jpg', (img) => {
+    fabric.fabric.Image.fromURL('assets/floor-plan.jpg', (img:any) => {
       if (!this.canvas) return;
       img.scaleToWidth(this.canvas.width);
       img.scaleToHeight(this.canvas.height);
@@ -68,7 +70,7 @@ export class PlaceComponent implements AfterViewInit {
       const offsetX = pointer.x;
       const offsetY = pointer.y;
 
-      const rect: any = new fabric.Rect({
+      const rect: any = new fabric.fabric.Rect({
         width: 50,
         height: 50,
         left: offsetX,
@@ -132,7 +134,7 @@ export class PlaceComponent implements AfterViewInit {
   deleteSelectedRectangle() {
     if (this.selectedRectInfo) {
       const selectedRect = this.canvas.getObjects().find((obj: any) => {
-        if (obj instanceof fabric.Object && 'id' in obj) {
+        if (obj instanceof fabric.fabric.Object && 'id' in obj) {
           return (obj as any).id === this.selectedRectInfo.id;
         }
         return false;
@@ -156,7 +158,7 @@ export class PlaceComponent implements AfterViewInit {
     if (!this.canvas) return;
   
     this.stands.forEach((stand) => {
-      const rectOptions: fabric.IRectOptions = {
+      const rectOptions: fabric.fabric.IRectOptions = {
         width: 50,
         height: 50,
         left: stand.xposition || 0,
@@ -166,7 +168,7 @@ export class PlaceComponent implements AfterViewInit {
         evented: false, // Disable events on existing stands
       };
   
-      const fabricRect = new fabric.Rect(rectOptions);
+      const fabricRect = new fabric.fabric.Rect(rectOptions);
       
       fabricRect.on('mousedown', () => {
         this.handleRectClick(stand);

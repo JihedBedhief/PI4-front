@@ -42,8 +42,8 @@
               "./node_modules/hammerjs/hammer.min.js",
               "node_modules/aos/dist/aos.js",
               "node_modules/sockjs-client/dist/sockjs.min.js"
-             
 
+            
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

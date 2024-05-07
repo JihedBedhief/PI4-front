@@ -7,12 +7,12 @@ import { Observable, catchError, of } from 'rxjs';
 })
 export class ApplicationService {
 
-  BASE_URL="http://localhost:9090/pidev/Application";
+  BASE_URL="http://localhost:9090/Application";
   constructor(private http : HttpClient) { }
 
    
   
-addApplication(app:any,user_id:string,offer_id:string):Observable<any>{
+addApplication(app:any,user_id:string,offer_id:Number):Observable<any>{
   const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }

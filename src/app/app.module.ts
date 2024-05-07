@@ -12,7 +12,6 @@ import { ContactComponent } from './componement/Contact/contact/contact.componen
 import { Error404Component } from './componement/error404/error404/error404.component';
 import { HomeComponent } from './componement/home/home/home.component';
 import { InfoForumComponent } from './componement/Info/info-forum/info-forum.component';
-import { LoginComponent } from './componement/login/login/login.component';
 import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
 import { Home2Component } from './componement/home2/home2/home2.component';
 import { SliderComponent } from './componement/Slider/slider/slider.component';
@@ -75,12 +74,14 @@ import { CreatepostComponent } from './Forum/createpost/createpost/createpost.co
 import { CreatecommentComponent } from './Forum/createcomment/createcomment.component';
 import { ListecommentComponent } from './Forum/listecomment/listecomment.component';
 import { StatestiqueReclamationComponent } from './statestique-reclamation/statestique-reclamation.component';
-import { PackListComponent } from './DashboardAdmin/pack-list/pack-list.component';
 import { ConfirmationDialogFComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { UsernameComponent } from './Forum/ChatRoom/username/username/username.component';
 import { PostReservationComponent } from './DashboardAdmin/reservation/post-reservation/post-reservation.component';
 import { ChatAzizComponent } from './componement/chat-aziz/chat-aziz.component';
 import { ListStandComponent } from './DashboardAdmin/list-stand/list-stand.component';
+import { PostSessionComponent } from './DashboardAdmin/PostSession/post-session/post-session.component';
+import { fabric } from 'fabric';
+
 
 initializeApp(environment.firebaseConfig);
 
@@ -112,7 +113,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
     FooterComponent,
     HomeComponent,
     InfoForumComponent,
-    LoginComponent,
     FrontOfficeComponent,
     Home2Component,
     SliderComponent,
@@ -162,7 +162,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
     MapComponent,
     FormStepperComponent,
     PackComponent,
-    
     ReclamationServicesComponent,
     PostReclamationComponent,
     UpdateReclamationComponent,
@@ -176,12 +175,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
     PostReservationComponent,
     ChatAzizComponent,
     ListStandComponent,
-
-
+    PostSessionComponent,
   ],
-
   imports: [
-   
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -190,10 +186,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     HttpClientModule,
     KeycloakAngularModule,
     DemoAngularMaterialModule,
-    
+  
   ],
-  
-  
   providers: [{
     provide: APP_INITIALIZER,
     useFactory: initializeKeycloak,

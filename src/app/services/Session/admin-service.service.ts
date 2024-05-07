@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 
-const BASE_URL ="http://localhost:8088/";
+const BASE_URL ="http://localhost:9090/";
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,7 @@ export class AdminServiceService {
   }; 
   
   getItem():Observable<any>{
-    return this.http.get(BASE_URL+"api/admin/Session"
-    )
+    return this.http.get(BASE_URL+`pidev/getallsession`)
   }
   getItemById(idItem : any):Observable<any>{
     return this.http.get(BASE_URL+`api/admin/Session/${idItem}`
@@ -31,7 +30,7 @@ export class AdminServiceService {
     formData.append('location', itemDto.location);
     formData.append('duration', itemDto.duration);
   
-    return this.http.post("http://localhost:8088/api/admin/Session/Add",formData )
+    return this.http.post("http://localhost:9090/pidev/Addsession",formData )
 
   }
   addItem(itemDto:any):Observable<any>{
@@ -40,7 +39,7 @@ export class AdminServiceService {
     formData.append('location', itemDto.location);
     formData.append('duration', itemDto.duration);
 
-    return this.http.post("http://localhost:8088/api/admin/Session/Add",formData)
+    return this.http.post("http://localhost:9090/api/admin/Session/Add",formData)
 
   }
   deleteItemById(idItem : any):Observable<any>{
