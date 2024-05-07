@@ -16,8 +16,9 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadOffres();
-  }
+    console.log("aa");
 
+  }
   loadOffres(): void {
     this.offreService.getAllOffres().subscribe(
       offres=> {
