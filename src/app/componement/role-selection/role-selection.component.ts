@@ -5,6 +5,7 @@ import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
 import { MatDialog } from '@angular/material/dialog';
 import { UserInfoModalComponent } from '../user-info-modal/user-info-modal.component'; 
+import { UserInfoComponent } from '../user-info/user-info.component';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { UserInfoModalComponent } from '../user-info-modal/user-info-modal.compo
 })
 export class RoleSelectionComponent {
 
+  role:any;
 
   public profile!: KeycloakProfile;
   constructor(private keycloakApi: KeycloakrestapiService, public ks: KeycloakService, private route: Router,public dialog: MatDialog) { }
@@ -22,10 +24,10 @@ export class RoleSelectionComponent {
   async ngOnInit() {
 
 
-    if (this.ks.isLoggedIn()) {
+ /*   if (this.ks.isLoggedIn()) {
       this.profile = await this.ks.loadUserProfile();
       this.getRolesUser1();
-    }
+    }*/
   }
 
   selectedOption!: string;
@@ -51,10 +53,11 @@ export class RoleSelectionComponent {
     if (this.ks.isLoggedIn()) {
       let username = this.profile.username;
       if (this.selectedOption) {
-        
-        this.AddRoleToUser(this.selectedOption, username!);
-        this.roleSelected = true;
+        this.role=this.selectedOption;
+        console.log(this.role);
         this.openUserInfoModal();
+
+        this.roleSelected = true;
         //this.route.navigate([this.roleRoutes[this.selectedOption as keyof typeof this.roleRoutes]]);
       } else {
         console.warn("Selectedoption is undefined");
@@ -66,7 +69,7 @@ export class RoleSelectionComponent {
   }
 
 
-  AddRoleToUser(selectedOption: string, username: string) {
+ /* AddRoleToUser(selectedOption: string, username: string) {
     this.keycloakApi.AddRoleToUser(selectedOption, username).subscribe(
       data => {
         console.log(data);
@@ -115,10 +118,11 @@ export class RoleSelectionComponent {
     }
   }
 
-
+*/
 
   openUserInfoModal() {
-    const dialogRef = this.dialog.open(UserInfoModalComponent, {
+    const dialogRef = this.dialog.open(UserInfoComponent, {
+      data: { role: this.role },
       width: '900px'
     });
   

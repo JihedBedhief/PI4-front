@@ -68,7 +68,7 @@ const routes: Routes = [
   { path: 'home', component: FrontOfficeComponent },
   { path: 'exposant', component: CompanyCardComponent },
   { path: 'info-pratiques', component: InfoForumComponent },
-  { path: 'UserInfo', component: UserInfoComponent, canActivate: [AuthGuard] },
+  { path: 'UserInfo', component: RoleSelectionComponent, canActivate: [AuthGuard] },
   { path: 'adminKeyCloak', component: AdminKeycloakComponent, canActivate: [AuthGuard], data: { roles: ['ADMIN'] } },
   { path: 'student-page', component: StudentInfoPageComponent, canActivate: [AuthGuard] },
   { path: 'teacher-page', component: TeacherInfoPageComponent, canActivate: [AuthGuard] },
