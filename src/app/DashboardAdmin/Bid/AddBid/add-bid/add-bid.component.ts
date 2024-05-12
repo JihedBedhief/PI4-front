@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BidServiceService } from 'app/services/bid/bid-service.service';
 import { KeycloakService } from 'keycloak-angular';
@@ -12,65 +12,62 @@ import { KeycloakProfile } from 'keycloak-js';
   styleUrls: ['./add-bid.component.css']
 })
 export class AddBidComponent {
-  BifForm!: FormGroup ;
-  userid!:string ;
+  BifForm!: FormGroup;
+  userid!: string;
   public profile!: KeycloakProfile;
-  constructor(private bidservice : BidServiceService ,  private _fb : FormBuilder,  public ks: KeycloakService,  private snackbar : MatSnackBar,
-    private _dialogue : MatDialogRef<AddBidComponent>,@Inject(MAT_DIALOG_DATA) public data: { codeAuction: any }) {
-    console.log(this.data); // This will log the passed ID in the console
-} 
 
-async ngOnInit(){
-  if (this.ks.isLoggedIn()) {
-    this.profile = await this.ks.loadUserProfile();
-    this.userid!=this.profile.id;
+
+  constructor(
+    private bidService: BidServiceService,
+    private fb: FormBuilder,
+    public ks: KeycloakService,
+    private snackbar: MatSnackBar,
+    private dialogRef: MatDialogRef<AddBidComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { codeAuction: any }
+  ) {
+    console.log(this.data); // Logging the passed data
+  } 
+
+  async ngOnInit() {
+    if (await this.ks.isLoggedIn()) {
+      this.profile = await this.ks.loadUserProfile();
+      this.userid = this.profile.id ?? ''; // Safe assignment with fallback
+      this.initializeForm(); // Initialize the form after the user data is loaded
+    }
   }
-  this.BifForm = this._fb.group({
-    idUser:this.profile.id || this.userid,
-    idAuction:this.data.codeAuction,
-    amount:''
-  });
- // this.populateForm();
-}
 
-onFormSubmit(){
-  console.log(this.BifForm.value);
-  if(this.BifForm.valid){
-    const formData: FormData = new FormData();
-    formData.append('idUser', "1");
-    formData.append('idAuction',this.data.codeAuction);
-    formData.append('amount', this.BifForm.get('amount')!.value);
-    this.bidservice.addBid(formData).subscribe({
-      next: (response) => {
-          // Handle response from your backend if necessary
+  initializeForm() {
+    this.BifForm = this.fb.group({
+      idUser: [this.userid, Validators.required], // Using the loaded userid
+      idAuction: [this.data.codeAuction, Validators.required],
+      amount: ['', Validators.required]
+    });
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
+  onFormSubmit() {
+    console.log(this.BifForm.value);
+    if (this.BifForm.valid) {
+      console.log(this.userid);
+      const formData = new FormData();
+      formData.append('idUser', this.userid);
+      formData.append('idAuction', this.data.codeAuction);
+      formData.append('amount', this.BifForm.get('amount')!.value);
+      console.log(formData);
+
+      this.bidService.addBid(formData).subscribe({
+        next: (response) => {
           console.log('Bid created successfully', response);
           this.snackbar.open('Your bid added successfully', 'Close', { duration: 5000 });
-
-          // You may want to refresh your item/auction list or navigate
-          // this.router.navigate(['/path-to-auction-details', response.id]);
-      },
-      error: (error) => {
-        console.log(this.BifForm.value);
-
-          // Handle any errors here
-          console.error('Error creating auction', error);
-          this.snackbar.open('You already hav a bid', 'Close', { duration: 5000 });
-
-      }
-  });
+        },
+        error: (error) => {
+          console.error('Error creating bid', error);
+          this.snackbar.open('Error while placing bid', 'Close', { duration: 5000 });
+        }
+      });
+    }
   }
-}
-
-/*async populateForm() {
-  const id = this.data.codeAuction; // Assuming this is a promise
-
-
-  // Use Promise.all to await all promises concurrently
-  const [code] = await Promise.all([
-    id
-    
-  ]);
-
-}*/
-
 }

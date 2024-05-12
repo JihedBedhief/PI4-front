@@ -1,17 +1,15 @@
-    <!-- dropdown.component.html -->
-
-    <div class="page-container" >
-        <div class="header">WHO ARE U?</div>
-        
-        <div class="dropdown-container">
-            <!-- Your dropdown component content goes here -->
-            <mat-form-field>
-                <mat-label>SELECT YOUR ROLE</mat-label>
-                <mat-select [(value)]="selectedOption" (selectionChange)="onChange($event)" [disabled]="roleSelected">
-                    <mat-option *ngFor="let option of options" [value]="option">
-                        {{ option }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-    </div>
+<div class="role-selection-container">
+    <h2>Select your role</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Role</mat-label>
+      <mat-select [(value)]="selectedOption" (selectionChange)="onChange($event)">
+        <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button mat-raised-button class="red-button" [disabled]="!selectedOption" (click)="openRoleBasedForm(selectedOption)">
+        Validate
+      </button>
+      
+  </div>
+  

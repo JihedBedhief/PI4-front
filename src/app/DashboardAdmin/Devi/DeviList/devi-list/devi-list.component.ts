@@ -6,6 +6,8 @@ import { DeviService } from 'app/services/devi/devi.service';
 //import { saveAs } from 'file-saver';
 import { MatDialog } from '@angular/material/dialog';
 import { AddDeviComponent } from '../../AddDevi/add-devi/add-devi.component';
+import { saveAs } from 'file-saver';
+
 
 
 @Component({
@@ -30,15 +32,15 @@ export class DeviListComponent {
     }
     
 
-    // downloadPdf(): void {
-    //   this.http.get('http://localhost:8088/api/devis/pdf', { responseType: 'blob' })
-    //     .subscribe(blob => {
-    //       saveAs(blob, "devis.pdf"); // This will trigger the file download in the user's browser
-    //     }, error => {
-    //       // Handle any errors here
-    //       console.error('Download error:', error);
-    //     });
-    // }
+     downloadPdf(): void {
+       this.http.get('http://localhost:9090/api/devis/pdf', { responseType: 'blob' })
+         .subscribe(blob => {
+           saveAs(blob, "devis.pdf"); // This will trigger the file download in the user's browser
+         }, error => {
+         // Handle any errors here
+           console.error('Download error:', error);
+         });
+     }
  
 
     ngOnInit():void{

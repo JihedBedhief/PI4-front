@@ -1,86 +1,120 @@
-<!--<header>
-  <div class="logo">Your Logo</div>
-
-  <div class="menu-toggle" (click)="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
-  </div>
-
-  <nav>
-      <ul class="navigation" [ngClass]="{ 'show': isMenuOpen }">
-          <li><a routerLink="/">Home</a></li>
-          <li><a routerLink="/institutional">Institutional</a></li>
-          <li><a routerLink="/make-app">Make an Application</a></li>
-          <li><a routerLink="/gallery">Gallery</a></li>
-          <li><a routerLink="/contact">Contact Us</a></li>
-           Add more menu items as needed 
-      </ul>
-  </nav>
-</header>
--->
-<nav id="my-first">
-  <ul>
-    <li class="logotype">
-      <a routerLink="/"><img src="assets/logo.PNG" alt="" /></a>
-    </li>
-    <li class="burger" (click)="toggleMenu()">
-      <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i>
-    </li>
-    <li class="menu" [class.is-open]="isMenuOpen">
-      <a href="#" class="menu-item">Le Forum</a>
-      <a routerLink="/exposant" class="menu-item">Les Exposants</a>
-      <a routerLink="/info-pratiques" class="menu-item">Infos Pratique</a>
-      <a routerLink="/contact" class="menu-item">Contact</a>
-      <div *ngIf="ks.getUserRoles().includes('ADMIN')">
-      <a routerLink="/login" class="menu-item">Login</a>
+  <nav id="navbar">
+    <div class="navbar-container">
+      <!-- Logo -->
+      <div class="logo">
+        <a routerLink="/"><img src="assets/logo.PNG" alt="Logo" /></a>
       </div>
-      <div *ngIf="profile">
-        <a routerLink="/UserInfo" class="menu-item">Add User Infos</a>
-        </div>
       
-    </li>
-    <li class="nav-item dropdown">
-      <a
-        class="nav-link dropdown-toggle"
-        href="#"
-        id="navbarDropdown"
-        role="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        <ng-container *ngIf="profile; else loginTemplate">
-          {{ profile.username }}
-          
+      <!-- Burger Icon for Mobile -->
+      <div class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle navigation">
+        <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i>
+      </div>
+      
+      <!-- Navigation Links -->
+      <div class="navigation" [class.is-open]="isMenuOpen">
+        <a routerLink="/" class="nav-link">Home</a>
+        <a routerLink="/exposant" class="nav-link">Exhibitors</a>
+        <a routerLink="/info-pratiques" class="nav-link">Practical Info</a>
+        <a routerLink="/contact" class="nav-link">Contact</a>
+
+        <!-- Admin Section -->
+      
+
+        <!-- Profile Section -->
+        <ng-container *ngIf="profile">
+          <a routerLink="/UserInfo" class="nav-link">Add User Infos</a>
         </ng-container>
 
-        <ng-template #loginTemplate>
-          <button class="btn btn-success" (click)="handleLogin()">Login</button>
-        </ng-template>
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <ng-container *ngIf="profile; else showLogin">
-          <li>
-            <button class="dropdown-item" (click)="handleLogout()">
-              Logout
-            </button>
-            <button class="dropdown-item" (click)="manageAccout()">
-              account managment 
-            </button>
+            <!-- Service Dropdown (Dynamic Based on Roles) -->
+            <div class="nav-item dropdown" >
+              <a class="nav-link dropdown-toggle" href="#" id="serviceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Service
+              </a>
+              <!-- Dropdown Menu Items for Services -->
+              <ul class="dropdown-menu" aria-labelledby="serviceDropdown">
+                <ng-container *ngIf="ks.getUserRoles().includes('TEACHER')">
+                  <li><a class="dropdown-item" routerLink="/offercard">Manage Application</a></li>
+                  <li><a class="dropdown-item" routerLink="/assignments">Manage Forum</a></li>
+                  <li><a class="dropdown-item" routerLink="/assignments">Manage Reclamation</a></li>
+                  <li><a class="dropdown-item" routerLink="/assignments">Our ChatBot</a></li>
 
-          </li>
-        </ng-container>
+                </ng-container>
+                <ng-container *ngIf="ks.getUserRoles().includes('STUDENT')">
+                  <li><a class="dropdown-item" routerLink="/alumni-network">Manage Application</a></li>
+                  <li><a class="dropdown-item" routerLink="/assignments">Manage Forum</a></li>
+                  <li><a class="dropdown-item" routerLink="/addreclamation">Manage Reclamation</a></li>
+                  <li><a class="dropdown-item" routerLink="/chat">Our ChatBot</a></li>
 
-        <ng-template #showLogin>
-          <li>
-            <button class="dropdown-item" (click)="handleLogin()">Login</button>
-          </li>
-        </ng-template>
 
-        <li>
-          <hr class="dropdown-divider" />
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+                </ng-container>
+                <ng-container *ngIf="ks.getUserRoles().includes('ADMIN')">
+                  <li><a class="dropdown-item" routerLink="/Items">Manage Items</a></li>
+                  <li><a class="dropdown-item" routerLink="/Bid">Manage Bid</a></li>
+                  <li><a class="dropdown-item" routerLink="/dashboard/admin/session">Manage Session</a></li>
+
+
+                </ng-container>
+                <ng-container *ngIf="ks.getUserRoles().includes('ALUMNI')">
+                  <li><a class="dropdown-item" routerLink="/alumni-network">Manage Application</a></li>
+                  <li><a class="dropdown-item" routerLink="/job-board">Job Board</a></li>
+                  <li><a class="dropdown-item" routerLink="/assignments">Manage Forum</a></li>
+                  <li><a class="dropdown-item" routerLink="/addreclamation">Manage Reclamation</a></li>
+                  <li><a class="dropdown-item" routerLink="/chat">Our ChatBot</a></li>
+
+                </ng-container>
+                <ng-container *ngIf="ks.getUserRoles().includes('SUPPLIER')">
+                  <li><a class="dropdown-item" routerLink="/Auction">List Auction</a></li>
+                  <li><a class="dropdown-item" routerLink="/assignments">Manage Forum</a></li>
+                  <li><a class="dropdown-item" routerLink="/addreclamation">Manage Reclamation</a></li>
+                </ng-container>
+                <ng-container *ngIf="ks.getUserRoles().includes('COMPANY')">
+                  <li><a class="dropdown-item" routerLink="/offercard">Manage Offer</a></li>
+                  <li><a class="dropdown-item" routerLink="/assignments">Manage Forum</a></li>
+                  <li><a class="dropdown-item" routerLink="/addreclamation">Manage Reclamation</a></li>
+                </ng-container>
+                <ng-container *ngIf="ks.getUserRoles().includes('FINANCIALMANAGER')">
+                  <li><a class="dropdown-item" routerLink="/devi">Manage Devi</a></li>
+                  <li><a class="dropdown-item" routerLink="/assignments">Manage Forum</a></li>
+                  <li><a class="dropdown-item" routerLink="/addreclamation">Manage Reclamation</a></li>
+                </ng-container>
+                <li><hr class="dropdown-divider" /></li>
+              </ul>
+            </div>
+
+        <!-- Dropdown Menu for Profile -->
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <ng-container *ngIf="profile; else loginTemplate">
+              {{ profile.username }}
+            </ng-container>
+            
+            <!-- Login Template -->
+            <ng-template #loginTemplate>
+              <button class="btn btn-danger login-button"  (click)="handleLogin()">Login</button>
+            </ng-template>
+          </a>
+
+          <!-- Dropdown Menu Items -->
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ng-container *ngIf="profile; else showLogin">
+              <li>
+                <button class="dropdown-item" (click)="handleLogout()">Logout</button>
+                <button class="dropdown-item" routerLink="/profile" >Profile</button>
+              </li>
+            </ng-container>
+
+            <!-- Show Login Template -->
+            <ng-template #showLogin>
+              <li>
+                <button class="dropdown-item" (click)="handleLogin()">Login</button>
+              </li>
+            </ng-template>
+
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>

@@ -81,6 +81,12 @@ import { ChatAzizComponent } from './componement/chat-aziz/chat-aziz.component';
 import { ListStandComponent } from './DashboardAdmin/list-stand/list-stand.component';
 import { PostSessionComponent } from './DashboardAdmin/PostSession/post-session/post-session.component';
 import { fabric } from 'fabric';
+import { ListItemsComponent } from './DashboardAdmin/PostItems/post-items/allItems/list-items/list-items.component';
+import { DMComponent } from './componement/dm/dm.component';
+import { ListCompanyComponent } from './componement/list-company/list-company.component';
+import { SentimentComponent } from './componement/sentiment/sentiment.component';
+import { CustomFormComponent } from './componement/CustomFormComponent/custom-form/custom-form.component';
+import { ProfileComponent } from './componement/profile/profile/profile.component';
 
 
 initializeApp(environment.firebaseConfig);
@@ -176,6 +182,12 @@ function initializeKeycloak(keycloak: KeycloakService) {
     ChatAzizComponent,
     ListStandComponent,
     PostSessionComponent,
+    ListItemsComponent,
+    DMComponent,
+    ListCompanyComponent,
+    SentimentComponent,
+    CustomFormComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

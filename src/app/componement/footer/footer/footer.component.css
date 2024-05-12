@@ -6,7 +6,7 @@ body{margin-top:20px;}
 .deneb_footer .widget_wrapper {
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 200px;
+    padding-top: 100px;
     padding-bottom: 70px;
     background: #D3D3D3;
 
@@ -17,7 +17,7 @@ body{margin-top:20px;}
     }
 }
 .deneb_footer .widget_wrapper .widget .widget_title {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
         background: #D3D3D3;
 
 }
@@ -32,7 +32,7 @@ body{margin-top:20px;}
     margin-top: 5px;
 }
 .deneb_footer .widget_wrapper .widegt_about p {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .deneb_footer .widget_wrapper .widegt_about .social li {
     display: inline-block;
@@ -63,7 +63,7 @@ body{margin-top:20px;}
     box-shadow: 2.5px 4.33px 15px 0px rgba(254, 0, 0, 0.4);
 }
 .deneb_footer .widget_wrapper .widget_link ul li {
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 .deneb_footer .widget_wrapper .widget_link ul li a {
     text-transform: capitalize;
@@ -77,7 +77,7 @@ body{margin-top:20px;}
     max-width: 250px;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
 }
 .deneb_footer .widget_wrapper .widget_contact .contact_info .single_info .icon {
@@ -95,6 +95,8 @@ body{margin-top:20px;}
 .deneb_footer .copyright_area {
     background: #D3D3D3;
     padding: 10px 0;
+    margin-top: -100px;
+    margin-left: 1px;
 }
 .deneb_footer .copyright_area .copyright_text {
     text-align: center;
@@ -107,11 +109,11 @@ body{margin-top:20px;}
 }
 .deneb_cta .cta_wrapper {
     background: red;
-    padding: 45px 50px 42px;
+    padding: 35px 40px 32px;
     max-width: 970px;
     border-radius: 15px;
     margin: auto;
-    margin-bottom: -135px;
+    margin-bottom: -125px;
     position: relative;
     background-image: -moz-linear-gradient(0deg, #fb3f3f 0%, #770a0a 100%);
     background-image: -webkit-linear-gradient(0deg, #fb3f3f 0%, #770a0a 100%);
@@ -143,8 +145,8 @@ body{margin-top:20px;}
     display: block;
     max-width: 110px;
     height: 2px;
-    margin-top: 13px;
-    margin-bottom: 24px;
+    margin-top: 3px;
+    margin-bottom: 4px;
 }
 .deneb_cta .cta_wrapper .cta_content p {
     color: black;
@@ -158,14 +160,14 @@ body{margin-top:20px;}
     .deneb_cta .cta_wrapper .button_box {
         float: none;
         text-align: left;
-        margin-top: 30px;
+        margin-top: 10px;
     }
 }
 @media (max-width: 767px) {
     .deneb_cta .cta_wrapper .button_box {
         float: none;
         text-align: center;
-        margin-top: 30px;
+        margin-top: 10px;
     }
 }
 .deneb_cta .cta_wrapper .button_box .deneb_btn {

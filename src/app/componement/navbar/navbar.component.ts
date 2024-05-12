@@ -12,13 +12,7 @@ import { KeycloakProfile } from "keycloak-js";
 export class NavbarComponent implements OnInit {
   title = 'pidev-app-angular';
   public profile!: KeycloakProfile;
-  roles: string[] = [];
-  options = [
-    'STUDENT',
-    'TEACHER',
-    'ALUMNI',
-    'COMPANY'
-  ];
+  roles: any[] = [];
 
   constructor(private keycloakApi: KeycloakrestapiService, public ks: KeycloakService, private route: Router) { }
   async ngOnInit() {
@@ -26,8 +20,11 @@ export class NavbarComponent implements OnInit {
 
     if (this.ks.isLoggedIn()) {
       this.profile = await this.ks.loadUserProfile();
+      console.log(this.profile);
+      this.getRolesUser1();
+
     }
-    this.getRolesUser1();
+
   }
 
   isMenuOpen = false;
@@ -61,16 +58,22 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  getRolesUser1() {
-    if (this.ks.isLoggedIn()) {
+  async getRolesUser1() {
+    if (await this.ks.isLoggedIn()) {
       let username = this.profile.username;
-      this.keycloakApi.getUserRoles(username!)
-        .subscribe(userroles => {
+      this.keycloakApi.getUserRoles(username!).subscribe(
+        userroles => {
           this.roles = userroles;
-          console.log('taaaaaaaaaaaaaab roles' + this.roles);
-          console.log("User roles are :" + userroles);
-        })
+          console.log('Fetched roles:', this.roles);
+        },
+        error => {
+          console.error('Failed to fetch roles', error);
+        }
+      );
+    } else {
+      console.log('Not logged in, cannot fetch roles.');
     }
   }
+  
 
 }

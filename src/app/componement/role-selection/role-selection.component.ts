@@ -6,6 +6,7 @@ import { KeycloakProfile } from 'keycloak-js';
 import { MatDialog } from '@angular/material/dialog';
 import { UserInfoModalComponent } from '../user-info-modal/user-info-modal.component'; 
 import { UserInfoComponent } from '../user-info/user-info.component';
+import { CustomFormComponent } from '../CustomFormComponent/custom-form/custom-form.component';
 
 
 @Component({
@@ -15,59 +16,50 @@ import { UserInfoComponent } from '../user-info/user-info.component';
 })
 export class RoleSelectionComponent {
 
-  role:any;
+  public profile: any;
+  selectedOption: string = '';
+  roles: string[] = ['STUDENT', 'TEACHER', 'ALUMNI', 'COMPANY', 'FINANCIALMANAGER', 'SUPPLIER'];
 
-  public profile!: KeycloakProfile;
-  constructor(private keycloakApi: KeycloakrestapiService, public ks: KeycloakService, private route: Router,public dialog: MatDialog) { }
-
+  constructor(
+    private keycloakService: KeycloakService, 
+    private router: Router, 
+    public dialog: MatDialog
+  ) {}
 
   async ngOnInit() {
-
-
- /*   if (this.ks.isLoggedIn()) {
-      this.profile = await this.ks.loadUserProfile();
-      this.getRolesUser1();
-    }*/
+    if (await this.keycloakService.isLoggedIn()) {
+      this.profile = await this.keycloakService.loadUserProfile();
+    } else {
+      // Optionally handle not logged in state, e.g.,redirect to login
+      console.warn("User not logged in");
+    }
+  }
+  refreshpage(){
+    location.reload();
   }
 
-  selectedOption!: string;
-  roleSelected: boolean = false;
-  roles: string[] = [];
-  options = [
-    'STUDENT',
-    'TEACHER',
-    'ALUMNI',
-    'COMPANY'
-  ];
-
-  roleRoutes = {
-    'STUDENT': '/student-page',
-    'TEACHER': '/teacher-page',
-    'COMPANY': '/company-page',
-    'ALUMNI': '/alumni-page'
-  };
-
-
   onChange(event: any) {
-    this.selectedOption = event.value;
-    if (this.ks.isLoggedIn()) {
-      let username = this.profile.username;
-      if (this.selectedOption) {
-        this.role=this.selectedOption;
-        console.log(this.role);
-        this.openUserInfoModal();
-
-        this.roleSelected = true;
-        //this.route.navigate([this.roleRoutes[this.selectedOption as keyof typeof this.roleRoutes]]);
-      } else {
-        console.warn("Selectedoption is undefined");
-      }
-    } else {
-      console.warn("User not logged in");
-      // Handle not logged in state, e.g.,redirect to login
+    this.selectedOption = event.target.value;
+    if (this.selectedOption) {
+      console.log('Selected role:', this.selectedOption);
+      this.openRoleBasedForm(this.selectedOption);
     }
   }
 
+  openRoleBasedForm(role: string) {
+    const dialogRef = this.dialog.open(CustomFormComponent, {
+      width: '600px',
+      data: { role: role, profile: this.profile }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog closed with result:', result);
+      
+      // Navigate based on the selected role
+    });
+  }
+
+}
 
  /* AddRoleToUser(selectedOption: string, username: string) {
     this.keycloakApi.AddRoleToUser(selectedOption, username).subscribe(
@@ -119,18 +111,3 @@ export class RoleSelectionComponent {
   }
 
 */
-
-  openUserInfoModal() {
-    const dialogRef = this.dialog.open(UserInfoComponent, {
-      data: { role: this.role },
-      width: '900px'
-    });
-  
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
-      // Optionally do something with the form data result here
-    });
-  }
-  
-
-}

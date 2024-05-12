@@ -59,6 +59,9 @@ import { PackListComponent } from './DashboardAdmin/pack-list/pack-list.componen
 import { PostSessionComponent } from './DashboardAdmin/PostSession/post-session/post-session.component';
 import { Home2Component } from './componement/home2/home2/home2.component';
 import { FrontOfficeComponent } from './componement/front-office/front-office/front-office.component';
+import { DMComponent } from './componement/dm/dm.component';
+import { SentimentComponent } from './componement/sentiment/sentiment.component';
+import { ProfileComponent } from './componement/profile/profile/profile.component';
 
 
 
@@ -77,7 +80,8 @@ const routes: Routes = [
   { path: 'chooseRole', component: RoleSelectionComponent, canActivate: [AuthGuard] },
   { path: 'updateProfile', component: UserUpdateComponent, canActivate: [AuthGuard] },
   { path: 'appList', component: ListApplicationsComponent },
-  { path: 'quiz', component: QuizComponent },
+  { path: 'quiz', component: QuizComponent , canActivate: [AuthGuard]},
+  { path: 'profile', component: ProfileComponent },
   { path: 'application-details/:codeCandidature', component: DetailsApplicationComponent },
   { path: 'interview-details/:codeInterview', component: InterviewDetailsComponent },
   { path: 'scheduleInterview/:id', component: ScheduleInterviewComponent },
@@ -87,13 +91,13 @@ const routes: Routes = [
   { path: 'addApp/:reference', component: AddApplicationComponent, canActivate: [AuthGuard] },
   { path: 'editApp/:id', component: UpdateApplicationComponent },
   { path: 'stat', component: StatisticsComponent },
-  { path: 'Items', component: ListItemsComponent },
-  { path: 'Bid', component: ListBidComponent },
-  { path: 'Card', component: AuctionCardComponent },
+  { path: 'Items', component: ListItemsComponent, canActivate: [AuthGuard] },
+  { path: 'Bid', component: ListBidComponent , canActivate: [AuthGuard]},
+  { path: 'Auction', component: AuctionCardComponent },
   { path: 'i', component: CardItemsComponent },
-  { path: 'chat', component: ChatComponent },
+  { path: 'chat', component: ChatComponent , canActivate: [AuthGuard]},
   { path: 'chatroom/:userId', component: ChatAzizComponent },
-  { path: 'devi', component: DeviListComponent },
+  { path: 'devi', component: DeviListComponent , canActivate: [AuthGuard]},
   { path: 'edit-form/:reference', component: EditFormComponent },
   { path: 'exposant', component: CompanyCardComponent },
   { path: 'info-pratiques', component: InfoForumComponent },
@@ -117,12 +121,13 @@ const routes: Routes = [
   { path: 'getidtocomment/:id', component: CreatecommentComponent, canActivate: [AuthGuard] },
   { path: 'comments/:postId', component: ListecommentComponent },
   { path: 'post', component: PostlistComponent, canActivate: [AuthGuard] },
-  { path: 'dashboard', component: DashboardComponent },
   { path: 'rec', component: StatestiqueReclamationComponent },
   { path: 'dashboard/admin/list', component: ListSessionComponent },
   { path: 'place', component: PlaceComponent },
   { path: 'pack/List', component: PackListComponent },
   { path: 'standss/:idsessions/:idpack/:email', component: ListStandComponent },
+  { path: 'dm', component: DMComponent },
+  { path: 'sentiment', component: SentimentComponent },
   { path: 'not-found', component: Error404Component },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 ];
